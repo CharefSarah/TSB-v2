@@ -423,7 +423,7 @@ button#mutebtn {
     display: none;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 
@@ -435,7 +435,7 @@ button#mutebtn {
     background-color: rgba(17, 10, 31, 0.979) !important;
     min-height: 500px;
     width: 300px;
-    z-index:1;
+    z-index: 1;
 
 
 }
@@ -496,10 +496,12 @@ button#mutebtn {
         border-radius: 45px;
     }
 
+    /* 
     main {
         display: none;
-    }
+    } */
 }
+
 #iframe {
     background-color: rgb(17, 10, 31);
     height: 100vh;
@@ -511,11 +513,10 @@ button#mutebtn {
     bottom: 0;
     display: none;
     z-index: 1000;
-  }
-  
+}
 
-  
-  video::-webkit-media-controls {
+
+
+video::-webkit-media-controls {
     display: none;
-  }
-  
+}

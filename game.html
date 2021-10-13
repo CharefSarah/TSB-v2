@@ -8,8 +8,6 @@
   <title>The Shield-bearers</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="shortcut icon" href="assets/img/ico.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -17,106 +15,194 @@
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/game.css">
 </head>
 
 <body id="game">
-
-  <p id="d1" class="choice m-2 text-left display-3 m-2 text-white">Niveau:<span id=round></span></p>
-  <div class="container-fluid m-0 p-0">
-    <div class="row ">
-      <form name="chronoForm" id="chronoForm" class="text-right m-3 d-none">
-        <input type="text" name="chronotime" id="chronotime" value="0:00:00:00" />
-        <input type="button" id="startstop" name="startstop" value="start!" />
-        <input type="button" id="reset" name="reset" value="reset!" onClick="chronoReset()" />
-      </form>
-    </div>
-
-  </div>
-
-
-  <div class="container-fluid  ">
-    <div class="row">
-      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-        <button class="classSelect p-3" id="knight" value="knight" onClick="chronoStart()">
-          <img src="assets/img/buttonr.png" alt="Bouton Chevalier"> </button>
-      </div>
-      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-        <button class="mage classSelect p-3" id="mage" value="mage" onClick="chronoStart()"> <img
-            src="assets/img/buttonz.png" alt="bouton Mage"></button>
-      </div>
-      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-        <button class="classSelect p-3" id="rogue" value="rogue" onClick="chronoStart()">
-          <img src="assets/img/buttonu.png" alt="Bouton Voleuse"></button><br>
+  <p id="d1"></p>
+  <!-- ----------------------------- SELECT CHAR ----------------------------- -->
+  <div>
+    <div class="container-fluid  ">
+      <div class="row">
+        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+          <button class="classSelect p-3" id="knight" value="knight">
+            <img src="assets/img/buttonr.png" alt="Bouton Chevalier"> </button>
+        </div>
+        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+          <button class="mage classSelect p-3" id="mage" value="mage"> <img src="assets/img/buttonz.png"
+              alt="bouton Mage"></button>
+        </div>
+        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+          <button class="classSelect p-3" id="rogue" value="rogue">
+            <img src="assets/img/buttonu.png" alt="Bouton Voleuse"></button><br>
+        </div>
       </div>
     </div>
   </div>
+
   <main id="d2">
-    <span id=round> </span>
+    <!-- --------------------------------- Lvl --------------------------------- -->
+    <div class="info">
+      <p class="level">Niveau : <span class="round" id="round"></span></p>
     </div>
-    <div class="container-fluid ">
-      <div class="row d-flex justify-content-md-between justify-content-sm-center">
-        <div class="hero col-md-2 col-sm-12 ">
-          <div class="p-3">
-            <img class="heroImg" id="heroImg" src="assets/img/knight.png" alt="Icone Hero">
-            <span id="heroName"></span> <br>
-            <p class="">Vie(s):
-              <i id="heart0" class="fas fa-heart"></i>
-              <i id="heart1" class="fas fa-heart"></i>
-              <i id="heart2" class="fas fa-heart"></i>
-              <i id="heart3" class="fas fa-heart"></i>
-              <i id="heart4" class="fas fa-heart"></i>
-              <i id="heart5" class="fas fa-heart"></i>
-              <i id="heart6" class="fas fa-heart"></i>
-              <i id="heart7" class="fas fa-heart"></i>
-              <i id="heart8" class="fas fa-heart"></i>
-              <i id="heart9" class="fas fa-heart"></i>
+
+    <!-- ------------------------ Cards avec les persos ------------------------ -->
+    <div class="combat">
+      <div class="cardCombat cardHero hero">
+        <div class="cardInt">
+          <div class="stats">
+            <p class="name" id="heroName">
+              Rodric
             </p>
-            Point(s) de vie : <span id="heroHealth"></span><br>
-            <!-- JAUGE HERO-->
+            <div class="life HP">
+              <img id="heart0" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart1" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart2" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart3" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart4" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart5" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart6" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart7" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
+            </div>
+            <p>PV : <span id="heroHealth"></span></p>
             <div class="healthBar" id="healthBar" value="1000" max="1000">
-              <div class="bar" id="bar">
+              <div class="hpBar bar" id="bar">
               </div>
             </div>
+            <p>Mana :</p>
+            <div class="mana bar">
+              <div class="manaBar"></div>
+            </div>
+          </div>
+          <div class="portrait">
+            <div class="combatTextHero"></div>
+            <img src="assets/img/Group.png" class="heroImg" id="heroImg" alt="">
           </div>
         </div>
-        <div class="badguy col-7 col-md-2 col-sm-12 p-3">
-          <div class="text-right p-2">
-            <img class="badguyImg" id="badguyImg" src="assets/img/orc.png" alt="icon ennemi" />
-            <!--<--IMAGE -->
-            <span id="badGuyName"></span><br><br>
-            Point(s) de vie : <span id="badGuyHealth"></span>
-            <!-- JAUGE ENNEMI -->
-            <div class="badguyHealthBar pull-right" id="badguyHealthBar" value="1000" max="1000">
-              <div class="badguyBar" id="badguyBar">
-              </div>
+      </div>
+      <div class="cardCombat cardEnnemy">
+        <div class="cardInt">
+          <div class="portrait">
+            <div class="combatTextEnnemy"></div>
+            <img class="badguyImg" id="badguyImg" src="assets/img/MN.png" alt="">
+          </div>
+          <div class="stats ennemyStats">
+            <p class="name" id="badGuyName">
+              Fred
+            </p>
+            <p class="HP">PV : <span id="badGuyHealth"></span></p>
+            <div class="hp" id="badguyHealthBar" value="1000" max="1000">
+              <div class="badguyBar" id="badguyBar"></div>
+            </div>
+            <p>Mana :</p>
+            <div class="mana bar">
+              <div class="manaBar"></div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
 
-    <br>
 
-    <div id="buttons" class="text-center ">
-      <button id="baseAttack" class=""> <span id="basicAttackName"> </span> <span id="basicAttack">
-        </span>/30</button>
 
-      <button id="heavyAttack" class=""> <span id="bigAttackName"> </span> <span id="bigAttack"> </span>/10</button>
+    <!-- ------------------------------- Control ------------------------------- -->
+    <div class="control">
+      <div class="controlLine">
 
-      <button onclick="playP()" id="potion" class="">Potion <span id="stockPotion"></span></button><br><br>
 
-      <div id="announcements" class="m-3 m-auto"></div>
+        <button class="controlButton button1" id="baseAttack">
+          <div class="attackImg">
+            <img src="assets/img/gourdin.png" alt="">
+          </div>
+          <span id="basicAttackName"></span><span id="basicAttack"></span>
+        </button>
+
+
+        <button class="controlButton button2" id="heavyAttack">
+          <div class="attackImg">
+            <img src="assets/img/bouclier.png" alt="">
+          </div>
+          <span id="bigAttackName"></span><span id="bigAttack"></span>
+
+        </button>
+      </div>
+      <div class="controlLine">
+
+        <button class="controlButton button3">
+          <div class="attackImg">
+            <img src="assets/img/epee.png" alt="">
+          </div>
+          <p class="attackName">
+            Épée
+          </p>
+        </button>
+
+        <button class="controlButton button4" id="potion" onclick="playP()">
+          <div class="attackImg potion">
+            <img src="assets/img/pot.png" alt="">
+          </div>
+
+          <p class="attackName" id="stockPotion">
+            Potion
+          </p>
+        </button>
+      </div>
+
+    </div>
+
+
+    <div class="settings">
+      <img src="assets/img/settingsKog.png" alt="">
+    </div>
+
+
+    <div class="side">
+      <div class="sidebarBg"></div>
+      <div class="sidebar"></div>
+    </div>
+
   </main>
 
+
+  <!-- ----------------------------- Settings modal ----------------------------- -->
+  <div class="settingsPanel settings-hidden">
+    <p>Paramètres :</p>
+    <div class="panelInside">
+      <div class="panelLeft">
+        <p class="panelTitle">Son : </p>
+        <div class="SFX">
+          <p>Volume SFX : </p>
+          <div class="SFXGauge soundGauge"></div>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="music">
+          <p>Volume Musique :</p>
+          <div class="musicGauge soundGauge"></div>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="panelRight">
+        <p class="panelTitle">Langue : </p>
+        <div class="selectLanguage">
+          <img class="flag" src="assets/img/FRF.PNG" alt="">
+          <img class="flag" src="assets/img/UKF.png" alt="">
+        </div>
+      </div>
+    </div>
+    <button class="settingsValidate">
+      Valider
+    </button>
   </div>
 
-  <div class="container-fluid p-0 fixed-bottom">
-    <div class="row m-0 p-0">
-      <footer class="footer  bg-dark ">
-        <p class=" text-white text-center  p-3"> © Sarah Charef & William Touboul</p>
-      </footer>
-    </div>
-  </div>
 
 
   <div id="modalDeathEnnemy">
@@ -161,8 +247,8 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
     integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
   <script src="assets/js/soundDesign.js"></script>
-  <script src="assets/js/video.js"></script>
   <script src="assets/js/script.js"></script>
+  <script src="assets/js/game.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>

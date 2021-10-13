@@ -1,0 +1,545 @@
+@font-face {
+    font-family: Basalt;
+    src: url("/assets/font/Basalt.ttf");
+}
+
+
+#d2 {
+    display: none;
+}
+
+:root {
+    --background: rgb(25, 7, 53, 0.9);
+    --white: #FFFFFF;
+    --blue: #689FFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+main {
+    /* background */
+    background-position: 25% 0%;
+    /* position */
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* ---------------------------------- Level --------------------------------- */
+.info {
+    height: 80px;
+    width: auto;
+}
+
+.level {
+    font-family: Basalt;
+    font-size: 36px;
+    color: var(--white);
+    margin-top: 1.2%;
+    margin-left: 2%;
+}
+
+/* ----------------------------- Card des persos ---------------------------- */
+.combat {
+    display: flex;
+    height: 40%;
+    margin-top: 40px;
+    margin-left: 15%;
+    margin-right: 15%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cardCombat {
+    width: 40%;
+    height: 65%;
+    background-color: var(--background);
+    border-radius: 22px;
+
+}
+
+.cardInt {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 22px;
+    padding-right: 8px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    color: var(--white);
+    justify-content: space-evenly;
+    height: 80%;
+    padding-bottom: 20px;
+    margin-left: 40px;
+}
+
+.ennemyStats {
+    margin-left: 0;
+    margin-right: 40px;
+}
+
+.cardHero {
+    align-self: flex-end;
+}
+
+.stats p {
+    font-size: 18px;
+    font-family: PoppinsRegular;
+}
+
+.name {
+    font-size: 48px !important;
+    font-family: Basalt !important;
+    margin-top: -25px;
+}
+
+.HP {
+    margin-top: 25px;
+}
+
+.life {
+    width: 160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.life img {
+    width: 35px;
+    height: 35px;
+}
+
+.bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hp {
+    box-sizing: border-box;
+    width: 200px;
+    height: 18px;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 20px;
+    position: relative;
+}
+
+.hpBar {
+    background: rgb(2, 250, 76);
+    box-shadow: 0 5px 50px 0 rgb(2 250 76) inset, 0 5px 90px 0 rgb(2 250 76) inset, 0 5px 25px 0 rgb(2 250 76);
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    position: relative;
+    transition: width .5s ease;
+}
+
+.mana {
+    box-sizing: border-box;
+    width: 200px;
+    height: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.manaBar {
+    background: linear-gradient(to right, #0A1E75 0%, #0047FF 50%, #E800FC 80%);
+    width: 100%;
+    height: 7px;
+    border-radius: 8px;
+    position: relative;
+    transition: width .5s linear;
+}
+
+.portrait img {
+    height: 220px;
+    width: auto;
+    margin-top: -70px;
+    margin-right: -20px;
+}
+
+.cardEnnemy .cardInt .portrait img {
+    height: 220px;
+    width: auto;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+
+.combatTextEnnemy {
+    font-family: Basalt;
+    font-size: 36px;
+    color: red;
+    position: absolute;
+    z-index: 40000;
+    opacity: 0;
+}
+
+.combatTextHero {
+    font-family: Basalt;
+    font-size: 36px;
+    color: rgb(0, 206, 0);
+    position: absolute;
+    z-index: 40000;
+    opacity: 0;
+    margin-top: -50px;
+}
+
+.combatTextAnimation {
+    animation: combatText 2s ease-out;
+    animation-fill-mode: forwards;
+
+}
+
+.combatHeroAnimation {
+    animation: combatTextHero 2s ease-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes combatText {
+    from {
+        margin-top: 0;
+        opacity: 100%;
+
+    }
+
+    to {
+        margin-top: -110px;
+        opacity: 0%;
+    }
+}
+
+@keyframes combatTextHero {
+    from {
+        margin-top: -80px;
+        opacity: 100%;
+
+    }
+
+    to {
+        margin-top: -190px;
+        opacity: 0%;
+    }
+}
+
+
+/* --------------------------------- Control -------------------------------- */
+.control {
+    width: 40%;
+    min-width: 620px;
+    height: 35%;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+button {
+    border: none !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+button:disabled {
+    background: linear-gradient(90deg, #58375a -20.18%, #433452 121.1%);
+}
+
+.controlLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.controlButton {
+    background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
+    border-radius: 53px;
+    height: 90px;
+    width: 270px;
+    font-size: 36px;
+    font-family: basalt;
+    color: var(--white);
+    transition: all 0.12 ease;
+
+    /* POSITION */
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+
+
+.attackName {
+    justify-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 24px;
+}
+
+/* .controlButton:hover,
+.contolButton:focus {
+    box-shadow: inset 5px 8px 4px 2px rgba(154, 96, 221, 0.2);
+    background: linear-gradient(90deg, #753377 -20.18%, #431e68 121.1%);
+    transition: all 0.12s ease;
+} */
+
+.controlButton:hover,
+.controlButton:focus {
+    border: 4px var(--blue) solid !important;
+}
+
+.attackImg {
+    background-color: var(--background);
+    border-radius: 80px;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.attackImg img {
+    height: 80px;
+    width: auto;
+    margin: auto;
+}
+
+.potion img {
+    height: 65px;
+    width: auto;
+}
+
+
+
+/* --------------------------------- sidebar -------------------------------- */
+.side {
+    height: 100vh;
+    width: 120px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    transition: 1s;
+
+}
+
+.sidebar {
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    border-radius: 65px 0 0 65px;
+    border: 6px rgb(255, 228, 76) solid;
+    border-right: none;
+    background-image: url('../img/Rectangle 26.png');
+}
+
+.side-open {
+    width: 50%;
+    transition: 1s;
+}
+
+
+/* -------------------------------- Settings -------------------------------- */
+.settings {
+    position: absolute;
+    left: 30px;
+    bottom: 20px;
+    background-color: var(--background);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.settings img {
+    height: 40px;
+    width: 40px;
+    transition: all 1s;
+}
+
+.settings:hover,
+.settings:focus {
+    box-shadow: inset 2px 4px 2px 1px rgba(154, 96, 221, 0.2);
+}
+
+.settings img:hover,
+.settings img:focus {
+    transform: rotate(180deg);
+    transition: 1s;
+}
+
+/* -------------------------------- Parametre ------------------------------- */
+
+.settingsPanel {
+    position: absolute;
+    top: 10%;
+    left: 12.5%;
+    width: 75%;
+    height: 80%;
+    background-color: var(--background);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 25px;
+    padding-bottom: 36px;
+    font-family: PoppinsRegular;
+    font-size: 36px;
+    color: var(--white);
+    transition: 0.8s ease-out;
+
+}
+
+
+.settings-hidden {
+    top: -110%;
+    transition: 0.8s ease-out;
+}
+
+.panelInside {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.panelTitle {
+    font-family: Basalt !important;
+    font-size: 48px;
+    margin-bottom: 34px;
+}
+
+.soundGauge {
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background-color: var(--white);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --------------------------------- TOGGLE --------------------------------- */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(62, 62, 62);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 32px;
+    width: 32px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--blue);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #46127C;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #46127C;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(60px);
+    -ms-transform: translateX(60px);
+    transform: translateX(60px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.selectLanguage {
+    width: 280px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.flag {
+    height: 82px;
+    width: 82px;
+}
+
+.flag:hover,
+.flag:focus {
+    border: 3px var(--blue) solid !important;
+    border-radius: 50%;
+
+}
+
+
+.blurred {
+    -webkit-filter: blur(1px) grayscale(20%);
+    filter: blur(1px) grayscale(20%);
+}
+
+/* ---------------------------- Bouton validation --------------------------- */
+.settingsValidate {
+    height: 60px;
+    width: 220px;
+    background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-family: Basalt;
+    color: var(--white);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.settingsValidate:hover,
+.settingsValidate:focus {
+    border: 3px var(--blue) solid !important;
+}
