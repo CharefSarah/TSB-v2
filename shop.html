@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Shield-Bearers</title>
+    <meta name="description" content="Game for Geek">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/styleShop.css">
+</head>
+
+<body>
+
+
+    <div class="shop">
+
+    </div>
+    <div class="bgDialog">
+        <div class="rowD">
+            <img id="villageois" src="assets/img/villageoisD.png">
+            <div id="dialog"></div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        var dialogs = ['Bon bin encore une journée de plus en moins...Oh ! Bonjour, il veux quoi le jeûnot ? '],
+            initial = 0;
+        individual = dialogs[initial].split('');
+
+        function createDiag(dialog) {
+
+            for (i = 0; i < dialog.length; i++) {
+                (function (i) {
+
+                    setTimeout(function () {
+                        $('#dialog').text($('#dialog').text() + dialog[i]);
+                        if (i == dialog.length - 1) {
+                            $('#dialog').prepend('<div id="arrow"></div>');
+                            Mousetrap.bind('enter', function () {
+                                if (dialogs[initial + 1]) {
+                                    $('#dialog').text('');
+                                    initial += 1;
+                                    individual = dialogs[initial].split('');
+                                    createDiag(individual);
+                                }
+                            });
+                        }
+                    }, 50 * i);
+
+                }(i));
+
+            }
+
+        }
+
+        createDiag(individual);
+    </script>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="assets/js/soundDesign.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/script.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

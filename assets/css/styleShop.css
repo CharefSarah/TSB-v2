@@ -1,0 +1,113 @@
+@font-face {
+  font-family: Basalt;
+  src: url("../font/Basalt.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Legend;
+  src: url("../font/Legend.ttf") format("TrueType");
+}
+
+
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden !important;
+
+}
+body{
+padding: 0;
+margin: 0;
+width: 100%;
+min-height: 100vh;
+overflow-x: hidden !important;
+font-family: 'Roboto', sans-serif;
+background-image: url("../img/shop1.jpg");
+background-size: cover;
+color: rgb(255, 255, 255) !important;
+padding: 35px;
+ 
+}
+
+@-webkit-keyframes arrow_anim {
+  from { margin-top: 58px; }
+    to { margin-top: 67px; }
+}
+
+@-moz-keyframes arrow_anim {
+  from { margin-top: 58px; }
+    to { margin-top: 67px; }
+}
+
+@-ms-keyframes arrow_anim {
+  from { margin-top: 58px; }
+    to { margin-top: 67px; }
+}
+
+@-o-keyframes arrow_anim {
+  from { margin-top: 58px; }
+    to { margin-top: 67px; }
+}
+
+@keyframes arrow_anim {
+  from { margin-top: 58px; }
+    to { margin-top: 67px; }
+}
+
+#arrow {
+ border-left: 10px solid transparent;
+ border-right: 10px solid transparent;
+ border-top: 10px solid red;
+ height: 0; 
+ margin: 60px 0px 0px 360px;
+ position: absolute;
+ width: 0; 
+ 
+ -webkit-animation: arrow_anim .3s steps(3) infinite;
+ -moz-animation: arrow_anim .3s steps(3) infinite;
+ -ms-animation: arrow_anim .3s steps(3) infinite;
+ -o-animation: arrow_anim .3s steps(3) infinite;
+ animation: arrow_anim .3s steps(3) infinite;
+}
+
+.shop{
+  height: 800px;
+  border: solid 8px red;
+  
+}
+.rowD{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+
+  padding: 35px;
+  position:fixed; bottom;
+}
+
+#dialog {
+  height: 90px;
+  background: rgb(17, 10, 31) ;
+  border-radius: 0px 5px 5px 0px;
+  box-shadow: 0 0 0 14px rgb(17, 10, 31) ;
+  color: #ffffff;
+  font-family: 'Basalt';
+  padding: 20px 20px 20px 20px;
+  text-transform: uppercase;
+  word-spacing: 3px;
+  width: 800px;
+  font-size: 20px;
+}
+#villageois{
+  height:119px;
+  width: 119px;
+  background-color: rgb(17, 10, 31);
+  border-radius: 10px 0px 0px 10px;
+  z-index: 9999;
+  padding:5px;
+  padding-left: 15px;
+}
