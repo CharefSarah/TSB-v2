@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Shield-bearers</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="assets/img/ico.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body id="game">
+
+  <p id="d1" class="choice m-2 text-left display-3 m-2 text-white">Niveau:<span id=round></span></p>
+  <div class="container-fluid m-0 p-0">
+    <div class="row ">
+      <form name="chronoForm" id="chronoForm" class="text-right m-3 d-none">
+        <input type="text" name="chronotime" id="chronotime" value="0:00:00:00" />
+        <input type="button" id="startstop" name="startstop" value="start!" />
+        <input type="button" id="reset" name="reset" value="reset!" onClick="chronoReset()" />
+      </form>
+    </div>
+
+  </div>
+
+
+  <div class="container-fluid  ">
+    <div class="row">
+      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+        <button class="classSelect p-3" id="knight" value="knight" onClick="chronoStart()">
+          <img src="assets/img/buttonr.png" alt="Bouton Chevalier"> </button>
+      </div>
+      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+        <button class="mage classSelect p-3" id="mage" value="mage" onClick="chronoStart()"> <img
+            src="assets/img/buttonz.png" alt="bouton Mage"></button>
+      </div>
+      <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
+        <button class="classSelect p-3" id="rogue" value="rogue" onClick="chronoStart()">
+          <img src="assets/img/buttonu.png" alt="Bouton Voleuse"></button><br>
+      </div>
+    </div>
+  </div>
+  <main id="d2">
+    <span id=round> </span>
+    </div>
+    <div class="container-fluid ">
+      <div class="row d-flex justify-content-md-between justify-content-sm-center">
+        <div class="hero col-md-2 col-sm-12 ">
+          <div class="p-3">
+            <img class="heroImg" id="heroImg" src="assets/img/knight.png" alt="Icone Hero">
+            <span id="heroName"></span> <br>
+            <p class="">Vie(s):
+              <i id="heart0" class="fas fa-heart"></i>
+              <i id="heart1" class="fas fa-heart"></i>
+              <i id="heart2" class="fas fa-heart"></i>
+              <i id="heart3" class="fas fa-heart"></i>
+              <i id="heart4" class="fas fa-heart"></i>
+              <i id="heart5" class="fas fa-heart"></i>
+              <i id="heart6" class="fas fa-heart"></i>
+              <i id="heart7" class="fas fa-heart"></i>
+              <i id="heart8" class="fas fa-heart"></i>
+              <i id="heart9" class="fas fa-heart"></i>
+            </p>
+            Point(s) de vie : <span id="heroHealth"></span><br>
+            <!-- JAUGE HERO-->
+            <div class="healthBar" id="healthBar" value="1000" max="1000">
+              <div class="bar" id="bar">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="badguy col-7 col-md-2 col-sm-12 p-3">
+          <div class="text-right p-2">
+            <img class="badguyImg" id="badguyImg" src="assets/img/orc.png" alt="icon ennemi" />
+            <!--<--IMAGE -->
+            <span id="badGuyName"></span><br><br>
+            Point(s) de vie : <span id="badGuyHealth"></span>
+            <!-- JAUGE ENNEMI -->
+            <div class="badguyHealthBar pull-right" id="badguyHealthBar" value="1000" max="1000">
+              <div class="badguyBar" id="badguyBar">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div id="buttons" class="text-center ">
+      <button id="baseAttack" class=""> <span id="basicAttackName"> </span> <span id="basicAttack">
+        </span>/30</button>
+
+      <button id="heavyAttack" class=""> <span id="bigAttackName"> </span> <span id="bigAttack"> </span>/10</button>
+
+      <button onclick="playP()" id="potion" class="">Potion <span id="stockPotion"></span></button><br><br>
+
+      <div id="announcements" class="m-3 m-auto"></div>
+  </main>
+
+  </div>
+
+  <div class="container-fluid p-0 fixed-bottom">
+    <div class="row m-0 p-0">
+      <footer class="footer  bg-dark ">
+        <p class=" text-white text-center  p-3"> © Sarah Charef & William Touboul</p>
+      </footer>
+    </div>
+  </div>
+
+
+  <div id="modalDeathEnnemy">
+    <h2 id="modalDeathEnnemyTitle">Bien joué !</h2>
+    <p id="modalDeathEnnemyText">Vous avez vaincu un des orques de Void. <br>Continuez comme ca !</p>
+    <button id="dismissDeathEnnemy">Continuer</button>
+  </div>
+
+  <div id="modalDeathHero">
+    <h2 id="modalDeathHeroTitle">Dommage !</h2>
+    <p id="modalDeathHeroText">Vous avez été vaincu par les forces de Void, mais il vous reste une chance ! <br>
+      Retournez au combat ! </p>
+    <button id="dismissDeathHero">Continuer</button>
+  </div>
+
+
+  <div id="modalVictory">
+    <h2 id="modalVictoryTitle">VICTOIRE !!!</h2>
+    <p id="modalVictoryText">BRAVO !<br> Vous avez vaincu les forces du mal en <span id="victoryTime"></span></p>
+    <button id="dismissModalVictory">Recommencer?</button>
+  </div>
+
+
+  <div id="modalGameOver">
+    <h2 id="modalGameOverTitle">PERDU !</h2>
+    <p id="modalGameOverText">Vous n'avez pas réussi, Void et ses forces vont se dechainer sur le monde...</p>
+    <button id="dismissModalGameOver">Recommencer?</button>
+  </div>
+
+
+  <div id="modalProgress">
+    <h2 id="modalProgressTitle"></h2>
+    <p id="modalProgressText"></p>
+    <img id="modalProgressBadge1" src=""><img id="modalProgressBadge2" src=""><img id="modalProgressBadge3" src="">
+    <br>
+    <button id="dismissModalProgress">Continuer</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="assets/js/soundDesign.js"></script>
+  <script src="assets/js/video.js"></script>
+  <script src="assets/js/script.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

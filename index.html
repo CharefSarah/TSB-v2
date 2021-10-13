@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Shield-Bearers</title>
+    <meta name="description" content="Game for Geek">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/styleHomePage.css">
+</head>
+
+<body>
+    <video id="iframe" controls="hidden" autoplay="autoplay">
+        <source src="assets/video/14.mp4" type="video/mp4">
+    </video>
+    <main>
+        <div class="bgAlert">
+            <div class="testMessage" id="testMessage">
+                <div class="phone">
+                </div>
+                <div class="message">
+                    Passez en mode paysage!
+                </div>
+            </div>
+        </div>
+        <header id="header">
+            <a href="#" class="logo">THE SHIELD-BEARERS</a>
+            <ul>
+                <li><a href="#" class="active">Acceuil</a></li>
+                <li><a  href="univers.html">Univers</a></li>
+                <li><a href="about.html">About</a></li>
+                <div id="pageAudio">
+                    <button id="playpausebtn"></button>
+                </div>
+            </ul>
+        </header>
+
+        <section>
+            <img src="assets/img/stars.png" id="stars">
+            <img src="assets/img/moon.png" id="moon">
+            <img src="assets/img/town-behind.png" id="town-behind">
+            <a href="game.html" role="button" class="bouton btn btn-light" id="button"><b>JOUER</b></a>
+            <img src="assets/img/town.png" id="town-front">
+
+        </section>
+        <div class="sec" id="sec">
+            <div class="announcements">
+                <h2>Bienvenue à Myrefall!</h2>
+
+                <p> Un petit village agricole entouré par de nombreuses forêts. Les villageois y ont longtemps vécus
+                    paisiblement...<br><br> Mais un jour la soif de pouvoir du Grand chevalier noir Void vint à troubler
+                    cette
+                    quiétude.
+                    <br><br>
+                </p>
+                <p>
+                    Les orques de son second Xonoth envahirent rapidement toute la région.<br><br>
+
+                    Lorsque tout espoir était perdu et que les villageois commencèrent à se résigner à cette vie de
+                    servitude
+                    une
+                    guilde se forma en secret.<br><br> Les Shield-bearers ! Ces héros courageux prirent la décision
+                    d'aller
+                    affronter,
+                    les
+                    monstres terrifiants de Void.<br><br>
+                    Incarnez l'un de ces héros : le valeureux chevalier Rodric, la fabuleuse mage Zorrun ou la
+                    talentueuse
+                    voleuse
+                    Urim.<br><br>
+
+                    Partez à l'aventure et terrasser Void et son armée!</p>
+                <a href="game.html" role="button" class="bouton btn btn-light" id="button"><b>JOUER</b></a>
+            </div>
+        </div>
+        <footer>
+            <p class="footer"> © Sarah Charef & William Touboul</p>
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+
+    <script>
+        let stars = document.getElementById('stars')
+        let moon = document.getElementById('moon')
+        let townBehind = document.getElementById('town-behind')
+        let btn = document.getElementById('btn')
+        let townFront = document.getElementById('town-front')
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1 + 'px';
+            townBehind.style.top = value * 0.35 + 'px';
+            townFront.style.top = value * 0 + 'px';
+            btn.style.marginTop = value * 0.70 + 'px';
+
+        })
+    </script>
+    <script>
+        var audio, playbtn, mutebtn, seek_bar;
+
+        function initAudioPlayer() {
+            audio = new Audio();
+            audio.src = "assets/music/Adventure.mp3";
+            audio.loop = true;
+            audio.play();
+            // Set object references
+            playbtn = document.getElementById("playpausebtn");
+            mutebtn = document.getElementById("mutebtn");
+            // Add Event Handling
+            playbtn.addEventListener("click", playPause);
+            mutebtn.addEventListener("click", mute);
+            // Functions
+            function playPause() {
+                if (audio.paused) {
+                    audio.play();
+                    playbtn.style.background = "url(https://image.flaticon.com/icons/svg/189/189889.svg) no-repeat";
+                } else {
+                    audio.pause();
+                    playbtn.style.background = "url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat";
+                }
+            }
+        }
+        window.addEventListener("load", initAudioPlayer);
+        var doc, bod, htm;
+        addEventListener('load', function () {
+            doc = document;
+            bod = doc.body;
+            htm = doc.documentElement;
+            window.addEventListener('scroll', function () {
+                doc.getElementById('header').style.backgroundColor = htm.scrollTop > 650 ?
+                    'rgb(17, 10, 31)' :
+                    '';
+                document.getElementById('header').style.position = htm.scrollTop > 1 ?
+                    'top 0' :
+                    '';
+            });
+        });
+    </script>
+<script src="assets/js/video.js"></script>
+</body>
+<!--
+Adventure by Alexander Nakarada | https://www.serpentsoundstudios.com
+Music promoted by https://www.chosic.com/
+Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+https://www.chosic.com/
+-->
+
+</html>
