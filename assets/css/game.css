@@ -193,7 +193,7 @@ main {
 .combatTextHero {
     font-family: Basalt;
     font-size: 36px;
-    color: rgb(0, 206, 0);
+    color: red;
     position: absolute;
     z-index: 40000;
     opacity: 0;
@@ -259,7 +259,7 @@ button {
 }
 
 button:disabled {
-    background: linear-gradient(90deg, #58375a -20.18%, #433452 121.1%);
+    background: linear-gradient(90deg, #542657 -20.18%, #433452 121.1%);
 }
 
 .controlLine {
