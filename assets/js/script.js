@@ -166,9 +166,7 @@ var combatTextHero = document.querySelector('.combatTextHero');
 /* ------------------------------ Ennemy + crit ----------------------------- */
 function EnnemyTextDisplay(message) {
   CombatTextEnnemy.innerHTML = message;
-  console.log(message)
   if (Crit()) {
-    console.log('CRIT');
     CombatTextEnnemy.classList.toggle('combatTextAnimation');
     setTimeout(function () {
       CombatTextEnnemy.classList.toggle('combatTextAnimation');
@@ -186,7 +184,6 @@ function EnnemyTextDisplay(message) {
 
 /* ---------------------------------- Hero ---------------------------------- */
 function HeroTextDisplay(message) {
-  console.log(message)
   combatTextHero.innerHTML = message;
   combatTextHero.classList.toggle('combatHeroAnimation');
   setTimeout(function () {
@@ -577,7 +574,6 @@ var hero = classSelectArray.forEach(element => {
   element.addEventListener('click', function CreateHero() {
     if (element.id == "knight") {
       hero = rodric;
-      console.log(hero);
       SetHeroValue();
       ButtonDisappear();
       displayLife();
@@ -985,3 +981,83 @@ settings.onclick = function () {
 /* -------------------------------------------------------------------------- */
 /*                             LES NOUVEAUX TRUCS                             */
 /* -------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 SAUVEGARDES                                */
+/* -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                  Objet pour le stuff et tableau des heros                  */
+/* -------------------------------------------------------------------------- */
+var inventaire = {
+  coin: 158,
+  weapon: [
+    "gourdin, dague, patate, machette"
+  ],
+  potion: 38,
+  progress: 12
+}
+var heroes = [rodric, xorrun, urim]
+/* ------------------------- Objet de la sauvegarde ------------------------- */
+var save = {
+  playerName: 'test',
+  heroes,
+  inventaire
+};
+
+/* -------------------------------------------------------------------------- */
+/*                        Fonction lié aux sauvegardes                        */
+/* -------------------------------------------------------------------------- */
+/* ------------------------ Sauvegarde sur meme page ------------------------ */
+function saveGame() {
+  try {
+    // on enregistre tout l'objet SAVE et on l'appelle "sauvegarde"
+    localStorage.setItem("sauvegarde", JSON.stringify(save))
+  } catch (err) {
+    // si ca marche pas on met ca, on pourra mettre une alerte ou autre chose plsu tard.
+    console.log("Acces impossible?!")
+  }
+  // si ca marche un message de succes a la place.
+  console.log('Sauvegardé avec succes');
+}
+/* ---- Sauvegarde si on doit bouger de page, le parametre c'est le lien ---- */
+/* --------------------- ex : saveOnRedirect(index.html) -------------------- */
+function saveOnRedirect(page) {
+  e.preventDefault();
+  // Ca lance la fonction au dessus puis ca redirige vers la page en parametre, le timeout est monstrueux mais c'etait pour tester.
+  saveGame();
+  setTimeout(function () {
+    window.location.href = page;
+  }, 6000);
+  // timeout a changer + eventuellement loader a mettre
+};
+
+/* ----------------- Premiere save a la selection du perso ------------------ */
+document.querySelector('.classSelect').addEventListener('click', function () {
+  saveGame();
+
+})
+
+/* ------------------------------- Chargement ------------------------------- */
+function loadGame() {
+  // On recupere la save qui s'appelle "sauvegarde".
+  var save = JSON.parse(localStorage.getItem("sauvegarde"));
+  if (save == null) {
+    // Error si y'as rien de trouvé
+    console.log('ERROR');
+  } else {
+    // Sinon on la console.log pour pouvoir verifier, faudra changer quand on aura tout fini
+    console.log(save);
+  }
+};
+
+window.onload = function () {
+  loadGame(save.playername);
+}
+
+/* ------------------------------- Suppression ------------------------------ */
+// Faudra surement la lien a un bouton dans les parametres je pense, genre " recommencer TOUT " 
+// document.getElementById('clear').addEventListener('click',
+//   function clear() {
+//     window.localStorage.clear();
+//   });
