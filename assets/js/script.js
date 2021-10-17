@@ -4,80 +4,11 @@ window.onload = function () {
   d2.style.display = "none";
 }
 
-////////////////////////////////////////////////////////////////
-// CHRONO
-////////////////////////////////////////////////////////////////
-
-var startTime = 0
-var start = 0
-var end = 0
-var diff = 0
-var timerID = 0
-
-function chrono() {
-  end = new Date()
-  diff = end - start
-  diff = new Date(diff)
-  var msec = diff.getMilliseconds()
-  var sec = diff.getSeconds()
-  var min = diff.getMinutes()
-  var hr = diff.getHours() - 1
-  if (min < 10) {
-    min = "0" + min
-  }
-  if (sec < 10) {
-    sec = "0" + sec
-  }
-  if (msec < 10) {
-    msec = "00" + msec
-  } else if (msec < 100) {
-    msec = "0" + msec
-  }
-  document.getElementById("chronotime").value = hr + ":" + min + ":" + sec + ":" + msec
-  timerID = setTimeout("chrono()", 10)
-}
-
-function chronoStart() {
-  document.chronoForm.startstop.value = "stop!"
-  document.chronoForm.startstop.onclick = chronoStop
-  document.chronoForm.reset.onclick = chronoReset
-  start = new Date()
-  chrono()
-}
-
-function chronoContinue() {
-  document.chronoForm.startstop.value = "stop!"
-  document.chronoForm.startstop.onclick = chronoStop
-  document.chronoForm.reset.onclick = chronoReset
-  start = new Date() - diff
-  start = new Date(start)
-  chrono()
-}
-
-function chronoReset() {
-  document.getElementById("chronotime").value = "0:00:00:000"
-  start = new Date()
-}
-
-function chronoStopReset() {
-  document.getElementById("chronotime").value = "0:00:00:000"
-  document.chronoForm.startstop.onclick = chronoStart
-}
-
-function chronoStop() {
-  document.chronoForm.startstop.value = "start!"
-  document.chronoForm.startstop.onclick = chronoContinue
-  document.chronoForm.reset.onclick = chronoStopReset
-  clearTimeout(timerID)
-}
-
-// Cache le reste du body temps qu'un héro n'a pas était selectioné.
-
 function togg() {
   if (getComputedStyle(d2).display != "none") {
     d2.style.display = "none";
   } else {
-    d2.style.display = "block";
+    d2.style.display = "flex";
   }
 };
 
@@ -104,25 +35,15 @@ function Hero(name, health, maxHealth, defence, attack, weakness, resistance, li
 }
 // vie 
 var life = 3;
+var stockMoulaga = 5;
+document.getElementById("stockMoulaga").innerHTML = stockMoulaga;
 
-
-
-var playByPlay = document.getElementById('announcements');
-var numberOfEvent = 0;
-
-function clearDisplayEvent() {
-  playByPlay.innerHTML = "";
-  numberOfEvent = 0;
+function AddMoulaga() {
+  MoulagaToAdd = Math.floor(Math.random() * 2) + 1; //chiffre en 1 et 3
+  stockMoulaga = stockMoulaga + MoulagaToAdd;
+  document.getElementById("stockMoulaga").innerHTML = stockMoulaga;
+  return stockMoulaga;
 }
-
-function displayEvent(message) {
-  numberOfEvent++;
-  if (numberOfEvent >= 10) {
-    clearDisplayEvent();
-  }
-  playByPlay.innerHTML += message + "<br>";
-}
-
 
 function ModalDeathHero() {
   document.getElementById("baseAttack").disabled = "true";
@@ -151,6 +72,11 @@ document.getElementById("dismissDeathEnnemy").addEventListener("click", function
 });
 
 
+
+
+// Compteur de round
+var round = 1;
+document.getElementById("round").innerHTML = round;
 
 function ModalProgress() {
   if (round == 1) {
@@ -469,13 +395,10 @@ document.getElementById("dismissModalProgress").addEventListener("click", functi
 
 
 function ModalVictory() {
-  chronoStop();
   document.getElementById("baseAttack").disabled = "true";
   document.getElementById("heavyAttack").disabled = "true";
   document.getElementById("potion").disabled = "true";
   document.getElementById("modalVictory").style.display = "block";
-  document.getElementById("victoryTime").innerHTML = chronotime.value;
-  document.getElementById("chronoForm").style.display = "none";
 
 
 }
@@ -486,7 +409,6 @@ document.getElementById("dismissModalVictory").addEventListener("click", functio
 
 
 function ModalGameOver() {
-  chronoStop();
   document.getElementById("baseAttack").disabled = "true";
   document.getElementById("heavyAttack").disabled = "true";
   document.getElementById("potion").disabled = "true";
@@ -581,7 +503,7 @@ let health = document.getElementById("healthBar");
 let badGuyHealth = document.getElementById("badguyHealthBar");
 
 
-// fait diisparaitre le choix du héro une fois qu'il a était choisi
+// fait disparaitre le choix du héro une fois qu'il a était choisi
 function ButtonDisappear() {
   document.getElementById("knight").style.display = "none";
   document.getElementById("mage").style.display = "none";
@@ -594,8 +516,6 @@ function SetHeroValue() {
   document.getElementById("bigAttackName").innerHTML = hero.bigAttack;
   document.getElementById("heroHealth").innerHTML = hero.health;
   document.getElementById("heroImg").src = hero.image;
-
-
   health.setAttribute("value", hero.health);
   health.setAttribute("max", hero.maxHealth);
 }
@@ -612,7 +532,6 @@ var hero = classSelectArray.forEach(element => {
       SetHeroValue();
       ButtonDisappear();
       displayLife();
-      chronoStart();
       togg();
       togg1();
       ModalProgress();
@@ -626,7 +545,6 @@ var hero = classSelectArray.forEach(element => {
       SetHeroValue();
       ButtonDisappear();
       displayLife();
-      chronoStart();
       togg();
       togg1();
       ModalProgress();
@@ -640,7 +558,6 @@ var hero = classSelectArray.forEach(element => {
       SetHeroValue();
       ButtonDisappear();
       displayLife();
-      chronoStart();
       togg();
       togg1();
       ModalProgress();
@@ -665,9 +582,6 @@ function BadGuy(name, health, maxHealth, defence, attack, weakness, resistance, 
   this.image = image;
 }
 
-// Compteur de round
-var round = 1;
-document.getElementById("round").innerHTML = round;
 
 
 //Creation du méchant selon le nombre de round: 
@@ -708,7 +622,6 @@ window.addEventListener("load", function () {
 // mort du méchant
 function DeathEnemy() {
   if (badGuy.health <= 0) {
-    clearDisplayEvent();
     round++;
     playLu()
     document.getElementById("round").innerHTML = round;
@@ -733,7 +646,6 @@ function Crit() {
   // Renvoi un nombre entre 1 et 100
   crit = Math.floor(Math.random() * 100) + 1;
   if (crit <= 10) {
-    displayEvent("- COUP CRITIQUE!!");
     return true;
   } else {
     return false;
@@ -763,10 +675,8 @@ function Dodge() {
   dodge = Math.floor(Math.random() * 100) + 1;
   if (dodge <= 10) {
     ennemyDamage = 0;
-    displayEvent("- Vous avez esquivé!");
   } else {
     ennemyDamage = badGuy.attack;
-    displayEvent("- L'ennemi a contre attaqué, vous avez pris " + ennemyDamage + " dégats");
   }
 }
 
@@ -799,7 +709,6 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   setTimeout(disable);
   badGuy.health = badGuy.health - damage;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
-  displayEvent("- Vous avez infligé " + damage + " dégats avec votre " + hero.lightAttack);
   Dodge();
   hero.health = hero.health - ennemyDamage;
   document.getElementById("heroHealth").innerHTML = hero.health;
@@ -812,9 +721,6 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   EndGame();
   DeathEnemy();
   winner();
-  background();
-
-
 });
 
 
@@ -823,7 +729,6 @@ document.getElementById("heavyAttack").addEventListener("click", function heavyA
   playshield();
   badGuy.health = badGuy.health - damage;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
-  displayEvent("- Vous avez infligé " + damage + " dégats avec votre " + hero.bigAttack);
   Dodge();
   hero.health = hero.health - ennemyDamage;
   document.getElementById("heroHealth").innerHTML = hero.health;
@@ -835,9 +740,6 @@ document.getElementById("heavyAttack").addEventListener("click", function heavyA
   DeathHero();
   DeathEnemy();
   winner();
-  background();
-
-
 });
 
 // contre attaque
@@ -866,16 +768,11 @@ document.getElementById("potion").addEventListener("click", function () {
     if (hero.health < hero.maxHealth && heroHealthToGet < hero.maxHealth) {
       hero.health = hero.health + 50;
       stockPotion--;
-      displayEvent("- Votre potion vous a rendu 50PV.");
       document.getElementById("heroHealth").innerHTML = hero.health;
       document.getElementById("stockPotion").innerHTML = stockPotion;
       MoveAllyHealthBar();
-    } else {
-      displayEvent("- Vous n'avez pas besoin de potion.")
-    }
-  } else {
-    displayEvent("- Vous n'avez plus assez de potion.")
-  }
+    } else {}
+  } else {}
 });
 
 // Ajout d'un nombre de potion entre 1 et 3, faudra juste lier ca a la victoire plutot qu'a un bouton mais ca fonctionne.
@@ -906,9 +803,6 @@ $(document).ready(function () {
 
   });
 });
-
-
-
 
 
 

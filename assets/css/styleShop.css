@@ -8,7 +8,11 @@
   src: url("../font/Legend.ttf") format("TrueType");
 }
 
-
+:root {
+  --background: rgba(25, 7, 53, 0.959);
+  --white: #FFFFFF;
+  --blue: #689FFF;
+}
 
 html {
   padding: 0;
@@ -17,84 +21,122 @@ html {
   overflow-x: hidden !important;
 
 }
-body{
-padding: 0;
-margin: 0;
-width: 100%;
-min-height: 100vh;
-overflow-x: hidden !important;
-font-family: 'Roboto', sans-serif;
-background-image: url("../img/shop1.jpg");
-background-size: cover;
-color: rgb(255, 255, 255) !important;
-padding: 35px;
- 
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden !important;
+  font-family: 'Roboto', sans-serif;
+  background-image: url("../img/shop1.jpg");
+  background-size: cover;
+  color: rgb(255, 255, 255) !important;
+  padding: 35px;
+
 }
 
 @-webkit-keyframes arrow_anim {
-  from { margin-top: 58px; }
-    to { margin-top: 67px; }
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
 }
 
 @-moz-keyframes arrow_anim {
-  from { margin-top: 58px; }
-    to { margin-top: 67px; }
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
 }
 
 @-ms-keyframes arrow_anim {
-  from { margin-top: 58px; }
-    to { margin-top: 67px; }
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
 }
 
 @-o-keyframes arrow_anim {
-  from { margin-top: 58px; }
-    to { margin-top: 67px; }
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
 }
 
 @keyframes arrow_anim {
-  from { margin-top: 58px; }
-    to { margin-top: 67px; }
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
 }
 
 #arrow {
- border-left: 10px solid transparent;
- border-right: 10px solid transparent;
- border-top: 10px solid red;
- height: 0; 
- margin: 60px 0px 0px 360px;
- position: absolute;
- width: 0; 
- 
- -webkit-animation: arrow_anim .3s steps(3) infinite;
- -moz-animation: arrow_anim .3s steps(3) infinite;
- -ms-animation: arrow_anim .3s steps(3) infinite;
- -o-animation: arrow_anim .3s steps(3) infinite;
- animation: arrow_anim .3s steps(3) infinite;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid red;
+  height: 0;
+  margin: 60px 0px 0px 360px;
+  position: absolute;
+  width: 0;
+
+  -webkit-animation: arrow_anim .3s steps(3) infinite;
+  -moz-animation: arrow_anim .3s steps(3) infinite;
+  -ms-animation: arrow_anim .3s steps(3) infinite;
+  -o-animation: arrow_anim .3s steps(3) infinite;
+  animation: arrow_anim .3s steps(3) infinite;
 }
 
-.shop{
-  height: 800px;
-  border: solid 8px red;
-  
+.shop {
+  height: 750px;
+
+
 }
-.rowD{
+
+.rowD {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
   width: 100%;
-
   padding: 35px;
-  position:fixed; bottom;
+  position: fixed;
+
+}
+
+.rowD h1 {
+  background: rgb(17, 10, 31);
+  height: 119px;
+  padding: 0;
+  margin: 0;
+  padding-top: 25px;
+  padding-left: 15px;
+  z-index: 15;
+  font-family: Basalt;
 }
 
 #dialog {
   height: 90px;
-  background: rgb(17, 10, 31) ;
+  background: rgb(17, 10, 31);
   border-radius: 0px 5px 5px 0px;
-  box-shadow: 0 0 0 14px rgb(17, 10, 31) ;
-  color: #ffffff;
+  box-shadow: 0 0 0 14px rgb(17, 10, 31);
+  color: #f1eeee;
   font-family: 'Basalt';
   padding: 20px 20px 20px 20px;
   text-transform: uppercase;
@@ -102,12 +144,312 @@ padding: 35px;
   width: 800px;
   font-size: 20px;
 }
-#villageois{
-  height:119px;
+
+#villageois {
+  height: 119px;
   width: 119px;
   background-color: rgb(17, 10, 31);
   border-radius: 10px 0px 0px 10px;
   z-index: 9999;
-  padding:5px;
+  padding: 5px;
   padding-left: 15px;
+}
+
+.mag {
+  background-color: rgba(17, 10, 31, 0);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+
+}
+
+.items {
+  height: 100%;
+  width: 50%;
+  padding: 20px;
+  margin: 0;
+  background-color: deeppink;
+  margin-left: 25px;
+  margin-right: 25px;
+
+}
+
+.shopping {
+  background-color: rgba(17, 10, 31, 0.842);
+  height: 100%;
+  width: 50%;
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-image: url(../img/Rectangle\ 26.png);
+}
+
+#coin {
+  height: 45px;
+}
+
+#moula {
+  font-family: Basalt;
+  font-size: 36px;
+}
+
+.itemsInfos {
+  height: 90%;
+  width: 70%;
+  margin: auto;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemsTitle {
+  height: 80px;
+  margin-top: 25px;
+  background-color: rgb(208, 255, 0);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.item1 {
+  height: 150px;
+  margin-top: 25px;
+  background-color: rgba(17, 10, 31, 0.753);
+  border-radius: 20px;
+  padding-top: 10px;
+  padding-left: 10px;
+ 
+}
+.itemCol{
+  height: 100%;
+  background-color: rgb(9, 255, 0);
+  width:20%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+}
+#epee1{
+  height: 125px;
+  width: 35px;
+  transform: rotate(-12deg);
+}
+.boxdiv {
+  background-color: rgb(85, 0, 255);
+  height:120px;
+  width:120px;
+  border-radius:50%;
+  display:flex;
+  justify-content: center;
+  text-align:center;
+  align-items:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.settings {
+  position: absolute;
+  left: 30px;
+  bottom: 20px;
+  background-color: var(--background);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.settings img {
+  height: 40px;
+  width: 40px;
+  transition: all 1s;
+}
+
+.settings:hover,
+.settings:focus {
+  box-shadow: inset 2px 4px 2px 1px rgba(154, 96, 221, 0.2);
+}
+
+.settings img:hover,
+.settings img:focus {
+  transform: rotate(180deg);
+  transition: 1s;
+}
+
+/* -------------------------------- Parametre ------------------------------- */
+
+.settingsPanel {
+  position: absolute;
+  top: 10%;
+  left: 12.5%;
+  width: 75%;
+  height: 80%;
+  background-color: var(--background);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 25px;
+  padding-bottom: 36px;
+  font-family: PoppinsRegular;
+  font-size: 36px;
+  color: var(--white);
+  transition: 0.8s ease-out;
+
+}
+
+
+.settings-hidden {
+  top: -175%;
+  transition: 0.8s ease-out;
+}
+
+.panelInside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.panelTitle {
+  font-family: Basalt !important;
+  font-size: 48px;
+  margin-bottom: 34px;
+}
+
+.soundGauge {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background-color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* --------------------------------- TOGGLE --------------------------------- */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(62, 62, 62);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 32px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--blue);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #031c8f;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #46127C;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(60px);
+  -ms-transform: translateX(60px);
+  transform: translateX(60px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.selectLanguage {
+  width: 280px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flag {
+  height: 82px;
+  width: 82px;
+}
+
+.flag:hover,
+.flag:focus {
+  border: 3px var(--blue) solid !important;
+  border-radius: 50%;
+
+}
+
+
+.blurred {
+  -webkit-filter: blur(1px) grayscale(20%);
+  filter: blur(1px) grayscale(20%);
+}
+
+/* ---------------------------- Bouton validation --------------------------- */
+.settingsValidate {
+  height: 60px;
+  width: 220px;
+  background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-family: Basalt;
+  color: var(--white);
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+}
+
+.settingsValidate:hover,
+.settingsValidate:focus {
+  border: 3px var(--blue) solid !important;
 }
