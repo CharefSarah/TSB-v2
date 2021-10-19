@@ -48,6 +48,8 @@
 
     <!-- ------------------------ Cards avec les persos ------------------------ -->
     <div class="combat">
+
+
       <div class="cardCombat cardHero hero">
         <div class="cardInt">
           <div class="stats">
@@ -72,8 +74,8 @@
               </div>
             </div>
             <p>Mana :</p>
-            <div class="mana bar">
-              <div class="manaBar"></div>
+            <div class="mana" id="heroManaBar" value="0" max="1000">
+              <div class="manaBar" id="manaBar"></div>
             </div>
           </div>
           <div class="portrait">
@@ -82,6 +84,9 @@
           </div>
         </div>
       </div>
+
+
+
       <div class="cardCombat cardEnnemy">
         <div class="cardInt">
           <div class="portrait">
@@ -97,9 +102,9 @@
               <div class="badguyBar" id="badguyBar"></div>
             </div>
             <p>Mana :</p>
-            <div class="mana bar">
+            <!-- <div class="mana bar">
               <div class="manaBar"></div>
-            </div>
+            </div> -->
           </div>
 
         </div>
@@ -121,7 +126,7 @@
         </button>
 
 
-        <button class="controlButton button2" id="heavyAttack">
+        <button class="controlButton button2" id="heavyAttack" disabled>
           <div class="attackImg">
             <img src="assets/img/bouclier.png" alt="">
           </div>
@@ -131,13 +136,12 @@
       </div>
       <div class="controlLine">
 
-        <button class="controlButton button3">
+        <button class="controlButton button2" id="ultiAttack" disabled>
           <div class="attackImg">
             <img src="assets/img/epee.png" alt="">
           </div>
-          <p class="attackName">
-            Épée
-          </p>
+          <span id="ultimateAttackName"></span><span id="ultimateAttack"></span>
+
         </button>
 
         <button class="controlButton button4" id="potion" onclick="playP()">

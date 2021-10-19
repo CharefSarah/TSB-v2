@@ -52,6 +52,7 @@ function SetHeroValue() {
   document.getElementById("heroName").innerHTML = hero.name;
   document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
+  document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
   document.getElementById("heroHealth").innerHTML = hero.health;
   document.getElementById("heroImg").src = hero.imagePath;
   health.setAttribute("value", hero.health);
@@ -78,7 +79,7 @@ var stockPotion = 3;
 /* -------------------------------------------------------------------------- */
 
 /* ----------------------------- Construct Hero  ----------------------------- */
-function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamage, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse) {
+function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse) {
   this.name = name;
   this.level = level;
   this.health = health;
@@ -90,7 +91,8 @@ function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cri
   this.criticMultiplier = criticMultiplier;
   this.imagePath = imagePath;
   this.attacksTab = attacksTab;
-  this.baseDamage = baseDamage;
+  this.baseDamageMin = baseDamageMin;
+  this.baseDamageMax = baseDamageMax;
   this.damagePerLevel = damagePerLevel;
   this.equippedWeapon = equippedWeapon;
   this.weaponValue = weaponValue;
@@ -116,9 +118,9 @@ var xorrunAttacks = [
 ]
 
 /* ------------------------------- Objet Hero ------------------------------- */
-var rodric = new Hero('Rodric', 1, 200, 200, 25, 100, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 40, 11, 'gourdin', 5, 'none', 'none');
-var urim = new Hero('Urim', 1, 180, 180, 20, 100, 100, 20, 2.5, '', urimAttacks, 45, 14, 'couteau de cuisine', 7, 'none', 'none');
-var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 100, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 50, 15, 'Baton', 8, 'none', 'none');
+var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none');
+var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none');
+var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none');
 
 
 
@@ -670,34 +672,45 @@ function MoveEnnemyHealthBar() {
   document.getElementById("badguyBar").style.width = percentHealth + "%";
 }
 
+/* ---------------------------------- MANA ---------------------------------- */
+var heroMana = document.getElementById("heroManaBar");
+var heroManaInside = document.getElementById("manaBar");
 
-/* -------------------------------------------------------------------------- */
-/*                                   Attacks                                  */
-/* -------------------------------------------------------------------------- */
-
-// nombres d'attaques
-var basicAttack = 30;
-document.getElementById("basicAttack").innerHTML = basicAttack;
-
-function LostBasicAttack() {
-  basicAttack = basicAttack - 1;
-  document.getElementById("basicAttack").innerHTML = basicAttack;
-  if (basicAttack == 0) {
-    document.getElementById("baseAttack").disabled = "true";
-  }
-}
-// Nombre de grosses attaques
-var bigAttack = 10;
-document.getElementById("bigAttack").innerHTML = bigAttack;
-
-function LostBigAttack() {
-  bigAttack = bigAttack - 1;
-  document.getElementById("bigAttack").innerHTML = bigAttack;
-  if (bigAttack == 0) {
-    document.getElementById("heavyAttack").disabled = "true";
-  }
+function MoveHeroManaBar() {
+  heroMana.setAttribute("value", hero.mana);
+  var percentMana = (hero.mana / hero.maxMana) * 100;
+  heroManaInside.style.width = percentMana + "%";
+  console.log(percentMana)
 }
 
+function GainMana() {
+  if (hero.mana >= 81) {
+    hero.mana = 100;
+  } else {
+    hero.mana += 20;
+  }
+  var percentMana = (hero.mana / hero.maxMana) * 100;
+  heroManaInside.style.width = percentMana + "%";
+}
+
+function loseMana(value) {
+  hero.mana -= value;
+  var percentMana = (hero.mana / hero.maxMana) * 100;
+  heroManaInside.style.width = percentMana + "%";
+}
+
+function checkMana() {
+  if (hero.mana >= 75) {
+    document.getElementById("ultiAttack").disabled = false;
+    document.getElementById("heavyAttack").disabled = false;
+  } else if (hero.mana >= 25) {
+    document.getElementById("ultiAttack").disabled = true;
+    document.getElementById("heavyAttack").disabled = false;
+  } else {
+    document.getElementById("ultiAttack").disabled = true;
+    document.getElementById("heavyAttack").disabled = true;
+  }
+}
 /* -------------------------------------------------------------------------- */
 /*                                 Fin du jeu                                 */
 /* -------------------------------------------------------------------------- */
@@ -776,22 +789,13 @@ function Crit() {
 
 }
 //Petit Steak
-function BaseAttackDamage() {
-  ratio = hero.attacksTab[0][1];
-  multiplier = hero.criticMultiplier;
-  attackDamage = hero.baseDamage * ratio;
-  if (Crit()) {
-    attackDamage = attackDamage * multiplier;
-  }
-  return attackDamage;
-}
-
-//Gros Steak
-function HeavyAttackDamage() {
-  ratio = hero.attacksTab[1][1]
-  multiplier = hero.criticMultiplier;
-  console.log(multiplier)
-  attackDamage = hero.baseDamage * ratio;
+function AttackDamage(attackRatio) {
+  var ratio = attackRatio;
+  var multiplier = hero.criticMultiplier;
+  var max = hero.baseDamageMax + hero.weaponValue;
+  var min = hero.baseDamageMin + hero.weaponValue;
+  var damage = Math.floor(Math.random() * (max - min + 1) + min);
+  attackDamage = Math.floor(damage * ratio);
   if (Crit()) {
     attackDamage = attackDamage * multiplier;
   }
@@ -808,8 +812,6 @@ function Dodge() {
   }
 }
 
-//Fonction pour faire bouger les jauges
-
 function disable() {
   document.getElementById("baseAttack").disabled = true;
   setTimeout(function () {
@@ -822,7 +824,7 @@ function disable() {
 /* -------------------------------------------------------------------------- */
 
 document.getElementById("baseAttack").addEventListener("click", function baseAttack() {
-  damage = BaseAttackDamage();
+  damage = AttackDamage(hero.attacksTab[0][1]);
   setTimeout(play22, 500);
   setTimeout(disable);
   badGuy.health = badGuy.health - damage;
@@ -830,7 +832,9 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   Dodge();
   hero.health = hero.health - ennemyDamage;
   document.getElementById("heroHealth").innerHTML = hero.health;
-  LostBasicAttack();
+  GainMana();
+  checkMana();
+  console.log(hero.mana)
   MoveEnnemyHealthBar();
   setTimeout(play23, 1500);
   setTimeout(MoveAllyHealthBar, 300);
@@ -845,28 +849,63 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   }, 1100)
 });
 
-
 document.getElementById("heavyAttack").addEventListener("click", function heavyAttack() {
-  damage = HeavyAttackDamage();
-  playshield();
-  badGuy.health = badGuy.health - damage;
-  document.getElementById("badGuyHealth").innerHTML = badGuy.health;
-  Dodge();
-  hero.health = hero.health - ennemyDamage;
-  document.getElementById("heroHealth").innerHTML = hero.health;
-  LostBigAttack();
-  MoveEnnemyHealthBar();
-  setTimeout(MoveAllyHealthBar, 300);
-  EndGame();
-  LostLife();
-  DeathHero();
-  DeathEnemy();
-  winner();
-  EnnemyTextDisplay(damage);
-  setTimeout(function () {
-    HeroTextDisplay(ennemyDamage);
-  }, 1100)
+  if (hero.mana >= 25) {
+    damage = AttackDamage(hero.attacksTab[1][1]);
+    playshield();
+    badGuy.health = badGuy.health - damage;
+    document.getElementById("badGuyHealth").innerHTML = badGuy.health;
+    Dodge();
+    hero.health = hero.health - ennemyDamage;
+    document.getElementById("heroHealth").innerHTML = hero.health;
+    loseMana(25);
+    checkMana();
+
+    MoveEnnemyHealthBar();
+    setTimeout(MoveAllyHealthBar, 300);
+    EndGame();
+    LostLife();
+    DeathHero();
+    DeathEnemy();
+    winner();
+    EnnemyTextDisplay(damage);
+    setTimeout(function () {
+      HeroTextDisplay(ennemyDamage);
+    }, 1100)
+  } else {
+    console.log('Not enough Mana')
+  }
 });
+
+document.getElementById("ultiAttack").addEventListener("click", function UltimateAttack() {
+  if (hero.mana >= 75) {
+    damage = AttackDamage(hero.attacksTab[2][1]);
+    playshield();
+    badGuy.health = badGuy.health - damage;
+    document.getElementById("badGuyHealth").innerHTML = badGuy.health;
+    Dodge();
+    hero.health = hero.health - ennemyDamage;
+    document.getElementById("heroHealth").innerHTML = hero.health;
+    loseMana(75);
+    checkMana();
+    MoveEnnemyHealthBar();
+    setTimeout(MoveAllyHealthBar, 300);
+    EndGame();
+    LostLife();
+    DeathHero();
+    DeathEnemy();
+    winner();
+    EnnemyTextDisplay(damage);
+    setTimeout(function () {
+      HeroTextDisplay(ennemyDamage);
+    }, 1100)
+  } else {
+    console.log('Not Enough Mana')
+  }
+
+});
+
+
 
 /* ----------------------------- Contre Attaque ----------------------------- */
 function CunterAttack() {

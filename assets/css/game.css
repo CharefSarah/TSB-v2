@@ -159,7 +159,7 @@ main {
 
 .manaBar {
     background: linear-gradient(to right, #0A1E75 0%, #0047FF 50%, #E800FC 80%);
-    width: 100%;
+    width: 0%;
     height: 7px;
     border-radius: 8px;
     position: relative;
@@ -295,16 +295,11 @@ button:disabled {
     padding-left: 24px;
 }
 
-/* .controlButton:hover,
+.controlButton:hover,
 .contolButton:focus {
     box-shadow: inset 5px 8px 4px 2px rgba(154, 96, 221, 0.2);
     background: linear-gradient(90deg, #753377 -20.18%, #431e68 121.1%);
     transition: all 0.12s ease;
-} */
-
-.controlButton:hover,
-.controlButton:focus {
-    border: 4px var(--blue) solid !important;
 }
 
 .attackImg {
