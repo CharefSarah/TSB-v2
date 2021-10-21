@@ -440,7 +440,7 @@ html::-webkit-scrollbar-thumb {
 
 button:disabled,
 button[disabled] {
-  background-color: rgb(17, 10, 31, 0.4) !important;
+  background-color: rgba(47, 27, 85, 0.6) !important;
 }
 
 .badguyImg {
