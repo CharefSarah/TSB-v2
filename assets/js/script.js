@@ -128,32 +128,35 @@ var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xo
 /* -------------------------------------------------------------------------- */
 /*                              CONSTRUCT MECHANT                             */
 /* -------------------------------------------------------------------------- */
-function BadGuy(name, health, maxHealth, defence, attack, weakness, resistance, image) {
+function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDamageMin, baseDamageMax, resistance, faiblesse, imagePath) {
   this.name = name;
   this.health = health;
   this.maxHealth = maxHealth;
-  this.defence = defence;
-  this.attack = attack;
-  this.weakness = weakness;
+  this.criticChance = criticChance;
+  this.criticMultiplier = criticMultiplier;
+  this.baseDamageMin = baseDamageMin;
+  this.baseDamageMax = baseDamageMax;
   this.resistance = resistance;
-  this.image = image;
+  this.faiblesse = faiblesse;
+  this.imagePath = imagePath;
 }
 
 //Creation du méchant selon le nombre de round: 
 function CreateBadGuy() {
-  if (round == 30) {
-    var badGuy = new BadGuy("Void", 1300, 1300, 30, 40, "none", "sword", "assets/img/darkknight.png");
-  } else if (round == 20) {
-    var badGuy = new BadGuy("Ekrid", 850, 850, 30, 50, "none", "none", "assets/img/spider.png");
-  } else if (round == 10) {
-    var badGuy = new BadGuy("Xonoth", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png");
-  } else if (round == 1 || round == 2 || round == 3 || round == 4 || round == 5 || round == 6 || round == 7 || round == 8 || round == 9) {
-    var badGuy = new BadGuy("Loup", 300, 300, 10, 30, "all", "none", "assets/img/wolfs.png");
-  } else if (round == 11 || round == 12 || round == 13 || round == 14 || round == 15 || round == 16 || round == 17 || round == 18 || round == 19) {
-    var badGuy = new BadGuy("Araignée", 400, 400, 10, 30, "all", "none", "assets/img/spider1.png");
-  } else {
-    var badGuy = new BadGuy("Mort-vivant", 450, 450, 10, 30, "all", "none", "assets/img/skull.png");
-
+  if (round == 1) {
+    var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+  } else if (round == 2) {
+    var badGuy = new BadGuy("Loup", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+  } else if (round == 3) {
+    var badGuy = new BadGuy("Loup", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+  } else if (round == 4) {
+    var badGuy = new BadGuy("Loup", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+  } else if (round == 5) {
+    var badGuy = new BadGuy("Loup", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png")
+  } else if (round == 6) {
+    var badGuy = new BadGuy("APU", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png")
+  } else if (round == 7) {
+    var badGuy = new BadGuy("Loup", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png")
   }
   return badGuy
 }
@@ -594,7 +597,7 @@ function DisplayBadGuy() {
   badGuyHealth.value = badGuy.health;
   badGuyHealth.setAttribute("value", badGuy.health);
   badGuyHealth.setAttribute("max", badGuy.health);
-  document.getElementById("badguyImg").src = badGuy.image;
+  document.getElementById("badguyImg").src = badGuy.imagePath;
 }
 
 // création du méchant
@@ -671,6 +674,17 @@ function disable() {
   }, 1500);
 }
 
+
+function EnnemyAttackDamage() {
+  var min = badGuy.baseDamageMin;
+  var max = badGuy.baseDamageMax;
+  var ennemyAttackDamage = Math.floor(Math.random() * (max - min + 1) + min);
+  console.log(min)
+  console.log(ennemyAttackDamage);
+  return ennemyAttackDamage;
+}
+
+
 /* -------------------------------------------------------------------------- */
 /*                TRIGGER SUR ATTAQUES DE TOUTES LES FONCTIONS                */
 /* -------------------------------------------------------------------------- */
@@ -682,6 +696,7 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   badGuy.health = badGuy.health - damage;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
   Dodge();
+  var ennemyDamage = EnnemyAttackDamage();
   hero.health = hero.health - ennemyDamage;
   document.getElementById("heroHealth").innerHTML = hero.health;
   GainMana();
@@ -708,11 +723,11 @@ document.getElementById("heavyAttack").addEventListener("click", function heavyA
     badGuy.health = badGuy.health - damage;
     document.getElementById("badGuyHealth").innerHTML = badGuy.health;
     Dodge();
+    var ennemyDamage = EnnemyAttackDamage();
     hero.health = hero.health - ennemyDamage;
     document.getElementById("heroHealth").innerHTML = hero.health;
     loseMana(25);
     checkMana();
-
     MoveEnnemyHealthBar();
     setTimeout(MoveAllyHealthBar, 300);
     EndGame();
@@ -736,6 +751,7 @@ document.getElementById("ultiAttack").addEventListener("click", function Ultimat
     badGuy.health = badGuy.health - damage;
     document.getElementById("badGuyHealth").innerHTML = badGuy.health;
     Dodge();
+    var ennemyDamage = EnnemyAttackDamage();
     hero.health = hero.health - ennemyDamage;
     document.getElementById("heroHealth").innerHTML = hero.health;
     loseMana(75);
