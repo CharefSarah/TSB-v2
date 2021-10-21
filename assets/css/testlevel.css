@@ -8,6 +8,12 @@ body {
     overflow: hidden;
 }
 
+:root {
+    --background: rgba(25, 7, 53, 0.959);
+    --white: #FFFFFF;
+    --blue: #689FFF;
+}
+
 section {
     position: relative;
     min-height: 100vh;
@@ -19,11 +25,17 @@ section {
 
 section .s2 {
     background-image: url(../img/attic.png);
+    background-color: #070213;
     cursor: default;
     height: 100vh;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
+    background-position: center center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding-bottom: 25px;
 }
 
 .light {
@@ -35,13 +47,13 @@ section .s2 {
     pointer-events: none;
     background: radial-gradient(circle at var(--x) var(--y),
             #ffe1c917 8%, rgba(0, 0, 0, .985) 10%);
-            z-index: 4;
+    z-index: 4;
 }
 
 
 .listBox {
-    width: 350px;
-    height: 250px;
+    width: 450px;
+    height: 350px;
     margin: 0 auto;
     position: absolute;
     top: 0;
@@ -55,9 +67,7 @@ section .s2 {
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-
-
+    font-family: basalt;
 }
 
 #list {
@@ -68,12 +78,13 @@ section .s2 {
 }
 
 .listBox ul {
-    font-size: 18px;
+    font-size: 24px;
     list-style: none;
     color: #954743;
     text-align: left;
     margin-left: 25px;
-    padding-top: 10px;
+    padding-bottom: 45px;
+    font-family: basalt;
 
 }
 
@@ -82,30 +93,40 @@ section .s2 {
     font-size: 23px;
     color: #753935;
     padding-left: 10px;
-    
+
 }
 
-@keyframes Byebye{
-    from{
+@keyframes Byebye {
+    from {
         opacity: 100%;
-    }to{
+    }
+
+    to {
         opacity: 0%;
     }
 }
-.byebye{
-  animation: 0.5s ease-in-out forwards Byebye;
+
+.byebye {
+    animation: 0.5s ease-in-out forwards Byebye;
 
 }
 
 
-@keyframes strike{
-    0%   { width : 0; }
-    100% { width: 100%; }
-  }
-  .strike {
+@keyframes strike {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+.strike {
     position: relative;
-  }
-  .strike::after {
+}
+
+.strike::after {
     content: ' ';
     position: absolute;
     width: 100%;
@@ -117,80 +138,92 @@ section .s2 {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     left: 0;
-    top: 10px; 
-  }
+    top: 13px;
+}
 
-  
 @-webkit-keyframes arrow_anim {
-    from { margin-top: 58px; }
-      to { margin-top: 67px; }
- }
- 
- @-moz-keyframes arrow_anim {
-    from { margin-top: 58px; }
-      to { margin-top: 67px; }
- }
- 
- @-ms-keyframes arrow_anim {
-    from { margin-top: 58px; }
-      to { margin-top: 67px; }
- }
- 
- @-o-keyframes arrow_anim {
-    from { margin-top: 58px; }
-      to { margin-top: 67px; }
- }
- 
- @keyframes arrow_anim {
-    from { margin-top: 58px; }
-      to { margin-top: 67px; }
- }
- 
- #arrow {
-     border-left: 10px solid transparent;
-     border-right: 10px solid transparent;
-     border-top: 10px solid red;
-   height: 0; 
-   margin: 60px 0px 0px 360px;
-   position: absolute;
-   width: 0; 
-   
-   -webkit-animation: arrow_anim .3s steps(3) infinite;
-   -moz-animation: arrow_anim .3s steps(3) infinite;
-   -ms-animation: arrow_anim .3s steps(3) infinite;
-   -o-animation: arrow_anim .3s steps(3) infinite;
-   animation: arrow_anim .3s steps(3) infinite;
- }
- 
- #dialog {
-   height: 70px;
-   background: #1c1c1c;
-   border-radius: 5px;
-   box-shadow: 0 0 0 6px #F5EAC8, 0 0 0 12px #251C00;
-   color: #F5EAC8;
-   font-family: Arial;
-   font-size: 18px;
-   font-weight: bold;
-   padding: 20px 20px 20px 20px;
-   position:absolute;
-   text-transform: uppercase;
-   word-spacing: 3px;
-   width: 400px;
-  top:0;
-   
- }
- #dialog {
-    height: 70px;
-    background: #1c1c1c;
+    from {
+        margin-top: 58px;
+    }
+
+    to {
+        margin-top: 67px;
+    }
+}
+
+@-moz-keyframes arrow_anim {
+    from {
+        margin-top: 58px;
+    }
+
+    to {
+        margin-top: 67px;
+    }
+}
+
+@-ms-keyframes arrow_anim {
+    from {
+        margin-top: 58px;
+    }
+
+    to {
+        margin-top: 67px;
+    }
+}
+
+@-o-keyframes arrow_anim {
+    from {
+        margin-top: 58px;
+    }
+
+    to {
+        margin-top: 67px;
+    }
+}
+
+@keyframes arrow_anim {
+    from {
+        margin-top: 58px;
+    }
+
+    to {
+        margin-top: 67px;
+    }
+}
+
+#arrow {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid red;
+    height: 0;
+    margin: 60px 0px 0px 360px;
+    position: absolute;
+    width: 0;
+    -webkit-animation: arrow_anim .3s steps(3) infinite;
+    -moz-animation: arrow_anim .3s steps(3) infinite;
+    -ms-animation: arrow_anim .3s steps(3) infinite;
+    -o-animation: arrow_anim .3s steps(3) infinite;
+    animation: arrow_anim .3s steps(3) infinite;
+}
+
+#dialog {
+    height: 110px;
+    background: #0F0426;
     border-radius: 5px;
-    box-shadow: 0 0 0 6px #F5EAC8, 0 0 0 12px #251C00;
-    color: #F5EAC8;
-    font-family: Arial;
+    box-shadow: #0F0426;
+    color: #f5f5f5;
+    font-family: poppins;
     font-size: 18px;
     font-weight: bold;
     padding: 20px 20px 20px 20px;
     position: relative;
     text-transform: uppercase;
     word-spacing: 3px;
-    width: 400px;
-  }
+    width: 800px;
+    z-index: 100000;
+}
+
+#witch {
+    z-index: 100001;
+    height: 250px;
+}
