@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/testlevel.css">
+</head>
+
+<body>
+    <section>
+        <section class="s2">
+            <div class="listBox">
+                <h1 class="intro">Trouve tous les objets <br />
+                    <div id="list">
+                        <ul>
+                            <li id="li1" class="apple listItem ">Chaudron</li>
+                            <li class="coin listItem">Chapeau</li>
+                            <li class="candle listItem">Potion</li>
+                        </ul>
+                        <ul>
+                            <li class="pear listItem">Grimoire</li>
+                            <li class="mouse listItem">Canne</li>
+                            <li class="key listItem">Parchemin</li>
+                        </ul>
+                    </div>
+            </div>
+            <a id="target" type="button" style="position:absolute; top:367px; left: 760px;"> <img width="50" height="50"
+                    src="../assets/img/coin.png"></a>
+        </section>
+    </section>
+    <div class="light">
+    </div>
+    <div id="dialog"></div>
+
+    <script>
+    </script>
+    <script src="" async defer></script>
+</body>
+<script>
+    const pos = document.documentElement;
+    pos.addEventListener('mousemove', e => {
+        pos.style.setProperty('--x', e.clientX + 'px')
+        pos.style.setProperty('--y', e.clientY + 'px')
+    })
+</script>
+<script>
+    var fadeTarget = document.getElementById("target");
+    var liCross = document.getElementById("li1");
+    fadeTarget.onclick = function () {
+        fadeTarget.classList.add("byebye");
+        setTimeout(function() {
+            liCross.classList.add("strike")
+        }, 1000)
+    };
+</script>
+<script>
+ var dialogs = ['Hello, i was so bored that i ended making this shit so yeah i am bored, as you can see i am bored !'],  
+    initial = 0;
+    individual = dialogs[initial].split('');
+
+function createDiag ( dialog ) {
+
+  for(i = 0; i < dialog.length; i++) {
+    (function(i){
+        
+      setTimeout(function(){
+        $('#dialog').text($('#dialog').text() +   dialog[i]);
+        if (i == dialog.length-1 ) {
+          $('#dialog').prepend('<div id="arrow"></div>');
+          Mousetrap.bind('enter', function() {
+            if (dialogs[initial+1]) {
+              $('#dialog').text('');
+              initial += 1;
+              individual = dialogs[initial].split('');
+              createDiag( individual );
+            }
+          });
+        }
+      }, 50*i);  
+    
+    }(i));
+    
+  }
+
+}
+
+createDiag( individual );
+
+
+</script>
+
+</html>
