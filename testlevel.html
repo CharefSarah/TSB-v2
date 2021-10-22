@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Mini jeu 2</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/testlevel.css">
@@ -39,7 +39,7 @@
             <a id="target3" type="button" style="position:absolute; top:470px; left:955px;"> <img width="50" height="90"
                     src="assets/img/potion.png"></a>
             <a id="target4" type="button" style="position:absolute; top:490px; left:25px;"> <img width="" height="300"
-                    src="assets/img/grimoire1.PNG"></a>
+                    src="assets/img/grimoire1.png"></a>
             <a id="target5" type="button" style="position:absolute; top:415px; left:590px;"> <img width="65"
                     height="400" src="assets/img/canne.png"></a>
             <a id="target6" type="button" style="position:absolute; top:770px; left:780px;"> <img width="120"
@@ -54,6 +54,18 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+    <script>
+        function lightCursor() {
+            $(document).on('mousemove', function (e) {
+                var xPos = e.pageX;
+                var yPos = e.pageY;
+                $('.circle-out').css({
+                    'top': yPos,
+                    'left': xPos
+                });
+            });
+        };
+    </script>
     <script>
         const pos = document.documentElement;
         pos.addEventListener('mousemove', e => {
@@ -193,6 +205,39 @@
             };
 
         };
+    </script>
+    <script>
+        const pos = document.documentElement;
+        pos.addEventListener('mousemove', e => {
+            pos.style.setProperty('--x', e.clientX + 'px')
+            pos.style.setProperty('--y', e.clientY + 'px')
+        })
+    </script>
+
+    <script>
+        const posM = document.documentElement;
+        const lgt = document.getElementById('light');
+
+        posM.addEventListener('touchstart', function (e) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+            console.log(clientX, clientY);
+            lgt.style.setProperty('--x', clientX + 'px');
+            lgt.style.setProperty('--y', clientY + 'px');
+        }, false);
+
+        posM.addEventListener('touchmove', e => {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+            lgt.style.setProperty('--x', clientX + 'px');
+            lgt.style.setProperty('--y', clientY + 'px');
+        });
+
+        posM.addEventListener('touchend', function (e) {
+            var deltaX, deltaY;
+            deltaX = e.changedTouches[0].clientX - clientX;
+            deltaY = e.changedTouches[0].clientY - clientY;
+        }, false);
     </script>
 </body>
 
