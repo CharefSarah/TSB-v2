@@ -45,7 +45,8 @@ section .s2 {
     padding-bottom: 25px;
 }
 
-.light {
+
+  .light {
     position: fixed;
     top: 0;
     left: 0;
