@@ -3,11 +3,16 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html{
+    overflow: hidden;
+}
 body {
     overflow: hidden;
 }
-
+:root {
+    --x: 250;
+    --y: 250;
+  }
 :root {
     --background: rgba(25, 7, 53, 0.959);
     --white: #FFFFFF;
@@ -46,7 +51,7 @@ section .s2 {
     height: 100%;
     pointer-events: none;
     background: radial-gradient(circle at var(--x) var(--y),
-            #f7ece417 8.5%, rgba(0, 0, 0, .985) 10%);
+            #f7ece417 8.5%, #070213fb 10%);
     z-index: 4;
 }
 
@@ -231,25 +236,25 @@ section .s2 {
 
 @media (max-width: 760px) {
 
-body{
-    min-height: 100%;
-    min-width: 100%;
-    overflow: hidden;
-    font-size:15px;
-}
-section {
-    position: relative;
-    min-height: 100vh;
-    min-width:100vw;
-    background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    body {
+        min-height: 100%;
+        min-width: 100%;
+        font-size: 15px;
+    }
+
+    section {
+        position: relative;
+        min-height: 100vh;
+        min-width: 100vw;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     section .s2 {
         background-image: url(../img/attic.png);
-        background-color: #4a00f8;
+        background-color: #201241;
         cursor: default;
         min-height: 100vh;
         min-width: 100vw;
@@ -261,27 +266,61 @@ section {
         align-items: flex-end;
         overflow: hidden;
     }
+
     .listBox {
         width: 150px;
         font-size: 12px;
     }
+
     .listBox li {
         font-size: 10px;
         font-family: "poppins";
     }
+
     .listBox h1 {
         font-size: 10px;
         margin-bottom: 160px;
         font-family: "poppins";
     }
-    #dialog{
+
+    #dialog {
         max-width: 350px;
         max-height: 50px;
         font-size: 9px;
         padding-bottom: 45px;
 
     }
-    #witch{
+
+    #witch {
         max-height: 100px;
     }
+
+    .light {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        min-height: 100vh;
+        min-width: 100vh;
+        overflow: hidden;
+    }
+}
+
+
+.circle-out {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  background: rgba(159, 255, 245, 1);
+  position: relative;
+  padding: 5px;
+  animation: grow .8s infinite;
+}
+.circle-in {
+  border-radius: 50%;
+  background: #D81159;
+  height: 40px;
+  width: 40px;
+  margin: 0 auto;
 }

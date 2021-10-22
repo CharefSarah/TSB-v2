@@ -46,16 +46,27 @@
                     height="35" src="assets/img/parchemin.png"></a>
         </section>
     </section>
-    <div id="light" class="light" ontouchmove="lightPhone(event)">
-    </div>
+    <div id="light" class="light" ontouchmove>   
+  
+
 
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script>
-            document.addEventListener("touchstart", function(){}, true);
-            </script>
+
+    <script>
+        function lightCursor() {
+            $(document).on('mousemove', function (e) {
+                var xPos = e.pageX;
+                var yPos = e.pageY;
+                $('.circle-out').css({
+                    'top': yPos,
+                    'left': xPos
+                });
+            });
+        };
+    </script>
     <script>
         const pos = document.documentElement;
         pos.addEventListener('mousemove', e => {
@@ -170,7 +181,39 @@
 
         };
     </script>
-  
+<script>
+    const pos = document.documentElement;
+    pos.addEventListener('mousemove', e => {
+        pos.style.setProperty('--x', e.clientX + 'px')
+        pos.style.setProperty('--y', e.clientY + 'px')
+    })
+</script>
+
+<script>
+    const posM = document.documentElement;
+    const lgt = document.getElementById('light');
+
+    posM.addEventListener('touchstart', function (e) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        console.log(clientX, clientY);
+        lgt.style.setProperty('--x', clientX + 'px');
+        lgt.style.setProperty('--y', clientY + 'px');
+    }, false);
+
+    posM.addEventListener('touchmove', e => {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+        lgt.style.setProperty('--x', clientX + 'px');
+        lgt.style.setProperty('--y', clientY + 'px');
+    });
+
+    posM.addEventListener('touchend', function (e) {
+        var deltaX, deltaY;
+        deltaX = e.changedTouches[0].clientX - clientX;
+        deltaY = e.changedTouches[0].clientY - clientY;
+    }, false);
+</script>
 </body>
 
 </html>
