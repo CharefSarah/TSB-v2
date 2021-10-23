@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAP</title>
+    <style>
+        @font-face {
+            font-family: Basalt;
+            src: url("assets/font/Basalt.ttf") format("TrueType");
+        }
+
+        body {
+            background-color: #16002C;
+        }
+
+        h1 {
+            font-size: 46px;
+            font-family: Basalt;
+            text-align: center;
+            color: #fff
+        }
+
+
+        button {
+            height: 60px;
+            width: 60px;
+            border-radius: 20px;
+            border: none;
+            background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
+            color: white;
+            font-family: Basalt;
+            font-size: 18px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            background: #0F0426;
+        }
+
+        button:hover:enabled {
+            border: 2px #689fff solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>NIVEAU</h1>
+    <button class="lvlBtn" level="1">
+        1
+    </button>
+    <button class="lvlBtn" level="2" disabled>
+        2
+    </button>
+    <button class="lvlBtn" level="3" disabled>
+        3
+    </button>
+    <button class="lvlBtn" level="4" disabled>
+        4
+    </button>
+    <button class="lvlBtn" level="5" disabled>
+        5
+    </button>
+    <button class="lvlBtnSpe" levelSpe="shop1" disabled>
+        Shop1
+    </button>
+    <button class="lvlBtn" level="6" disabled>
+        6
+    </button>
+    <button class="lvlBtn" level="7" disabled>
+        7
+    </button>
+    <button class="lvlBtn" level="8" disabled>
+        8
+    </button>
+    <button class="lvlBtnSpe" levelSpe="shop2" disabled>
+        Shop2
+    </button>
+    <button class="lvlBtn" level="9" disabled>
+        9 <br> Xorrun
+    </button>
+    <button class="lvlBtn" level="10" disabled>
+        10
+    </button>
+    <button class="lvlBtn" level="11" disabled>
+        11
+    </button>
+    <button class="lvlBtn" level="12" disabled>
+        12
+    </button>
+    <button class="lvlBtn" level="13" disabled>
+        13
+    </button>
+    <button class="lvlBtn" level="14" disabled>
+        14
+    </button>
+    <button class="lvlBtnSpe" levelSpe="shop3" disabled>
+        Shop3
+    </button>
+    <button class="lvlBtnSpe" id="levelTest" levelSpe="MJ2">
+        Objet<br>Caché
+    </button>
+    <button class="lvlBtn" level="15" disabled>
+        15
+    </button>
+    <button class="lvlBtn" level="16" disabled>
+        16
+    </button>
+    <button class="lvlBtn" level="17" disabled>
+        17
+    </button>
+    <button class="lvlBtn" level="18" disabled>
+        18
+    </button>
+    <button class="lvlBtnSpe" levelSpe="shop4" disabled>
+        Shop <br> spé
+    </button>
+    <button class="lvlBtn" level="20" disabled>
+        20
+    </button>
+    <button class="lvlBtn" level="21" disabled>
+        21
+    </button>
+    <button class="lvlBtn" level="22" disabled>
+        22
+    </button>
+    <button class="lvlBtn" level="23" disabled>
+        23
+    </button>
+    <button class="lvlBtn" level="24" disabled>
+        24
+    </button>
+    <button class="lvlBtn" level="25" disabled>
+        25
+    </button>
+    <button class="lvlBtn" level="26" disabled>
+        26
+    </button>
+    <button class="lvlBtn" level="27" disabled>
+        27
+    </button>
+    <button class="lvlBtn" level="28" disabled>
+        28
+    </button>
+    <button class="lvlBtnSpe" level="shop5" disabled>
+        XOnoth <br> shop
+    </button>
+    <button class="lvlBtn" level="29" disabled>
+        29
+    </button>
+    <button class="lvlBtn" level="30" disabled>
+        30
+    </button>
+
+    <br>
+    <button class="cheh">CLEAR</button>
+    <script>
+        // Tableau avec tout les button .lvlBtn ( tous sauf les niveaux spé normalement ).
+        var Button = document.querySelectorAll('.lvlBtn');
+        // Definition du 1er niveau max, sinon on peut rien lancer ce serait quand meme dommage.
+        var maxLvl = 1;
+
+        window.onload = function () {
+            LLSlvl = parseInt(localStorage.getItem("level"));
+            LSMaxLvl = parseInt(localStorage.getItem("maxLevel"));
+        };
+
+        window.onload = function () {
+            Button.forEach((item, index) => {
+                lvlButton = parseInt(item.getAttribute("level"));
+                maxLvl = parseInt(localStorage.getItem("maxLevel"));
+                if (lvlButton <= maxLvl + 1) {
+                    item.disabled = false;
+                }
+            });
+        };
+
+        Button.forEach((item, index) => {
+            item.addEventListener('click', function () {
+                var lvl = item.getAttribute('level');
+                var maxLvl = localStorage.getItem('maxLevel');
+                var lvlMath = parseInt(lvl);
+                var maxLvlMath = parseInt(maxLvl);
+
+                if (lvlMath >= maxLvlMath) {
+                    maxLvl = lvl;
+                } else {
+                    maxLvl = item.getAttribute('level');
+                }
+
+                localStorage.setItem("level", lvl);
+                localStorage.setItem("maxLevel", maxLvl);
+                setTimeout(function () {
+                    window.location.href = "game.html";
+                }, 1000);
+            })
+        });
+
+        document.querySelector('.cheh').addEventListener('click', function () {
+            window.localStorage.clear();
+            window.location.reload();
+
+        });
+
+
+        document.getElementById('levelTest').addEventListener('click', function () {
+            window.location.href = "testlevel.html";
+        })
+    </script>
+
+</body>
+
+</html>

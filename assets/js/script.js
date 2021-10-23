@@ -65,13 +65,17 @@ function SetHeroValue() {
 /* -------------------------------------------------------------------------- */
 /*                            Les grosses variables                           */
 /* -------------------------------------------------------------------------- */
-
-var round = 1;
+function levelToGet() {
+  var levelToGet = localStorage.getItem("level");
+  return levelToGet;
+}
+var round = levelToGet();
 document.getElementById("round").innerHTML = round;
 
 var life = 3;
-
+var coin = 150;
 var stockPotion = 3;
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -145,21 +149,68 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
 }
 
 //Creation du méchant selon le nombre de round: 
+//Creation du méchant selon le nombre de round: 
 function CreateBadGuy() {
   if (round == 1) {
     var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
   } else if (round == 2) {
-    var badGuy = new BadGuy("Loup", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup2", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
   } else if (round == 3) {
-    var badGuy = new BadGuy("Loup", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup3", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
   } else if (round == 4) {
-    var badGuy = new BadGuy("Loup", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup4", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png")
+    var badGuy = new BadGuy("Loup5", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
   } else if (round == 6) {
-    var badGuy = new BadGuy("APU", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png")
+    var badGuy = new BadGuy("Loup6", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
   } else if (round == 7) {
-    var badGuy = new BadGuy("Loup", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png")
+    var badGuy = new BadGuy("Loup7", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 8) {
+    var badGuy = new BadGuy("Loup8", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 9) {
+    var badGuy = new BadGuy("Loup9", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 10) {
+    var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png");
+  } else if (round == 11) {
+    var badGuy = new BadGuy("Loup11", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+  } else if (round == 12) {
+    var badGuy = new BadGuy("Loup12", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+  } else if (round == 13) {
+    var badGuy = new BadGuy("Loup13", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+  } else if (round == 14) {
+    var badGuy = new BadGuy("Loup14", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+  } else if (round == 15) {
+    var badGuy = new BadGuy("Loup15", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+  } else if (round == 16) {
+    var badGuy = new BadGuy("Loup16", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png");
+  } else if (round == 17) {
+    var badGuy = new BadGuy("Loup17", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 18) {
+    var badGuy = new BadGuy("Loup18", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 19) {
+    var badGuy = new BadGuy("Loup19", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 20) {
+    var badGuy = new BadGuy("Xonoth2", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png");
+  } else if (round == 21) {
+    var badGuy = new BadGuy("Loup21", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+  } else if (round == 22) {
+    var badGuy = new BadGuy("Loup22", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+  } else if (round == 23) {
+    var badGuy = new BadGuy("Loup23", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+  } else if (round == 24) {
+    var badGuy = new BadGuy("Loup24", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+  } else if (round == 25) {
+    var badGuy = new BadGuy("Loup25", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+  } else if (round == 26) {
+    var badGuy = new BadGuy("Loup26", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png");
+  } else if (round == 27) {
+    var badGuy = new BadGuy("Loup27", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 28) {
+    var badGuy = new BadGuy("Loup28", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 29) {
+    var badGuy = new BadGuy("Loup29", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+  } else if (round == 30) {
+    var badGuy = new BadGuy("Xonoth3", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png");
   }
   return badGuy
 }
@@ -242,6 +293,8 @@ function fillModalAndBg(bg, title, text) {
 }
 
 function ModalProgress() {
+  round = parseInt(round);
+
   // J'ai remplacé les 31 if par un switch case.
   // si tu te souviens pas " Switch (variable qu'on va check)"
   // et chaque "case" c'est un if qui verifie que la varialbe est egale ou pas a ce qu'on a mit aprés "case" 
@@ -613,21 +666,25 @@ window.addEventListener("load", function () {
 // mort du méchant
 function DeathEnemy() {
   if (badGuy.health <= 0) {
-    round++;
-    playLu()
-    document.getElementById("round").innerHTML = round;
-    badGuy = CreateBadGuy();
-    badGuy.health = badGuy.maxHealth
-    DisplayBadGuy();
-    addLife();
-    addPotion();
-    basicAttack = 30;
-    document.getElementById("basicAttack").innerHTML = basicAttack;
-    document.getElementById("baseAttack").disabled = false;
-    bigAttack = 10;
-    document.getElementById("bigAttack").innerHTML = bigAttack;
-    document.getElementById("heavyAttack").disabled = false;
-    ModalProgress();
+    round++; // round
+    localStorage.setItem("level", round);
+    playLu();
+    setTimeout(function () {
+      window.location.href = "map.html"
+    }, 1200);
+    // document.getElementById("round").innerHTML = round;
+    // badGuy = CreateBadGuy();
+    // badGuy.health = badGuy.maxHealth
+    // DisplayBadGuy();
+    // addLife();
+    // addPotion();
+    // basicAttack = 30;
+    // document.getElementById("basicAttack").innerHTML = basicAttack;
+    // document.getElementById("baseAttack").disabled = false;
+    // bigAttack = 10;
+    // document.getElementById("bigAttack").innerHTML = bigAttack;
+    // document.getElementById("heavyAttack").disabled = false;
+    // ModalProgress();
 
   }
 }
@@ -919,51 +976,51 @@ var save = {
 /*                        Fonction lié aux sauvegardes                        */
 /* -------------------------------------------------------------------------- */
 /* ------------------------ Sauvegarde sur meme page ------------------------ */
-function saveGame() {
-  try {
-    // on enregistre tout l'objet SAVE et on l'appelle "sauvegarde"
-    localStorage.setItem("sauvegarde", JSON.stringify(save))
-  } catch (err) {
-    // si ca marche pas on met ca, on pourra mettre une alerte ou autre chose plsu tard.
-    console.log("Acces impossible?!")
-  }
-  // si ca marche un message de succes a la place.
-  console.log('Sauvegardé avec succes');
-}
+// function saveGame() {
+//   try {
+//     // on enregistre tout l'objet SAVE et on l'appelle "sauvegarde"
+//     localStorage.setItem("sauvegarde", JSON.stringify(save))
+//   } catch (err) {
+//     // si ca marche pas on met ca, on pourra mettre une alerte ou autre chose plsu tard.
+//     console.log("Acces impossible?!")
+//   }
+//   // si ca marche un message de succes a la place.
+//   console.log('Sauvegardé avec succes');
+// }
 /* ---- Sauvegarde si on doit bouger de page, le parametre c'est le lien ---- */
 /* --------------------- ex : saveOnRedirect(index.html) -------------------- */
-function saveOnRedirect(page) {
-  e.preventDefault();
-  // Ca lance la fonction au dessus puis ca redirige vers la page en parametre, le timeout est monstrueux mais c'etait pour tester.
-  saveGame();
-  setTimeout(function () {
-    window.location.href = page;
-  }, 6000);
-  // timeout a changer + eventuellement loader a mettre
-};
+// function saveOnRedirect(page) {
+//   e.preventDefault();
+//   // Ca lance la fonction au dessus puis ca redirige vers la page en parametre, le timeout est monstrueux mais c'etait pour tester.
+//   saveGame();
+//   setTimeout(function () {
+//     window.location.href = page;
+//   }, 6000);
+//   // timeout a changer + eventuellement loader a mettre
+// };
 
 /* ----------------- Premiere save a la selection du perso ------------------ */
-document.querySelector('.classSelect').addEventListener('click', function () {
-  saveGame();
+// document.querySelector('.classSelect').addEventListener('click', function () {
+//   saveGame();
 
-})
+// })
 
 /* ------------------------------- Chargement ------------------------------- */
-function loadGame() {
-  // On recupere la save qui s'appelle "sauvegarde".
-  var save = JSON.parse(localStorage.getItem("sauvegarde"));
-  if (save == null) {
-    // Error si y'as rien de trouvé
-    console.log('ERROR');
-  } else {
-    // Sinon on la console.log pour pouvoir verifier, faudra changer quand on aura tout fini
-    console.log(save);
-  }
-};
+// function loadGame() {
+//   // On recupere la save qui s'appelle "sauvegarde".
+//   var save = JSON.parse(localStorage.getItem("sauvegarde"));
+//   if (save == null) {
+//     // Error si y'as rien de trouvé
+//     console.log('ERROR');
+//   } else {
+//     // Sinon on la console.log pour pouvoir verifier, faudra changer quand on aura tout fini
+//     console.log(save);
+//   }
+// };
 
-window.onload = function () {
-  loadGame(save.playername);
-}
+// window.onload = function () {
+//   loadGame(save.playername);
+// }
 
 /* ------------------------------- Suppression ------------------------------ */
 // Faudra surement la lien a un bouton dans les parametres je pense, genre " recommencer TOUT " 
