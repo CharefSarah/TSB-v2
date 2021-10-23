@@ -14,6 +14,8 @@
 
         body {
             background-color: #16002C;
+            padding-left: 200px;
+            padding-right: 200px;
         }
 
         h1 {
@@ -49,6 +51,9 @@
 
 <body>
     <h1>NIVEAU</h1>
+    <!-- L'attribut level c'est du fait maison pour recuperer a 
+        chaque fois la valeur. C'est plus simple que d'utiliser un ID
+    et ca evite de creer des bugs -->
     <button class="lvlBtn" level="1">
         1
     </button>
@@ -164,21 +169,27 @@
         var maxLvl = 1;
 
         window.onload = function () {
+            // On charge les "cookies" pour le lvl et le lvl max, pour charger le bon niveau et limiter au niveau déja fait.
             LLSlvl = parseInt(localStorage.getItem("level"));
             LSMaxLvl = parseInt(localStorage.getItem("maxLevel"));
         };
 
         window.onload = function () {
+            // Pour chaque bouton .lvlButton, on prend l'attribut "level" et on l'enregistre pour charger le bon niveau via le script.
+            // Si c'est un niveau superieur au dernier niveau qu'on a fait on augmente "maxLvl" histoire de débloquer celui d'aprés.
+            // SI y'as un truc pas clair, t'hesites pas surtout, c'est pas forcément bien expliquer je le crains ^^ 
             Button.forEach((item, index) => {
                 lvlButton = parseInt(item.getAttribute("level"));
                 maxLvl = parseInt(localStorage.getItem("maxLevel"));
                 if (lvlButton <= maxLvl + 1) {
+                    // Remplace "maxLvl + 1" par "30" ou plus si tu veux tester n'importe quel lvl.
                     item.disabled = false;
                 }
             });
         };
 
         Button.forEach((item, index) => {
+            // ca c'est la fonction pour aller chercher le bon niveau du coup, au dessus c'etait uniquement pour autoriser et disabled les niveaux dont on a acces ou non.
             item.addEventListener('click', function () {
                 var lvl = item.getAttribute('level');
                 var maxLvl = localStorage.getItem('maxLevel');
@@ -193,19 +204,23 @@
 
                 localStorage.setItem("level", lvl);
                 localStorage.setItem("maxLevel", maxLvl);
+                // Redirection une fois qu'on a enregistré nos cookies.
                 setTimeout(function () {
                     window.location.href = "game.html";
                 }, 1000);
             })
         });
 
+
+        // Fonction pour clear les saves, faudrat le mettre dans les options avec une confirmation je pense.
+        // mais pour tester je l'ai mit a coté
         document.querySelector('.cheh').addEventListener('click', function () {
             window.localStorage.clear();
             window.location.reload();
-
+            // Le clear refresh histoire d'eviter des soucis
         });
 
-
+        // Redirection a faire pour les niveau speciaux, du coup j'ai juste mit le tiens pour l'instant
         document.getElementById('levelTest').addEventListener('click', function () {
             window.location.href = "testlevel.html";
         })
