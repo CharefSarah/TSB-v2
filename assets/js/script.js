@@ -82,7 +82,7 @@ var stockPotion = 3;
 /* -------------------------------------------------------------------------- */
 
 /* ----------------------------- Construct Hero  ----------------------------- */
-function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse) {
+function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse, bruitage) {
   this.name = name;
   this.level = level;
   this.health = health;
@@ -101,6 +101,7 @@ function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cri
   this.weaponValue = weaponValue;
   this.resistance = resistance;
   this.faiblesse = faiblesse;
+  this.bruitage = bruitage;
 }
 
 /* ----------------------- Attaques des persos + ratio ---------------------- */
@@ -121,9 +122,9 @@ var xorrunAttacks = [
 ]
 
 /* ------------------------------- Objet Hero ------------------------------- */
-var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none');
-var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none');
-var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none');
+var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'bruit.mp3');
+var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'bruit.mp3');
+var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'bruit.mp3');
 
 
 
@@ -134,7 +135,7 @@ var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xo
 /* -------------------------------------------------------------------------- */
 /*                              CONSTRUCT MECHANT                             */
 /* -------------------------------------------------------------------------- */
-function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDamageMin, baseDamageMax, resistance, faiblesse, imagePath) {
+function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDamageMin, baseDamageMax, resistance, faiblesse, imagePath, bruitage) {
   this.name = name;
   this.health = health;
   this.maxHealth = maxHealth;
@@ -145,71 +146,72 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
   this.resistance = resistance;
   this.faiblesse = faiblesse;
   this.imagePath = imagePath;
+  this.bruitage = bruitage
 }
 
 //Creation du méchant selon le nombre de round: 
 //Creation du méchant selon le nombre de round: 
 function CreateBadGuy() {
   if (round == 1) {
-    var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 2) {
-    var badGuy = new BadGuy("Loup2", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup2", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 3) {
-    var badGuy = new BadGuy("Loup3", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup3", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 4) {
-    var badGuy = new BadGuy("Loup4", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup4", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup5", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup5", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 6) {
-    var badGuy = new BadGuy("Loup6", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup6", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 7) {
-    var badGuy = new BadGuy("Loup7", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup7", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 8) {
-    var badGuy = new BadGuy("Loup8", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup8", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 9) {
-    var badGuy = new BadGuy("Loup9", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup9", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 10) {
-    var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png");
+    var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 11) {
-    var badGuy = new BadGuy("Loup11", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup11", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 12) {
-    var badGuy = new BadGuy("Loup12", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup12", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 13) {
-    var badGuy = new BadGuy("Loup13", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup13", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 14) {
-    var badGuy = new BadGuy("Loup14", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup14", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 15) {
-    var badGuy = new BadGuy("Loup15", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup15", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 16) {
-    var badGuy = new BadGuy("Loup16", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png");
+    var badGuy = new BadGuy("Loup16", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png", 'bruit.mp3');
   } else if (round == 17) {
-    var badGuy = new BadGuy("Loup17", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup17", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 18) {
-    var badGuy = new BadGuy("Loup18", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup18", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 19) {
-    var badGuy = new BadGuy("Loup19", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup19", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 20) {
-    var badGuy = new BadGuy("Xonoth2", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png");
+    var badGuy = new BadGuy("Xonoth2", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 21) {
-    var badGuy = new BadGuy("Loup21", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup21", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 22) {
-    var badGuy = new BadGuy("Loup22", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup22", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 23) {
-    var badGuy = new BadGuy("Loup23", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup23", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 24) {
-    var badGuy = new BadGuy("Loup24", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup24", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 25) {
-    var badGuy = new BadGuy("Loup25", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup25", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 26) {
-    var badGuy = new BadGuy("Loup26", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png");
+    var badGuy = new BadGuy("Loup26", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/buttonu.png", 'bruit.mp3');
   } else if (round == 27) {
-    var badGuy = new BadGuy("Loup27", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup27", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 28) {
-    var badGuy = new BadGuy("Loup28", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup28", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 29) {
-    var badGuy = new BadGuy("Loup29", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png");
+    var badGuy = new BadGuy("Loup29", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 30) {
-    var badGuy = new BadGuy("Xonoth3", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png");
+    var badGuy = new BadGuy("Xonoth3", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   }
   return badGuy
 }
