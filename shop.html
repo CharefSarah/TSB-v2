@@ -16,129 +16,88 @@
             <div class="shopping">
                 <div class="itemsInfos">
                     <div class="itemsTitle">
-                        <h1>TITLE</h1>
+                        <h1>Boutique</h1>
                     </div>
                     <div class="item1"></div>
                     <div class="item1"></div>
-                    <div class="item1"></div>
-                </div>
-                <div class="itemCol">
-                    <p>vrtgtrgrf</p>
-                    <p>hjntyddghn</p>
-                    <p>vrtgtrgrf</p>
-                    <p>hjntyddghn</p>
-                    <p>vrtgtrgrf</p>
-                    <p>hjntyddghn</p>
                 </div>
             </div>
             <div class="items">
-                <p id="moula"><img id="coin" src="assets/img/coin.png"> : <span id="stockMoulaga"></span></p>
+                <p id="moula">Pièces <img id="coin" src="assets/img/coin.png"> X <span id="stockMoulaga"></span></p>
             </div>
         </div>
         <div class="bgDialog">
-            <div class="rowD">
-                <img id="villageois" src="assets/img/villageoisD.png">
-                <h1>Le vendeur</h1>
-                <div id="dialog"></div>
-            </div>
         </div>
-
-
-        <div class="settings">
-            <img src="assets/img/settingsKog.png" alt="">
+        <div id="divButton">
+            <button id="buttonRAS"><a>Rien acheter</a></button></div>
         </div>
+    </div>
+ 
 
 
 
-        <!-- ----------------------------- Settings modal ----------------------------- -->
-        <div class="settingsPanel settings-hidden">
-            <p>Paramètres :</p>
-            <div class="panelInside">
-                <div class="panelLeft">
-                    <p class="panelTitle">Son : </p>
-                    <div class="SFX">
-                        <p>Volume SFX : </p>
-                        <div class="SFXGauge soundGauge"></div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <div class="music">
-                        <p>Volume Musique :</p>
-                        <div class="musicGauge soundGauge"></div>
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+    <div class="settings">
+        <img src="assets/img/settingsKog.png" alt="">
+    </div>
+
+
+
+    <!-- ----------------------------- Settings modal ----------------------------- -->
+    <div class="settingsPanel settings-hidden">
+        <p>Paramètres :</p>
+        <div class="panelInside">
+            <div class="panelLeft">
+                <p class="panelTitle">Son : </p>
+                <div class="SFX">
+                    <p>Volume SFX : </p>
+                    <div class="SFXGauge soundGauge"></div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <div class="panelRight">
-                    <p class="panelTitle">Langue : </p>
-                    <div class="selectLanguage">
-                        <img class="flag" src="assets/img/FRF.PNG" alt="">
-                        <img class="flag" src="assets/img/UKF.png" alt="">
-                    </div>
+                <div class="music">
+                    <p>Volume Musique :</p>
+                    <div class="musicGauge soundGauge"></div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider round"></span>
+                    </label>
                 </div>
             </div>
-            <button class="settingsValidate">
-                Valider
-            </button>
+            <div class="panelRight">
+                <p class="panelTitle">Langue : </p>
+                <div class="selectLanguage">
+                    <img class="flag" src="assets/img/FRF.PNG" alt="">
+                    <img class="flag" src="assets/img/UKF.png" alt="">
+                </div>
+            </div>
         </div>
+        <button class="settingsValidate">
+            Valider
+        </button>
+    </div>
 
 
-        <script>
-            var dialogs = ['"Bon bin encore une journée de plus en moins"... "il veux quoi le jeûnot ?"'],
-                initial = 0;
-            individual = dialogs[initial].split('');
+    <script>
 
-            function createDiag(dialog) {
-
-                for (i = 0; i < dialog.length; i++) {
-                    (function (i) {
-
-                        setTimeout(function () {
-                            $('#dialog').text($('#dialog').text() + dialog[i]);
-                            if (i == dialog.length - 1) {
-                                $('#dialog').prepend('<div id="arrow"></div>');
-                                Mousetrap.bind('enter', function () {
-                                    if (dialogs[initial + 1]) {
-                                        $('#dialog').text('');
-                                        initial += 1;
-                                        individual = dialogs[initial].split('');
-                                        createDiag(individual);
-                                    }
-                                });
-                            }
-                        }, 50 * i);
-
-                    }(i));
-
-                }
-
-            }
-
-            createDiag(individual);
-        </script>
-
-        <script>
-            var settings = document.querySelector('.settings');
-            var settingsPanel = document.querySelector('.settingsPanel');
-            settings.onclick = function () {
-                settingsPanel.classList.toggle('settings-hidden');
-            }
-        </script>
-        <script src="https://code.jquery.com/jquery-3.6.0.js"
-            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
-        <script src="assets/js/soundDesign.js"></script>
-        <script src="assets/js/game.js"></script>
-        <script src="assets/js/video.js"></script>
-        <script src="assets/js/script.js"></script>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        var settings = document.querySelector('.settings');
+        var settingsPanel = document.querySelector('.settingsPanel');
+        settings.onclick = function () {
+            settingsPanel.classList.toggle('settings-hidden');
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+        integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+    <script src="assets/js/soundDesign.js"></script>
+    <script src="assets/js/game.js"></script>
+    <script src="assets/js/video.js"></script>
+    <script src="assets/js/script.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

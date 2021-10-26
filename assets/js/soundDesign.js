@@ -42,7 +42,7 @@ var audioNiveau9track = new Audio("assets/music/bar.mp3");
 //bruits
 // 
 var audioNiveau1bg = new Audio("assets/music/rural1.mp3");
-var audioNiveau2bg = new Audio("assets/music/Town.wav");
+var audioNiveau2bg = new Audio("assets/Sound/mysound.mp3");
 var audioNiveau6bg = new Audio("assets/sound/stream.wav");
 var audioNiveau7bg = new Audio("assets/Sound/forest.wav");
 var audioNiveau8bg = new Audio("assets/Sound/rain.wav");
