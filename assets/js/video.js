@@ -9,7 +9,7 @@ document.querySelector('.launchButton').addEventListener('click', function () {
   iframe.style.display = "block";
   iframe.play();
   setTimeout(function () {
-    window.location.href = "game.html";
+    window.location.href = "map.html";
   }, 5500);
 });
 
@@ -21,6 +21,6 @@ document.querySelector('.launchButton2').addEventListener('click', function () {
   iframe.style.display = "block";
   iframe.play();
   setTimeout(function () {
-    window.location.href = "game.html";
+    window.location.href = "map.html";
   }, 5500);
 });
