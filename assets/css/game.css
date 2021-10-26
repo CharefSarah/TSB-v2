@@ -1,7 +1,14 @@
+/* -------------------------------------------------------------------------- */
+/*                                    FONTS                                   */
+/* -------------------------------------------------------------------------- */
+/* Basalt */
 @font-face {
     font-family: Basalt;
     src: url("/assets/font/Basalt.ttf");
 }
+
+/* Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
 #d2 {
@@ -22,18 +29,21 @@
 
 body {
     overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
 }
 
+
+
 main {
-    /* background */
-    background-position: 25% 0%;
-    /* position */
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-/* ---------------------------------- Level --------------------------------- */
+
 .info {
     height: 80px;
     width: auto;
@@ -47,7 +57,7 @@ main {
     margin-left: 2%;
 }
 
-/* ----------------------------- Card des persos ---------------------------- */
+
 .combat {
     display: flex;
     height: 40%;
@@ -120,50 +130,6 @@ main {
 .life img {
     width: 35px;
     height: 35px;
-}
-
-.bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hp {
-    box-sizing: border-box;
-    width: 200px;
-    height: 18px;
-    padding: 5px;
-    background: #ddd;
-    border-radius: 20px;
-    position: relative;
-}
-
-.hpBar {
-    background: rgb(2, 250, 76);
-    box-shadow: 0 5px 50px 0 rgb(2 250 76) inset, 0 5px 90px 0 rgb(2 250 76) inset, 0 5px 25px 0 rgb(2 250 76);
-    width: 100%;
-    height: 10px;
-    border-radius: 20px;
-    position: relative;
-    transition: width .5s ease;
-}
-
-.mana {
-    box-sizing: border-box;
-    width: 200px;
-    height: 14px;
-    padding: 5px;
-    border-radius: 5px;
-    position: relative;
-}
-
-.manaBar {
-    background: linear-gradient(to right, #0A1E75 0%, #0047FF 50%, #E800FC 80%);
-    width: 0%;
-    height: 7px;
-    border-radius: 8px;
-    position: relative;
-    transition: width .5s linear;
 }
 
 .portrait img {
@@ -239,7 +205,78 @@ main {
 }
 
 
-/* --------------------------------- Control -------------------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   JAUGES                                   */
+/* -------------------------------------------------------------------------- */
+.bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#healthBar {
+    box-sizing: border-box;
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.hp {
+    box-sizing: border-box;
+    width: 200px;
+    height: 18px;
+    padding: 5px;
+    background: #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.hpBar {
+    background: rgb(2, 250, 76);
+    box-shadow: 0 5px 50px 0 rgb(2 250 76) inset, 0 5px 90px 0 rgb(2 250 76) inset, 0 5px 25px 0 rgb(2 250 76);
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    position: relative;
+    transition: width .5s ease;
+}
+
+
+.badguyBar {
+    background: rgb(255, 0, 0);
+    box-shadow: 0 5px 50px 0 rgb(255, 0, 0) inset, 0 5px 150px 0 rgb(255, 0, 0),
+        0 5px 90px 0 rgb(255, 0, 0) inset, 0 5px 25px 0 rgb(255, 0, 0);
+    border-radius: 10px;
+    width: 100%;
+    height: 10px;
+    position: relative;
+    transition: width .5s linear;
+}
+
+
+.mana {
+    box-sizing: border-box;
+    width: 200px;
+    height: 14px;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.manaBar {
+    background: linear-gradient(to right, #0A1E75 0%, #0047FF 50%, #E800FC 80%);
+    width: 0%;
+    height: 7px;
+    border-radius: 8px;
+    position: relative;
+    transition: width .5s linear;
+}
+
 .control {
     width: 40%;
     min-width: 620px;
@@ -259,7 +296,7 @@ button {
 }
 
 button:disabled {
-    background: linear-gradient(90deg, #542657 -20.18%, #433452 121.1%);
+    background: black;
 }
 
 .controlLine {
@@ -278,7 +315,6 @@ button:disabled {
     color: var(--white);
     transition: all 0.12 ease;
 
-    /* POSITION */
     display: grid;
     grid-template-columns: 30% 70%;
     padding-left: 12px;
@@ -326,7 +362,6 @@ button:disabled {
 
 
 
-/* --------------------------------- sidebar -------------------------------- */
 .side {
     height: 100vh;
     width: 120px;
@@ -355,7 +390,6 @@ button:disabled {
 }
 
 
-/* -------------------------------- Settings -------------------------------- */
 .settings {
     position: absolute;
     left: 30px;
@@ -382,7 +416,6 @@ button:disabled {
     transition: 1s;
 }
 
-/* -------------------------------- Parametre ------------------------------- */
 
 .settingsPanel {
     position: absolute;
@@ -435,7 +468,6 @@ button:disabled {
     margin-bottom: 20px;
 }
 
-/* --------------------------------- TOGGLE --------------------------------- */
 .switch {
     position: relative;
     display: inline-block;
@@ -519,7 +551,6 @@ input:checked+.slider:before {
     filter: blur(1px) grayscale(20%);
 }
 
-/* ---------------------------- Bouton validation --------------------------- */
 .settingsValidate {
     height: 60px;
     width: 220px;
