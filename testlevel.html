@@ -17,6 +17,7 @@
         <section class="s2">
             <div id="dialog"></div>
             <img id="witch" src="assets/img/witch.png">
+            <div class="combatText"></div>
             <div class="listBox">
                 <h1 class="intro">Trouve tous les objets !<br />
                     <div id="list">
@@ -32,17 +33,17 @@
                         </ul>
                     </div>
             </div>
-            <a id="target1" type="button" style="position:absolute; top:40%; left:55%;"> <img width="160" height="320"
+            <a id="target1" type="button"> <img id="img1" 
                     src="assets/img/chaudron.png"></a>
-            <a id="target2" type="button" style="position:absolute; top:72%; left:84%;"> <img width="180" height="100"
+            <a id="target2" type="button" style="position:absolute; top:72%; left:84%;"> <img width="66%" height="49%"
                     src="assets/img/hat.png"></a>
-            <a id="target3" type="button" style="position:absolute; top:47.7%; left:48%;"> <img width="50" height="90"
+            <a id="target3" type="button" style="position:absolute; top:49.7%; left:48%;"> <img width="50%" height="90%"
                     src="assets/img/potion.png"></a>
-            <a id="target4" type="button" style="position:absolute; top:45%; left:1%;"> <img width="" height="300"
+            <a id="target4" type="button" style="position:absolute; top:54%; left:1%;"> <img width="110%" height="210%"
                     src="assets/img/grimoire1.png"></a>
-            <a id="target5" type="button" style="position:absolute; top:48%; left:31%;"> <img width="65" height="400"
+            <a id="target5" type="button" style="position:absolute; top:48%; left:31%;"> <img width="120%" height="150%"
                     src="assets/img/canne.png"></a>
-            <a id="target6" type="button" style="position:absolute; top:76%; left:40%;"> <img width="120" height="35"
+            <a id="target6" type="button" style="position:absolute; top:75%; left:40%;"> <img width="80%" height="10%"
                     src="assets/img/parchemin.png"></a>
         </section>
     </section>
@@ -196,9 +197,10 @@
                 .contains("strike") && document.getElementById("li3").classList.contains("strike") && document
                 .getElementById("li4").classList.contains("strike") && document.getElementById("li5").classList
                 .contains("strike") && document.getElementById("li6").classList.contains("strike")) {
-                var GG = "po mol psartek";
+                var GG = "Bravo ! Tiens prend ces potions ";
                 document.getElementById("dialog").innerHTML = "";
                 createDiag(GG);
+                TextDisplay();
 
             } else {
 
@@ -238,6 +240,17 @@
             deltaX = e.changedTouches[0].clientX - clientX;
             deltaY = e.changedTouches[0].clientY - clientY;
         }, false);
+    </script>
+    <script>
+        var combatText = document.querySelector('.combatText');
+        function TextDisplay(message) {
+    CombatText.classList.toggle('combatTextAnimation');
+    setTimeout(function () {
+      CombatText.classList.toggle('combatTextAnimation');
+    }, 2100);
+
+}
+
     </script>
 </body>
 
