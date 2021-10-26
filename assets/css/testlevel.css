@@ -4,17 +4,19 @@
     box-sizing: border-box;
 }
 
-html{
+html {
     overflow: hidden;
 }
 
 body {
     overflow: hidden;
 }
+
 :root {
     --x: 250;
     --y: 250;
-  }
+}
+
 :root {
     --background: rgba(25, 7, 53, 0.959);
     --white: #FFFFFF;
@@ -46,7 +48,7 @@ section .s2 {
 }
 
 
-  .light {
+.light {
     position: fixed;
     top: 0;
     left: 0;
@@ -55,7 +57,7 @@ section .s2 {
     pointer-events: none;
     background: radial-gradient(circle at var(--x) var(--y),
             #f7ece417 8.5%, #070213fb 10%);
-    z-index: 4;
+    z-index: 4; 
 }
 
 
@@ -311,19 +313,38 @@ section .s2 {
 }
 
 
-.circle-out {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  background: rgba(159, 255, 245, 1);
-  position: relative;
-  padding: 5px;
-  animation: grow .8s infinite;
+
+.combatTextAnimation {
+    animation: combatText 2s ease-out;
+    animation-fill-mode: forwards;
+    color: blue;
+    text-align: center;
+    font-size: 250px;
+    z-index: 10000000;
+
 }
-.circle-in {
-  border-radius: 50%;
-  background: #D81159;
-  height: 40px;
-  width: 40px;
-  margin: 0 auto;
+
+@keyframes combatText {
+    from {
+        margin-top: 0;
+        opacity: 100%;
+
+    }
+
+    to {
+        margin-top: -110px;
+        opacity: 0%;
+    }
+
+}
+
+#target1 {
+    position: fixed;
+    top: 49%;
+    left: 53%;
+}
+
+#img1 {
+    height: auto;
+    width: 70%;
 }
