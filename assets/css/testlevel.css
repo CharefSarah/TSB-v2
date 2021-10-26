@@ -57,7 +57,7 @@ section .s2 {
     pointer-events: none;
     background: radial-gradient(circle at var(--x) var(--y),
             #f7ece417 8.5%, #070213fb 10%);
-    z-index: 4; 
+    z-index: 4;  
 }
 
 
