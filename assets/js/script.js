@@ -13,7 +13,6 @@ SOMMAIRE
 #L.769 - Critiques et Attaques
 #L.825 - Trigger de tout sur l'attaque
 #L.887 - Potion
-#L.939 - Disable button 
 #L.962 - SIdebar
 #L.986 - ++++++++++++
 */
@@ -29,7 +28,7 @@ function togg() {
   if (getComputedStyle(d2).display != "none") {
     d2.style.display = "none";
   } else {
-    d2.style.display = "flex";
+    d2.style.display = "flex"
   }
 };
 
@@ -255,43 +254,6 @@ function HeroTextDisplay(message) {
 /*                                    MODAL                                   */
 /* -------------------------------------------------------------------------- */
 
-function ModalDeathHero() {
-  document.getElementById("baseAttack").disabled = "true";
-  document.getElementById("heavyAttack").disabled = "true";
-  document.getElementById("potion").disabled = "true";
-  document.getElementById("modalDeathHero").style.display = "block";
-}
-document.getElementById("dismissDeathHero").addEventListener("click", function () {
-  document.getElementById("baseAttack").disabled = false;
-  document.getElementById("heavyAttack").disabled = false;
-  document.getElementById("potion").disabled = false;
-  document.getElementById("modalDeathHero").style.display = "none";
-});
-
-function ModalDeathEnnemy() {
-  document.getElementById("baseAttack").disabled = "true";
-  document.getElementById("heavyAttack").disabled = "true";
-  document.getElementById("potion").disabled = "true";
-  document.getElementById("modalDeathEnnemy").style.display = "block";
-}
-document.getElementById("dismissDeathEnnemy").addEventListener("click", function () {
-  document.getElementById("baseAttack").disabled = false;
-  document.getElementById("heavyAttack").disabled = false;
-  document.getElementById("potion").disabled = false;
-  document.getElementById("modalDeathEnnemy").style.display = "none";
-});
-
-// Fonction pour remplir les modals et faire tout ce qu'on faisait avant dans les if.
-function fillModalAndBg(bg, title, text) {
-  document.body.style.backgroundImage = bg;
-  document.getElementById("modalProgressTitle").innerHTML = title;
-  document.getElementById("modalProgressText").innerHTML = text;
-  document.getElementById("baseAttack").disabled = "true";
-  document.getElementById("heavyAttack").disabled = "true";
-  document.getElementById("potion").disabled = "true";
-  document.getElementById("modalProgress").style.display = "block";
-}
-
 function ModalProgress() {
   round = parseInt(round);
 
@@ -306,176 +268,113 @@ function ModalProgress() {
       audiooo(audioNiveau1bg);
       break;
     case 2:
-      // On lance la variable avec comme argument l'url du background, le titre de la modale,le texte. )
-      fillModalAndBg("url(assets/img/level2.jpg)", "A L'AVENTURE !", "Votre périple commence depuis Myrefall, occupé par les forces de Void les shield-bearers décident de le libérer ! <br>Attaquez les orques qui vous assiègent");
+      document.body.style.backgroundImage = "url(assets/img/level2.jpg)";
       pauseAudio(audioNiveau1bg);
       audiooo(audioNiveau2bg);
       break;
     case 3:
-      fillModalAndBg("url(assets/img/level3.jpg)", "BIEN JOUE ! ", "Vous avez vaincu les orques qui occupaient Myrefall ! <br>A peine la bataille terminée vous entendez au loin les renfort de Xonoth arrivés !");
+      document.body.style.backgroundImage = "url(assets/img/level3.jpg)"
       break;
     case 4:
-      fillModalAndBg("url(assets/img/level4.jpg)", "BIEN JOUÉ !", "Vous avez repoussé les renforts orques et vous remarquez que leurs traces remontent jusqu'au marais, sur la route vous croisez une seconde vague.");
+      audiooo(audioNiveau1track);
+      document.body.style.backgroundImage = "url(assets/img/level4.jpg)"
       break;
     case 5:
-      fillModalAndBg("url(assets/img/level5.jpg)", "BIEN JOUÉ !", "Encore d'autres orques vaincus ! Après cette récente bataille vous arrivez enfin aux abords des marais bordant Myrefall... <br>Ils grouillent d'orques !")
+      document.body.style.backgroundImage = "url(assets/img/level5.jpg)"
       break;
     case 6:
-      fillModalAndBg("url(assets/img/level6.jpg)", "BIEN JOUÉ !", "Vous et vos compagnons Shield-bearers vous enfoncez dans les marais, les orques vous encerclent, la bataille sera dure, mais vous entendez déjà au loin les rugissements de Xonoth")
+      document.body.style.backgroundImage = "url(assets/img/level6.jpg)"
       pauseAudio(audioNiveau1track);
       pauseAudio(audioNiveau2bg);
       audiooo(audioNiveau2track);
       audiooo(audioNiveau6bg);
       break;
     case 7:
-      fillModalAndBg("url(assets/img/level7.jpg)", "BIEN JOUÉ !", "Orque après orque vous vous approchez de leur chef")
+      document.body.style.backgroundImage = "url(assets/img/level7.jpg)"
       pauseAudio(audioNiveau6bg);
       audiooo(audioNiveau7bg);
       break;
     case 8:
-      fillModalAndBg("url(assets/img/level8.jpg)", "BIEN JOUÉ !", "Après d'autres combats le chemin se dégage, Vous voyez la sortie des marais... Une forêt de laquelle sort les cris de Xonoth !")
+      document.body.style.backgroundImage = "url(assets/img/level8.jpg)"
       pauseAudio(audioNiveau7bg);
       audiooo(audioNiveau8bg);
       break;
     case 9:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ !", "La sortie est proche, Xonoth envoie ses dernières troupes alors qu'il attend patiemment dans la forêt.")
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       pauseAudio(audioNiveau8bg);
       audiooo(audioNiveau9bg);
       pauseAudio(audioNiveau2track);
       audiooo(audioNiveau9track);
       break;
     case 10:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ !", "Vous avez vaincu les derniers orques des forces de Xonoth, à son tour maintenant !");
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 11:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BRAVO !", "Après un difficile combat, les Shield-bearers ont vaincu Xonoth! <br> Sur son corps vous trouvez les ordres que Void lui a donné et vous décidez de remonter la piste.")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 12:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Grace aux ordres trouvés sur Xonoth vous décidez d'aller jusqu'au château du lac d'argent au nord d'ici. Mais vous devez d'abord sortir de la forêt dans laquelle, en l'absence des orques, les araignées ont repris leurs droits...")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 13:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous continuez votre chemin dans la funeste forêt, mais mefiez vous... Dans les branches au-dessus vous entendez les cliquetis caracteristiques des pattes d'araignées...")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 14:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous arrivez bientôt près d'un point d'eau, encore quelques métres et vous pourrez enfin vous reposer... ATTENTION!")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 15:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "La nuit tombe quand vous arrivez prés de l'étang, vous y trouvez un marchand qui vous explique que l'invasion d'araignées vient du château proche d'ici où leur reine a élu domicile. En bon Shield-bearers vous décidez de libérer la région de cette menace.")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 16:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Le nombre d'araignées grandit à mesure que vous approchez de leur tanniére. <br>Tenez bon !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 17:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Entre quelques combats vous trouvez le temps de vous reposer, mais les araignées, elles, ne connaissent pas la fatigue...")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 18:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Au loin se dessine la silhouette du château occupé par la reine araignée ! Continuez comme ça Shield-bearers !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 19:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous avez vaincu presque toutes les araignées autour du chateau, La porte est ouverte et vous entendez leur reine, Ekrid, à l'interieur. <br> A l'attaque !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 20:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous arrivez enfin devant Ekrid. Débarrassez la région de ce fléau !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png"
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 21:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BRAVO", "La perfide araignée a été tué. Vous avez sauvé la région d'un funeste destin. Vous decouvrez dans le chateau la preuve qu'elle avait été envoyé par Void lui-même ainsi que l'endroit ou il se terre. En route pour son donjon!")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 22:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous partez du chateau d'Ekrid en direction de Void mais il est déjà au courant de votre venue... Il a lui meme envoyé son armée de mort-vivants vous arrêtez")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 23:
-      fillModalAndBg("url(assets/img/level9.jpg)", "LEVEL 23", "Level23")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 24:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous y etes presque ! Les rangs des mort-vivants s'amenuisent tandis que vous avancez en direction des terres de Void.")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 25:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous voilà arrivé dans les terribles terres de Void, au loin son chateau domine tout son royaume. C'est la derniére ligne droite pour vous !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 26:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous grimpez les escarpements autour du château, toujours assailli par les mort-vivants que Void ne cesse d'envoyer... Mais vous avancez !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 27:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Presque ! Vous sentez déjà le soufre se dégager de l'antre de Void tandis que les derniers mort-vivants vous barrent encore la route. <br> Liberer le monde de son joug ! Foncez !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 28:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Les portes de son château n'ont jamais été aussi proches... Bon courage aventurier !")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 29:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Se dresse devant vous les derniers mort-vivants de l'armée de Void, une formalité avant le combat final...")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 30:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous voilà nez à nez avec le mal incarné, sauvez Myrefall et le reste du monde de son emprise ! ")
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 31:
-      fillModalAndBg("url(assets/img/level9.jpg)", "BIEN JOUÉ", "Vous avez vaincu le terrible Void ! Les shield-bearers ont libérer le monde de la domination des forces du mal.<br> Une fois trépassé vous découvrez la source de son pouvoir, la flamme magique d'Ardath, elle est à vous désormais...");
-      document.getElementById("modalProgressBadge1").src = "assets/img/badge1.png";
-      document.getElementById("modalProgressBadge2").src = "assets/img/badge2.png";
-      document.getElementById("modalProgressBadge3").src = "assets/img/badge3.png";
+      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
   }
 }
 
-document.getElementById("dismissModalProgress").addEventListener("click", function () {
-  document.getElementById("baseAttack").disabled = false;
-  document.getElementById("heavyAttack").disabled = false;
-  document.getElementById("potion").disabled = false;
-  document.getElementById("modalProgress").style.display = "none";
-});
-
-function ModalVictory() {
-  document.getElementById("baseAttack").disabled = "true";
-  document.getElementById("heavyAttack").disabled = "true";
-  document.getElementById("potion").disabled = "true";
-  document.getElementById("modalVictory").style.display = "block";
-}
-
-document.getElementById("dismissModalVictory").addEventListener("click", function () {
-  document.getElementById("modalVictory").style.display = "none";
-  document.location.reload();
-})
-
-function ModalGameOver() {
-  document.getElementById("baseAttack").disabled = "true";
-  document.getElementById("heavyAttack").disabled = "true";
-  document.getElementById("potion").disabled = "true";
-  document.getElementById("modalGameOver").style.display = "block";
-}
-
-document.getElementById("dismissModalGameOver").addEventListener("click", function () {
-  document.getElementById("modalGameOver").style.display = "none";
-  document.location.reload();
-})
 
 /* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
@@ -591,7 +490,6 @@ function MoveHeroManaBar() {
   heroMana.setAttribute("value", hero.mana);
   var percentMana = (hero.mana / hero.maxMana) * 100;
   heroManaInside.style.width = percentMana + "%";
-  console.log(percentMana)
 }
 
 function GainMana() {
@@ -622,29 +520,7 @@ function checkMana() {
     document.getElementById("heavyAttack").disabled = true;
   }
 }
-/* -------------------------------------------------------------------------- */
-/*                                 Fin du jeu                                 */
-/* -------------------------------------------------------------------------- */
 
-// Game over plus refresh de la page
-function winner() {
-  if (round == 31) {
-    ModalVictory();
-  }
-}
-// Game over plus refresh de la page
-function EndGame() {
-  if (life == 0) {
-    ModalGameOver();
-  }
-}
-
-// mort du héro
-function DeathHero() {
-  if (hero.health <= 0) {
-    ModalDeathHero();
-  }
-}
 
 /* ----------------------------- DISPLAY MECHANT ---------------------------- */
 function DisplayBadGuy() {
@@ -656,14 +532,11 @@ function DisplayBadGuy() {
   document.getElementById("badguyImg").src = badGuy.imagePath;
 }
 
-// création du méchant
 window.addEventListener("load", function () {
   badGuy = CreateBadGuy();
   DisplayBadGuy();
 });
 
-
-// mort du méchant
 function DeathEnemy() {
   if (badGuy.health <= 0) {
     round++; // round
@@ -672,20 +545,6 @@ function DeathEnemy() {
     setTimeout(function () {
       window.location.href = "map.html"
     }, 1200);
-    // document.getElementById("round").innerHTML = round;
-    // badGuy = CreateBadGuy();
-    // badGuy.health = badGuy.maxHealth
-    // DisplayBadGuy();
-    // addLife();
-    // addPotion();
-    // basicAttack = 30;
-    // document.getElementById("basicAttack").innerHTML = basicAttack;
-    // document.getElementById("baseAttack").disabled = false;
-    // bigAttack = 10;
-    // document.getElementById("bigAttack").innerHTML = bigAttack;
-    // document.getElementById("heavyAttack").disabled = false;
-    // ModalProgress();
-
   }
 }
 
@@ -703,7 +562,7 @@ function Crit() {
   }
 
 }
-//Petit Steak
+
 function AttackDamage(attackRatio) {
   var ratio = attackRatio;
   var multiplier = hero.criticMultiplier;
@@ -717,7 +576,6 @@ function AttackDamage(attackRatio) {
   return attackDamage;
 }
 
-//Chance d'esquive, 10%
 function Dodge() {
   dodge = Math.floor(Math.random() * 100) + 1;
   if (dodge <= 10) {
@@ -727,20 +585,10 @@ function Dodge() {
   }
 }
 
-function disable() {
-  document.getElementById("baseAttack").disabled = true;
-  setTimeout(function () {
-    document.getElementById("baseAttack").disabled = false;
-  }, 1500);
-}
-
-
 function EnnemyAttackDamage() {
   var min = badGuy.baseDamageMin;
   var max = badGuy.baseDamageMax;
   var ennemyAttackDamage = Math.floor(Math.random() * (max - min + 1) + min);
-  console.log(min)
-  console.log(ennemyAttackDamage);
   return ennemyAttackDamage;
 }
 
@@ -752,7 +600,6 @@ function EnnemyAttackDamage() {
 document.getElementById("baseAttack").addEventListener("click", function baseAttack() {
   damage = AttackDamage(hero.attacksTab[0][1]);
   setTimeout(play22, 500);
-  setTimeout(disable);
   badGuy.health = badGuy.health - damage;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
   Dodge();
@@ -761,16 +608,12 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
   document.getElementById("heroHealth").innerHTML = hero.health;
   GainMana();
   checkMana();
-  console.log(hero.mana)
   MoveEnnemyHealthBar();
   setTimeout(play23, 1500);
   setTimeout(MoveAllyHealthBar, 300);
-  DeathHero();
   LostLife();
-  EndGame();
-  DeathEnemy();
-  winner();
   EnnemyTextDisplay(damage);
+  DeathEnemy();
   setTimeout(function () {
     HeroTextDisplay(ennemyDamage);
   }, 1100)
@@ -790,17 +633,12 @@ document.getElementById("heavyAttack").addEventListener("click", function heavyA
     checkMana();
     MoveEnnemyHealthBar();
     setTimeout(MoveAllyHealthBar, 300);
-    EndGame();
     LostLife();
-    DeathHero();
-    DeathEnemy();
-    winner();
     EnnemyTextDisplay(damage);
+    DeathEnemy();
     setTimeout(function () {
       HeroTextDisplay(ennemyDamage);
     }, 1100)
-  } else {
-    console.log('Not enough Mana')
   }
 });
 
@@ -818,19 +656,13 @@ document.getElementById("ultiAttack").addEventListener("click", function Ultimat
     checkMana();
     MoveEnnemyHealthBar();
     setTimeout(MoveAllyHealthBar, 300);
-    EndGame();
     LostLife();
-    DeathHero();
-    DeathEnemy();
-    winner();
     EnnemyTextDisplay(damage);
+    DeathEnemy();
     setTimeout(function () {
       HeroTextDisplay(ennemyDamage);
     }, 1100)
-  } else {
-    console.log('Not Enough Mana')
   }
-
 });
 
 
@@ -897,36 +729,12 @@ $(document).ready(function () {
   });
 });
 
-
-/* -------------------------------------------------------------------------- */
-/*                               Disable Button                               */
-/* -------------------------------------------------------------------------- */
-var smallAttack = document.querySelector('.button1');
-var mediumAttack = document.querySelector('.button2');
-var bigAttack = document.querySelector('.button3');
-var potion = document.querySelector('.button4');
-
-function DisableButton() {
-  smallAttack.disabled = true;
-  mediumAttack.disabled = true;
-  bigAttack.disabled = true;
-  potion.disabled = true;
-  setTimeout(function () {
-    smallAttack.disabled = false;
-    mediumAttack.disabled = false;
-    bigAttack.disabled = false;
-    potion.disabled = false;
-  }, 1100)
-}
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                                   Sidebar                                  */
 /* -------------------------------------------------------------------------- */
-//SideBar
+
 var side = document.querySelector('.side');
-//settings
+
 var settings = document.querySelector('.settings');
 var settingsPanel = document.querySelector('.settingsPanel');
 /* --------------------------------- sidebar -------------------------------- */
@@ -942,89 +750,3 @@ var settingsPanel = document.querySelector('.settingsPanel');
 settings.onclick = function () {
   settingsPanel.classList.toggle('settings-hidden');
 }
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                             LES NOUVEAUX TRUCS                             */
-/* -------------------------------------------------------------------------- */
-
-
-/* -------------------------------------------------------------------------- */
-/*                                 SAUVEGARDES                                */
-/* -------------------------------------------------------------------------- */
-/* -------------------------------------------------------------------------- */
-/*                  Objet pour le stuff et tableau des heros                  */
-/* -------------------------------------------------------------------------- */
-var inventaire = {
-  coin: 158,
-  weapon: [
-    "gourdin, dague, patate, machette"
-  ],
-  potion: 38,
-  progress: 12
-}
-var heroes = [rodric, xorrun, urim]
-/* ------------------------- Objet de la sauvegarde ------------------------- */
-var save = {
-  playerName: 'test',
-  heroes,
-  inventaire
-};
-
-/* -------------------------------------------------------------------------- */
-/*                        Fonction lié aux sauvegardes                        */
-/* -------------------------------------------------------------------------- */
-/* ------------------------ Sauvegarde sur meme page ------------------------ */
-// function saveGame() {
-//   try {
-//     // on enregistre tout l'objet SAVE et on l'appelle "sauvegarde"
-//     localStorage.setItem("sauvegarde", JSON.stringify(save))
-//   } catch (err) {
-//     // si ca marche pas on met ca, on pourra mettre une alerte ou autre chose plsu tard.
-//     console.log("Acces impossible?!")
-//   }
-//   // si ca marche un message de succes a la place.
-//   console.log('Sauvegardé avec succes');
-// }
-/* ---- Sauvegarde si on doit bouger de page, le parametre c'est le lien ---- */
-/* --------------------- ex : saveOnRedirect(index.html) -------------------- */
-// function saveOnRedirect(page) {
-//   e.preventDefault();
-//   // Ca lance la fonction au dessus puis ca redirige vers la page en parametre, le timeout est monstrueux mais c'etait pour tester.
-//   saveGame();
-//   setTimeout(function () {
-//     window.location.href = page;
-//   }, 6000);
-//   // timeout a changer + eventuellement loader a mettre
-// };
-
-/* ----------------- Premiere save a la selection du perso ------------------ */
-// document.querySelector('.classSelect').addEventListener('click', function () {
-//   saveGame();
-
-// })
-
-/* ------------------------------- Chargement ------------------------------- */
-// function loadGame() {
-//   // On recupere la save qui s'appelle "sauvegarde".
-//   var save = JSON.parse(localStorage.getItem("sauvegarde"));
-//   if (save == null) {
-//     // Error si y'as rien de trouvé
-//     console.log('ERROR');
-//   } else {
-//     // Sinon on la console.log pour pouvoir verifier, faudra changer quand on aura tout fini
-//     console.log(save);
-//   }
-// };
-
-// window.onload = function () {
-//   loadGame(save.playername);
-// }
-
-/* ------------------------------- Suppression ------------------------------ */
-// Faudra surement la lien a un bouton dans les parametres je pense, genre " recommencer TOUT " 
-// document.getElementById('clear').addEventListener('click',
-//   function clear() {
-//     window.localStorage.clear();
-//   });
