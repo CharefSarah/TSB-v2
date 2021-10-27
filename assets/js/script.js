@@ -1,24 +1,32 @@
-/* 
-SOMMAIRE 
-#L.21 - Masquer le body pendant la selection
-#L.65 - Grosses variables
-#L.77 - Construct Hero
-#L.127 - Construct Mechant
-#L.161 - combat Text
-#L.199 - myriade de modals
-#L.571 - Choix perso 
-#L.622 - Life
-#L.678 - Attaques
-#L.706 - Fin du jeux
-#L.769 - Critiques et Attaques
-#L.825 - Trigger de tout sur l'attaque
-#L.887 - Potion
-#L.962 - SIdebar
-#L.986 - ++++++++++++
+/* -------------------------------------------------------------------------- */
+/*                                  SOMMAIRE                                  */
+/* -------------------------------------------------------------------------- */
+/*
+CTRL+G pour aller directement a une ligne :)
+
+L.30 - Fonction pour gerer les panneaux et les selections.
+L.60 - Recuperation du niveau depuis la Map
+L.79 - Construct Gentils
+L.155 - Construct Mechant
+L.239 - Text Combat
+L.261 - les LEGVEEEELS
+L.381 - Choix Persos
+L.422 - Lifes
+L.461 - Jauges
+L.515 - Combat
+L.675 - Potions
+L.725 - Sidebar
+
+
+
+
+
 */
 /* -------------------------------------------------------------------------- */
-/*                               Masquer le Body                              */
+/*                              ----Sommaire----                              */
 /* -------------------------------------------------------------------------- */
+
+/* ---- Fonction pour gerer les deux panneau avec les selections de perso --- */
 window.onload = function () {
   d1.style.display = "none";
   d2.style.display = "none";
@@ -39,30 +47,16 @@ function togg1() {
     d1.style.display = "block";
   }
 };
-
-// fait disparaitre le choix du héro une fois qu'il a était choisi
+// Disparition des boutons de choix
 function ButtonDisappear() {
   document.getElementById("knight").style.display = "none";
   document.getElementById("mage").style.display = "none";
   document.getElementById("rogue").style.display = "none";
 }
-// affiche les valeurs du héro
-function SetHeroValue() {
-  document.getElementById("heroName").innerHTML = hero.name;
-  document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
-  document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
-  document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
-  document.getElementById("heroHealth").innerHTML = hero.health;
-  document.getElementById("heroImg").src = hero.imagePath;
-  health.setAttribute("value", hero.health);
-  health.setAttribute("max", hero.maxHealth);
-}
-
-
 
 
 /* -------------------------------------------------------------------------- */
-/*                            Les grosses variables                           */
+/*         Fonction & variable pour recuperer le niveau cliqué sur MAP        */
 /* -------------------------------------------------------------------------- */
 function levelToGet() {
   var levelToGet = localStorage.getItem("level");
@@ -71,10 +65,13 @@ function levelToGet() {
 var round = levelToGet();
 document.getElementById("round").innerHTML = round;
 
+
+/* -------------------------------------------------------------------------- */
+/*                               Variable Utile                               */
+/* -------------------------------------------------------------------------- */
 var life = 3;
 var coin = 150;
 var stockPotion = 3;
-
 
 
 /* -------------------------------------------------------------------------- */
@@ -82,12 +79,15 @@ var stockPotion = 3;
 /* -------------------------------------------------------------------------- */
 
 /* ----------------------------- Construct Hero  ----------------------------- */
-function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse, bruitage) {
+function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse, manaColor, boxShadow, bruitage) {
+  var maxLvl = parseInt(localStorage.getItem("maxLevel"));
   this.name = name;
   this.level = level;
   this.health = health;
   this.maxHealth = maxHealth;
-  this.healthPerLevel = healthPerLevel;
+  this.hpPerLevel = healthPerLevel;
+  this.scaledHP = health + (healthPerLevel * maxLvl);
+  this.scaledMaxHP = health + (healthPerLevel * maxLvl);
   this.mana = mana;
   this.maxMana = maxMana;
   this.criticChance = criticChance;
@@ -101,7 +101,10 @@ function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cri
   this.weaponValue = weaponValue;
   this.resistance = resistance;
   this.faiblesse = faiblesse;
+  this.manaColor = manaColor;
+  this.boxShadow = boxShadow;
   this.bruitage = bruitage;
+
 }
 
 /* ----------------------- Attaques des persos + ratio ---------------------- */
@@ -122,15 +125,29 @@ var xorrunAttacks = [
 ]
 
 /* ------------------------------- Objet Hero ------------------------------- */
-var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'bruit.mp3');
-var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'bruit.mp3');
-var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'bruit.mp3');
+var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+
+var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
+
+var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
 
 
+// affiche les valeurs du héro
+function SetHeroValue() {
+  document.getElementById("heroName").innerHTML = hero.name;
+  document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
+  document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
+  document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
+  document.getElementById("heroHealth").innerHTML = hero.scaledHP;
+  document.getElementById("heroImg").src = hero.imagePath;
+  health.setAttribute("value", hero.scaledHP);
+  health.setAttribute("max", hero.scaledMaxHP);
+}
 
-
-
-
+//Couleurs Mana
+function colorMana() {
+  document.querySelector('.manaBar').style.cssText = "background :" + hero.manaColor + "; box-shadow:" + hero.boxShadow + ";";
+}
 
 /* -------------------------------------------------------------------------- */
 /*                              CONSTRUCT MECHANT                             */
@@ -149,8 +166,6 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
   this.bruitage = bruitage
 }
 
-//Creation du méchant selon le nombre de round: 
-//Creation du méchant selon le nombre de round: 
 function CreateBadGuy() {
   if (round == 1) {
     var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
@@ -218,31 +233,19 @@ function CreateBadGuy() {
 
 
 /* -------------------------------------------------------------------------- */
-/*                         Textes pendant les combats                         */
+/*                                 Text combat                                */
 /* -------------------------------------------------------------------------- */
 var CombatTextEnnemy = document.querySelector('.combatTextEnnemy');
 var combatTextHero = document.querySelector('.combatTextHero');
 
-/* ------------------------------ Ennemy + crit ----------------------------- */
 function EnnemyTextDisplay(message) {
   CombatTextEnnemy.innerHTML = message;
-  if (Crit()) {
+  CombatTextEnnemy.classList.toggle('combatTextAnimation');
+  setTimeout(function () {
     CombatTextEnnemy.classList.toggle('combatTextAnimation');
-    setTimeout(function () {
-      CombatTextEnnemy.classList.toggle('combatTextAnimation');
-    }, 2100);
-    CombatTextEnnemy.style.fontSize = '64px';
-  } else {
-    CombatTextEnnemy.classList.toggle('combatTextAnimation');
-    setTimeout(function () {
-      CombatTextEnnemy.classList.toggle('combatTextAnimation');
-    }, 2100);
-    CombatTextEnnemy.style.fontSize = '36px';
-
-  }
+  }, 2100);
 }
 
-/* ---------------------------------- Hero ---------------------------------- */
 function HeroTextDisplay(message) {
   combatTextHero.innerHTML = message;
   combatTextHero.classList.toggle('combatHeroAnimation');
@@ -251,18 +254,11 @@ function HeroTextDisplay(message) {
   }, 1100);
 }
 
-
 /* -------------------------------------------------------------------------- */
-/*                                    MODAL                                   */
+/*                   Switch case des abysses pour les levels                  */
 /* -------------------------------------------------------------------------- */
-
 function ModalProgress() {
   round = parseInt(round);
-
-  // J'ai remplacé les 31 if par un switch case.
-  // si tu te souviens pas " Switch (variable qu'on va check)"
-  // et chaque "case" c'est un if qui verifie que la varialbe est egale ou pas a ce qu'on a mit aprés "case" 
-  // "case 1" par exemple c'est comme " if(round==1){...}"
   switch (round) {
     case 1:
       document.body.style.backgroundImage = "url(assets/img/level1.jpg)";
@@ -378,12 +374,12 @@ function ModalProgress() {
 }
 
 
+
 /* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
 /* -------------------------------------------------------------------------- */
 // Selection de tout les boutons de choix de classes
 var classSelectArray = document.querySelectorAll('.classSelect');
-// choix de classe selon le bouton : 
 var hero = classSelectArray.forEach(element => {
   element.addEventListener('click', function CreateHero() {
     if (element.id == "knight") {
@@ -394,44 +390,35 @@ var hero = classSelectArray.forEach(element => {
       togg();
       togg1();
       ModalProgress();
-
+      colorMana();
       return hero;
-
-
     } else if (element.id == "mage") {
       hero = xorrun;
-      document.getElementById("heroHealth").innerHTML = hero.health;
       SetHeroValue();
       ButtonDisappear();
       displayLife();
       togg();
       togg1();
       ModalProgress();
-
+      colorMana();
       return hero;
-
-
     } else if (element.id == "rogue") {
       hero = urim;
-      document.getElementById("heroHealth").innerHTML = hero.health;
       SetHeroValue();
       ButtonDisappear();
       displayLife();
       togg();
       togg1();
       ModalProgress();
-
+      colorMana();
       return hero;
-
     }
   });
 });
 
-
 /* -------------------------------------------------------------------------- */
-/*                                    Life                                    */
+/*                                    LIFES                                   */
 /* -------------------------------------------------------------------------- */
-
 function displayLife() {
   for (let i = 0; i < 9; i++) {
     var heart = "heart" + i;
@@ -448,30 +435,29 @@ function addLife() {
     life = life + 1;
     playHG();
     displayLife();
-
   }
 }
 
 // Compteur de vie
 function LostLife() {
-  if (hero.health <= 0) {
+  if (hero.scaledHealth = 0) {
     life = life - 1;
     playHL();
     displayLife();
-    hero.health = hero.maxHealth;
-    document.getElementById("heroHealth").innerHTML = hero.health;
-
+    hero.scaledHP = hero.scaledMaxHP;
+    document.getElementById("heroHealth").innerHTML = maxHp;
   }
 }
 
-/* --------------------------- Les jauges -------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                   Jauges                                   */
+/* -------------------------------------------------------------------------- */
 var health = document.getElementById("healthBar");
 var badGuyHealth = document.getElementById("badguyHealthBar");
 
-
 function MoveAllyHealthBar() {
-  health.setAttribute("value", hero.health);
-  var percentHealth = (hero.health / hero.maxHealth) * 100;
+  health.setAttribute("value", hero.scaledHP);
+  var percentHealth = (hero.scaledHP / hero.scaledMaxHP) * 100;
   document.getElementById("bar").style.width = percentHealth + "%";
 }
 
@@ -484,7 +470,6 @@ function MoveEnnemyHealthBar() {
   document.getElementById("badguyBar").style.width = percentHealth + "%";
 }
 
-/* ---------------------------------- MANA ---------------------------------- */
 var heroMana = document.getElementById("heroManaBar");
 var heroManaInside = document.getElementById("manaBar");
 
@@ -523,8 +508,10 @@ function checkMana() {
   }
 }
 
-
-/* ----------------------------- DISPLAY MECHANT ---------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                        Combat & fonction d'affichage                       */
+/* -------------------------------------------------------------------------- */
+//Affichage du méchant
 function DisplayBadGuy() {
   document.getElementById("badGuyName").innerHTML = badGuy.name;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
@@ -534,11 +521,13 @@ function DisplayBadGuy() {
   document.getElementById("badguyImg").src = badGuy.imagePath;
 }
 
+// Utilisation de l'affichage du méchant au chargement
 window.addEventListener("load", function () {
   badGuy = CreateBadGuy();
   DisplayBadGuy();
 });
 
+// CHeck si l'ennemi est mort et redirection
 function DeathEnemy() {
   if (badGuy.health <= 0) {
     round++; // round
@@ -550,10 +539,7 @@ function DeathEnemy() {
   }
 }
 
-/* -------------------------------------------------------------------------- */
-/*                            CRITIQUES ET ATTAQUES                           */
-/* -------------------------------------------------------------------------- */
-
+//Fonction pour calculer le taux de critique basé sur la chance de crit du perso
 function Crit() {
   critRate = hero.criticChance;
   crit = Math.floor(Math.random() * 100) + 1;
@@ -565,6 +551,7 @@ function Crit() {
 
 }
 
+//Calcul dégat du persos
 function AttackDamage(attackRatio) {
   var ratio = attackRatio;
   var multiplier = hero.criticMultiplier;
@@ -578,6 +565,7 @@ function AttackDamage(attackRatio) {
   return attackDamage;
 }
 
+//Chance d'esquive
 function Dodge() {
   dodge = Math.floor(Math.random() * 100) + 1;
   if (dodge <= 10) {
@@ -587,6 +575,7 @@ function Dodge() {
   }
 }
 
+// Calcul des dégats de l'ennemi
 function EnnemyAttackDamage() {
   var min = badGuy.baseDamageMin;
   var max = badGuy.baseDamageMax;
@@ -594,25 +583,23 @@ function EnnemyAttackDamage() {
   return ennemyAttackDamage;
 }
 
-
 /* -------------------------------------------------------------------------- */
-/*                TRIGGER SUR ATTAQUES DE TOUTES LES FONCTIONS                */
+/*             Gros trigger de tout ca pour chaque type d'attaque             */
 /* -------------------------------------------------------------------------- */
-
 document.getElementById("baseAttack").addEventListener("click", function baseAttack() {
-  damage = AttackDamage(hero.attacksTab[0][1]);
   setTimeout(play22, 500);
+  damage = AttackDamage(hero.attacksTab[0][1]);
   badGuy.health = badGuy.health - damage;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
   Dodge();
   var ennemyDamage = EnnemyAttackDamage();
-  hero.health = hero.health - ennemyDamage;
-  document.getElementById("heroHealth").innerHTML = hero.health;
+  hero.scaledHP = hero.scaledHP - ennemyDamage;
+  document.getElementById("heroHealth").innerHTML = hero.scaledHP;
   GainMana();
   checkMana();
   MoveEnnemyHealthBar();
   setTimeout(play23, 1500);
-  setTimeout(MoveAllyHealthBar, 300);
+  setTimeout(MoveAllyHealthBar(), 300);
   LostLife();
   EnnemyTextDisplay(damage);
   DeathEnemy();
@@ -623,14 +610,15 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
 
 document.getElementById("heavyAttack").addEventListener("click", function heavyAttack() {
   if (hero.mana >= 25) {
+
     damage = AttackDamage(hero.attacksTab[1][1]);
     playshield();
     badGuy.health = badGuy.health - damage;
     document.getElementById("badGuyHealth").innerHTML = badGuy.health;
     Dodge();
     var ennemyDamage = EnnemyAttackDamage();
-    hero.health = hero.health - ennemyDamage;
-    document.getElementById("heroHealth").innerHTML = hero.health;
+    hero.scaledHP = hero.scaledHP - ennemyDamage;
+    document.getElementById("heroHealth").innerHTML = hero.scaledHP;
     loseMana(25);
     checkMana();
     MoveEnnemyHealthBar();
@@ -652,8 +640,8 @@ document.getElementById("ultiAttack").addEventListener("click", function Ultimat
     document.getElementById("badGuyHealth").innerHTML = badGuy.health;
     Dodge();
     var ennemyDamage = EnnemyAttackDamage();
-    hero.health = hero.health - ennemyDamage;
-    document.getElementById("heroHealth").innerHTML = hero.health;
+    hero.scaledHP = hero.scaledHP - ennemyDamage;
+    document.getElementById("heroHealth").innerHTML = hero.scaledHP;
     loseMana(75);
     checkMana();
     MoveEnnemyHealthBar();
@@ -668,10 +656,8 @@ document.getElementById("ultiAttack").addEventListener("click", function Ultimat
 });
 
 
-
-/* ----------------------------- Contre Attaque ----------------------------- */
+//Contre
 function CunterAttack() {
-
   if (health = health - attackDamage) {
     attack = hero.health - attack;
     elseif(health <= 0); {
@@ -683,26 +669,25 @@ function CunterAttack() {
 /* -------------------------------------------------------------------------- */
 /*                                   Potion                                   */
 /* -------------------------------------------------------------------------- */
-// Initialisation du nombre de potion au chargement
 window.addEventListener("load", function () {
   document.getElementById("stockPotion").innerHTML = stockPotion;
 });
 
-// Function pour utiliser des potions tant qu'il en reste
 document.getElementById("potion").addEventListener("click", function () {
+  var hp = scalingHP();
+  var maxHp = scalingMaxHP();
   if (stockPotion > 0) {
-    heroHealthToGet = hero.health + 49;
-    if (hero.health < hero.maxHealth && heroHealthToGet < hero.maxHealth) {
-      hero.health = hero.health + 50;
+    heroHealthToGet = hp + 49;
+    if (hp < hero.maxHealth && heroHealthToGet < hero.maxHealth) {
+      hp = hp + 50;
       stockPotion--;
-      document.getElementById("heroHealth").innerHTML = hero.health;
+      document.getElementById("heroHealth").innerHTML = hp;
       document.getElementById("stockPotion").innerHTML = stockPotion;
       MoveAllyHealthBar();
     } else {}
   } else {}
 });
 
-// Ajout d'un nombre de potion entre 1 et 3.
 function addPotion() {
   potionToAdd = Math.floor(Math.random() * 2) + 1;
   stockPotion = stockPotion + potionToAdd;
