@@ -26,23 +26,26 @@
     </div>
     <form>
         <div class="inputForm">
-            <input type="text" id="nameInput" value="" name="name" placeholder="Rodric">
-            <input type="submit" onclick="validate();" value="Submit"></div>
+            <input type="text" id="nameHero" name="nameHero" placeholder="Prénom">
+            <input type="submit" onclick="validate()" value="Submit"></div>
     </form>
 
 
     <script>
         function validate() {
             var regName = /^[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸ"\s?\-]{1,10}$/;
-            var name = document.getElementById('nameInput').value;
-            if (!regName.test(name)) {
-                console.log(name)
-                console.log(!regName.test(name))
+            var nameHero = document.getElementById('nameHero').value;
+            if (!regName.test(nameHero)) {
+                console.log(nameHero)
+                console.log(!regName.test(nameHero))
                 alert('Entrez un nom valide');
-                document.getElementById('name').focus();
+                document.getElementById('namInput').focus();
                 return false;
             } else {
-                alert("well done")
+                event.preventDefault();
+                var nameHero = document.getElementById('nameHero').value;
+                localStorage.setItem('nameHero', nameHero);
+                window.location.href = "game.html";
             }
         }
     </script>
@@ -70,12 +73,18 @@
             document.querySelector(".pers3 img").src = "assets/img/choixPers3.png";
         });
         document.querySelector(".pers1").addEventListener("click", function () {
+            document.querySelector(".pers1").style.height = "200px";
+            document.querySelector(".pers1").style.width = "200px";
             document.querySelector(".pers1").style.outline = "solid 5px #689FFF";
             document.querySelector(".pers1").style.filter = "brightness(100%)";
             document.querySelector(".pers1").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers2").style.height = "150px";
+            document.querySelector(".pers2").style.width = "150px";
             document.querySelector(".pers2").style.outline = "none";
             document.querySelector(".pers2").style.filter = "brightness(50%)";
             document.querySelector(".pers2").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers3").style.height = "150px";
+            document.querySelector(".pers3").style.width = "150px";
             document.querySelector(".pers3").style.outline = "none";
             document.querySelector(".pers3").style.filter = "brightness(50%)";
             document.querySelector(".pers3").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
@@ -83,26 +92,38 @@
             localStorage.setItem('imgPers', dataAttribute);
         });
         document.querySelector(".pers2").addEventListener("click", function () {
+            document.querySelector(".pers2").style.height = "200px";
+            document.querySelector(".pers2").style.width = "200px";
             document.querySelector(".pers2").style.outline = "solid 5px #689FFF";
             document.querySelector(".pers2").style.filter = "brightness(100%)";
             document.querySelector(".pers2").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers1").style.height = "150px";
+            document.querySelector(".pers1").style.width = "150px";
             document.querySelector(".pers1").style.outline = "none";
             document.querySelector(".pers1").style.filter = "brightness(50%)";
             document.querySelector(".pers1").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers3").style.height = "150px";
+            document.querySelector(".pers3").style.width = "150px";
             document.querySelector(".pers3").style.outline = "none";
             document.querySelector(".pers3").style.filter = "brightness(50%)";
             document.querySelector(".pers3").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
             var dataAttribute = document.getElementById("perceval2").getAttribute('src');
             localStorage.setItem('imgPers', dataAttribute);
-    
+
         });
         document.querySelector(".pers3").addEventListener("click", function () {
+            document.querySelector(".pers3").style.height = "200px";
+            document.querySelector(".pers3").style.width = "200px";
             document.querySelector(".pers3").style.outline = "solid 5px #689FFF";
             document.querySelector(".pers3").style.filter = "brightness(100%)";
             document.querySelector(".pers3").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers1").style.height = "150px";
+            document.querySelector(".pers1").style.width = "150px";
             document.querySelector(".pers1").style.outline = "none";
             document.querySelector(".pers1").style.filter = "brightness(50%)";
             document.querySelector(".pers1").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers2").style.height = "150px";
+            document.querySelector(".pers2").style.width = "150px";
             document.querySelector(".pers2").style.outline = "none";
             document.querySelector(".pers2").style.filter = "brightness(50%)";
             document.querySelector(".pers2").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
