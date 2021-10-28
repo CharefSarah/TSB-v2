@@ -134,19 +134,19 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
 
 function CreateBadGuy() {
   if (round == 1) {
-    var badGuy = new BadGuy("Loup", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 2) {
-    var badGuy = new BadGuy("Loup2", 125, 125, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup2", 420, 420, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 3) {
-    var badGuy = new BadGuy("Loup3", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup3", 460, 460, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 4) {
-    var badGuy = new BadGuy("Loup4", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup4", 480, 480, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup5", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup5", 510, 520, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 6) {
-    var badGuy = new BadGuy("Loup6", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup6", 535, 535, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 7) {
-    var badGuy = new BadGuy("Loup7", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup7", 555, 555, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 8) {
     var badGuy = new BadGuy("Loup8", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 9) {
