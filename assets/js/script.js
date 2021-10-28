@@ -99,7 +99,8 @@ var xorrunAttacks = [
 
 // affiche les valeurs du héro
 function SetHeroValue() {
-  document.getElementById("heroName").innerHTML = hero.name;
+  var namename = localStorage.getItem('nameHero');
+  document.getElementById("heroName").innerHTML = namename;
   document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
   document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
