@@ -1,0 +1,211 @@
+@media screen and (max-height:500px) {
+    .side {
+        display: none;
+    }
+
+    .info {
+        height: 40px;
+    }
+
+    .level {
+        font-size: 20px;
+    }
+
+    .combat {
+        align-items: center;
+        margin-left: 7.5%;
+        margin-right: 7.5%;
+    }
+
+    .cardCombat {
+        width: 270px;
+        height: 135px;
+    }
+
+    .cardHero {
+        align-self: center;
+    }
+
+    .portrait img {
+        height: 120px;
+        width: auto;
+        margin: 0;
+        margin-top: -40px;
+    }
+
+    .cardInt {
+        padding: 0;
+    }
+
+    .cardEnnemy .cardInt .portrait img {
+        height: 120px;
+        width: auto;
+        margin-top: -40px;
+    }
+
+    .ennemyStats {
+        align-items: flex-end;
+    }
+
+    .name {
+        margin: 0;
+        font-size: 24px !important;
+    }
+
+    .life {
+        width: 100px;
+
+    }
+
+    .life img {
+        height: 22px;
+        width: 22px;
+    }
+
+    .portrait {
+        width: 30%;
+    }
+
+    .HP {
+        margin: 0;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .stats {
+        margin: 0;
+        width: 70%;
+        padding: 0;
+        height: 100%;
+        margin-top: -18px;
+
+    }
+
+    .cardHero .cardInt .stats {
+        margin-left: 25px;
+
+    }
+
+    .ennemyStats .HP {
+        margin-top: 30px;
+    }
+
+    .ennemyStats {
+        padding-right: 25px;
+        margin-top: -26px;
+    }
+
+    .stats p {
+        font-size: 14px;
+    }
+
+    #healthBar {
+        width: 170px;
+        height: 14px;
+        border-radius: 18px;
+        padding: 2px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+    #badguyHealthBar {
+        width: 170px;
+        height: 14px;
+        border-radius: 18px;
+        padding: 2px;
+        margin-top: 6px;
+        margin-bottom: 6px;
+    }
+
+    .hpBar {
+        height: 7px;
+    }
+
+    .manaBar {
+        height: 3px;
+    }
+
+    /* -------------------------------- CONTROLS -------------------------------- */
+    .control {
+        min-width: 450px;
+        height: 26%;
+        margin-top: 10px;
+    }
+
+    .controlButton {
+        height: 40px;
+        width: 200px;
+        font-size: 18px;
+    }
+
+    .attackImg {
+        height: 40px;
+        width: 40px;
+    }
+
+    .attackImg img {
+        height: 42px;
+
+    }
+
+    /* -------------------------------- SETTINGS -------------------------------- */
+
+    .settings {
+        left: 15px;
+        bottom: 10px;
+        padding: 5px;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+
+    .settings img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+
+@media screen and (max-height:330px) {
+    .combat {
+        height: 35%;
+    }
+
+    .cardCombat {
+        width: 200px;
+        height: 100px;
+    }
+
+    .stats {
+        height: 70%;
+        margin-top: 0;
+    }
+
+    .stats p {
+        display: none;
+    }
+
+    .name {
+        display: block !important;
+    }
+
+    .ennemyStats {
+        padding-right: 10px;
+    }
+
+    #healthBar {
+        width: 140px;
+    }
+
+    #badguyHealthBar {
+        margin-top: 30px;
+        margin-bottom: 0;
+    }
+
+    #heroManaBar {
+        width: 140px;
+    }
+}

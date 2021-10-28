@@ -11,10 +11,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
-#d2 {
-    display: none;
-}
-
 :root {
     --background: rgb(25, 7, 53, 0.9);
     --white: #FFFFFF;
@@ -94,6 +90,8 @@ main {
     height: 80%;
     padding-bottom: 20px;
     margin-left: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 
 .ennemyStats {
@@ -106,8 +104,8 @@ main {
 }
 
 .stats p {
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
-    font-family: PoppinsRegular;
 }
 
 .name {
@@ -243,7 +241,7 @@ main {
     height: 10px;
     border-radius: 20px;
     position: relative;
-    transition: width .5s ease;
+    transition: 1s ease-out;
 }
 
 
@@ -255,7 +253,7 @@ main {
     width: 100%;
     height: 10px;
     position: relative;
-    transition: width .5s linear;
+    transition: 1s ease-out;
 }
 
 
@@ -269,18 +267,21 @@ main {
 }
 
 .manaBar {
-    background: linear-gradient(to right, #0A1E75 0%, #0047FF 50%, #E800FC 80%);
     width: 0%;
     height: 7px;
     border-radius: 8px;
     position: relative;
-    transition: width .5s linear;
+    transition: 1s ease-out;
 }
 
+
+/* -------------------------------------------------------------------------- */
+/*                          BOUTTON COMBAT BOUM BOUM                          */
+/* -------------------------------------------------------------------------- */
 .control {
     width: 40%;
     min-width: 620px;
-    height: 35%;
+    height: 30%;
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -295,10 +296,6 @@ button {
     align-items: center;
 }
 
-button:disabled {
-    background: black;
-}
-
 .controlLine {
     display: flex;
     flex-direction: row;
@@ -308,19 +305,38 @@ button:disabled {
 .controlButton {
     background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
     border-radius: 53px;
-    height: 90px;
-    width: 270px;
-    font-size: 36px;
+    height: 100px;
+    width: 300px;
+    font-size: 28px;
     font-family: basalt;
     color: var(--white);
-    transition: all 0.12 ease;
-
     display: grid;
     grid-template-columns: 30% 70%;
+    align-content: center;
     padding-left: 12px;
     padding-right: 12px;
+    cursor: pointer;
 }
 
+.controlButton:enabled:hover {
+    outline: 4px solid #689FFF !important
+}
+
+.controlButton:disabled {
+    background: linear-gradient(90deg, #431a44 -20.18%, #1e0e30 121.1%);
+    cursor: not-allowed;
+    color: grey;
+}
+
+#bigAttackName {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#ultimateAttackName {
+    padding-left: 15px;
+    padding-right: 15px;
+}
 
 
 .attackName {
@@ -331,12 +347,6 @@ button:disabled {
     padding-left: 24px;
 }
 
-.controlButton:hover,
-.contolButton:focus {
-    box-shadow: inset 5px 8px 4px 2px rgba(154, 96, 221, 0.2);
-    background: linear-gradient(90deg, #753377 -20.18%, #431e68 121.1%);
-    transition: all 0.12s ease;
-}
 
 .attackImg {
     background-color: var(--background);
@@ -360,8 +370,21 @@ button:disabled {
     width: auto;
 }
 
+#stockPotion {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    align-self: center;
+    justify-self: center
+}
 
 
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                  Menu Side                                 */
+/* -------------------------------------------------------------------------- */
 .side {
     height: 100vh;
     width: 120px;
@@ -390,6 +413,8 @@ button:disabled {
 }
 
 
+
+/* -------------------------------- Settings -------------------------------- */
 .settings {
     position: absolute;
     left: 30px;
@@ -433,7 +458,7 @@ button:disabled {
     padding-right: 100px;
     padding-top: 25px;
     padding-bottom: 36px;
-    font-family: PoppinsRegular;
+    font-family: 'Poppins';
     font-size: 36px;
     color: var(--white);
     transition: 0.8s ease-out;
@@ -442,7 +467,7 @@ button:disabled {
 
 
 .settings-hidden {
-    top: -110%;
+    top: -800%;
     transition: 0.8s ease-out;
 }
 
@@ -454,7 +479,7 @@ button:disabled {
 }
 
 .panelTitle {
-    font-family: Basalt !important;
+    font-family: Basalt;
     font-size: 48px;
     margin-bottom: 34px;
 }
