@@ -26,35 +26,6 @@ L.725 - Sidebar
 /*                              ----Sommaire----                              */
 /* -------------------------------------------------------------------------- */
 
-// /* ---- Fonction pour gerer les deux panneau avec les selections de perso --- */
-// window.onload = function () {
-//   d1.style.display = "none";
-//   d2.style.display = "none";
-// }
-
-// function togg() {
-//   if (getComputedStyle(d2).display != "none") {
-//     d2.style.display = "none";
-//   } else {
-//     d2.style.display = "flex"
-//   }
-// };
-
-// function togg1() {
-//   if (getComputedStyle(d1).display != "none") {
-//     d1.style.display = "none";
-//   } else {
-//     d1.style.display = "block";
-//   }
-// };
-// // Disparition des boutons de choix
-// function ButtonDisappear() {
-//   document.getElementById("knight").style.display = "none";
-//   document.getElementById("mage").style.display = "none";
-//   document.getElementById("rogue").style.display = "none";
-// }
-
-
 /* -------------------------------------------------------------------------- */
 /*         Fonction & variable pour recuperer le niveau cliqué sur MAP        */
 /* -------------------------------------------------------------------------- */
@@ -69,7 +40,7 @@ document.getElementById("round").innerHTML = round;
 /* -------------------------------------------------------------------------- */
 /*                               Variable Utile                               */
 /* -------------------------------------------------------------------------- */
-var life = 3;
+var life = 2;
 var coin = 150;
 var stockPotion = 3;
 
@@ -381,11 +352,12 @@ function ModalProgress() {
 /* -------------------------------------------------------------------------- */
 // Chargement du persos, faudra faire une cnodition selon le perso choisi via la map je pense
 window.onload = function () {
+  var imageHero = localStorage.getItem('imgPers');
   var pickedHero = localStorage.getItem('pickedHero');
   if (pickedHero == 'rodric') {
-    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   } else if (pickedHero == 'urim') {
-    hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
+    hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, 'assets/img/urim.png', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
   } else if (pickedHero == 'xorrun') {
     hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
   }
