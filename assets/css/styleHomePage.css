@@ -226,7 +226,7 @@ h2 {
     margin: 15px;
     font-family: Basalt;
     border-radius: 10px;
-    z-index: 99999;
+    z-index: 5000;
 }
 
 
@@ -253,7 +253,7 @@ button#playpausebtn {
 }
 
 button#mutebtn {
-    background: url(https://image.flaticon.com/icons/svg/204/204287.svg) no-repeat;
+    background: url("../img/button") no-repeat;
     width: 30px;
     height: 30px;
 }
@@ -508,7 +508,7 @@ button#mutebtn {
     right: 0;
     bottom: 0;
     display: none;
-    z-index: 1000;
+    z-index: 1000000000;
 }
 
 

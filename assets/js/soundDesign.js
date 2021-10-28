@@ -36,6 +36,7 @@ function playLu() {
 
 //musiques
 // 
+var audioHompage = new Audio("assets/music/adventure.mp3");
 var audioNiveau1track = new Audio("assets/music/level1.mp3");
 var audioNiveau2track = new Audio("assets/music/forest.mp3");
 var audioNiveau9track = new Audio("assets/music/bar.mp3");

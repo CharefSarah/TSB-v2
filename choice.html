@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Choix des persos</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/choice.css">
+</head>
+
+<body>
+    <h1 id="title">THE <br>
+        SHIELD<br>
+        BEARRERS</h1>
+    <h2>Choissez votre héro</h2>
+    <div class="sexChoice">
+        <div><button id="male" class="choice"><img id="img1" src="assets/img/male.png"></button></div>
+        <div><button id="female" class="choice"><img id="img2" src="assets/img/female.png"></div>
+    </div>
+    <div class="persoChoice">
+        <div><button id="male" class="choice2 pers1"><img id="perceval1" src="assets/img/choixPers1.png"></button></div>
+        <div><button id="male" class="choice2 pers2"><img id="perceval2" src="assets/img/choixPers2.png"></button></div>
+        <div><button id="male" class="choice2 pers3"><img id="perceval3" src="assets/img/choixPers3.png"></button></div>
+    </div>
+    <form>
+        <div class="inputForm">
+            <input type="text" id="nameInput" value="" name="name" placeholder="Rodric">
+            <input type="submit" onclick="validate();" value="Submit"></div>
+    </form>
+
+
+    <script>
+        function validate() {
+            var regName = /^[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸ"\s?\-]{1,10}$/;
+            var name = document.getElementById('nameInput').value;
+            if (!regName.test(name)) {
+                console.log(name)
+                console.log(!regName.test(name))
+                alert('Entrez un nom valide');
+                document.getElementById('name').focus();
+                return false;
+            } else {
+                alert("well done")
+            }
+        }
+    </script>
+    <script>
+        document.getElementById("female").addEventListener("click", function () {
+            document.getElementById("female").style.outline = "solid 5px #689FFF";
+            document.getElementById("male").style.outline = "none";
+            document.getElementById("female").style.filter = "brightness(100%)";
+            document.getElementById("male").style.filter = "brightness(50%)";
+            document.getElementById("female").style.backgroundColor = "rgb(29, 12, 65)";
+            document.getElementById("male").style.backgroundColor = "  background: rgba(29, 12, 65, 0.55);"
+            document.querySelector(".pers1 img").src = "assets/img/f1.png";
+            document.querySelector(".pers2 img").src = "assets/img/f2.png";
+            document.querySelector(".pers3 img").src = "assets/img/f3.png";
+        });
+        document.getElementById("male").addEventListener("click", function () {
+            document.getElementById("male").style.outline = "solid 5px #689FFF";
+            document.getElementById("female").style.outline = "none";
+            document.getElementById("male").style.filter = "brightness(100%)";
+            document.getElementById("female").style.filter = "brightness(50%)";
+            document.getElementById("male").style.backgroundColor = "rgb(29, 12, 65)";
+            document.getElementById("female").style.backgroundColor = "  background: rgba(29, 12, 65, 0.55);"
+            document.querySelector(".pers1 img").src = "assets/img/choixPers1.png";
+            document.querySelector(".pers2 img").src = "assets/img/choixPers2.png";
+            document.querySelector(".pers3 img").src = "assets/img/choixPers3.png";
+        });
+        document.querySelector(".pers1").addEventListener("click", function () {
+            document.querySelector(".pers1").style.outline = "solid 5px #689FFF";
+            document.querySelector(".pers1").style.filter = "brightness(100%)";
+            document.querySelector(".pers1").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers2").style.outline = "none";
+            document.querySelector(".pers2").style.filter = "brightness(50%)";
+            document.querySelector(".pers2").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers3").style.outline = "none";
+            document.querySelector(".pers3").style.filter = "brightness(50%)";
+            document.querySelector(".pers3").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            var dataAttribute = document.getElementById("perceval1").getAttribute('src');
+            localStorage.setItem('imgPers', dataAttribute);
+        });
+        document.querySelector(".pers2").addEventListener("click", function () {
+            document.querySelector(".pers2").style.outline = "solid 5px #689FFF";
+            document.querySelector(".pers2").style.filter = "brightness(100%)";
+            document.querySelector(".pers2").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers1").style.outline = "none";
+            document.querySelector(".pers1").style.filter = "brightness(50%)";
+            document.querySelector(".pers1").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers3").style.outline = "none";
+            document.querySelector(".pers3").style.filter = "brightness(50%)";
+            document.querySelector(".pers3").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            var dataAttribute = document.getElementById("perceval2").getAttribute('src');
+            localStorage.setItem('imgPers', dataAttribute);
+        });
+        document.querySelector(".pers3").addEventListener("click", function () {
+            document.querySelector(".pers3").style.outline = "solid 5px #689FFF";
+            document.querySelector(".pers3").style.filter = "brightness(100%)";
+            document.querySelector(".pers3").style.backgroundColor = "rgb(29, 12, 65)";
+            document.querySelector(".pers1").style.outline = "none";
+            document.querySelector(".pers1").style.filter = "brightness(50%)";
+            document.querySelector(".pers1").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            document.querySelector(".pers2").style.outline = "none";
+            document.querySelector(".pers2").style.filter = "brightness(50%)";
+            document.querySelector(".pers2").style.backgroundColor = " rgba(29, 12, 65, 0.55)";
+            var dataAttribute = document.getElementById("perceval3").getAttribute('src');
+            localStorage.setItem('imgPers', dataAttribute);
+        });
+    </script>
+
+
+
+
+
+</body>
+
+
+</html>

@@ -271,7 +271,7 @@ function ModalProgress() {
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level2.jpg)";
-      pauseAudio(audioNiveau1bg);
+      audiooo(audioNiveau1track);
       audiooo(audioNiveau2bg);
       break;
     case 3:
@@ -751,4 +751,26 @@ var settings = document.querySelector('.settings');
 var settingsPanel = document.querySelector('.settingsPanel');
 settings.onclick = function () {
   settingsPanel.classList.toggle('settings-hidden');
+}
+
+function items(name, level, health, maxHealth, healthPerLevel, mana, maxMana, criticChance, criticMultiplier, imagePath, attacksTab, baseDamageMin, baseDamageMax, damagePerLevel, equippedWeapon, weaponValue, resistance, faiblesse, bruitage) {
+  this.name = name;
+  this.level = level;
+  this.health = health;
+  this.maxHealth = maxHealth;
+  this.healthPerLevel = healthPerLevel;
+  this.mana = mana;
+  this.maxMana = maxMana;
+  this.criticChance = criticChance;
+  this.criticMultiplier = criticMultiplier;
+  this.imagePath = imagePath;
+  this.attacksTab = attacksTab;
+  this.baseDamageMin = baseDamageMin;
+  this.baseDamageMax = baseDamageMax;
+  this.damagePerLevel = damagePerLevel;
+  this.equippedWeapon = equippedWeapon;
+  this.weaponValue = weaponValue;
+  this.resistance = resistance;
+  this.faiblesse = faiblesse;
+  this.bruitage = bruitage;
 }
