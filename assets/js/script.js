@@ -26,33 +26,33 @@ L.725 - Sidebar
 /*                              ----Sommaire----                              */
 /* -------------------------------------------------------------------------- */
 
-/* ---- Fonction pour gerer les deux panneau avec les selections de perso --- */
-window.onload = function () {
-  d1.style.display = "none";
-  d2.style.display = "none";
-}
+// /* ---- Fonction pour gerer les deux panneau avec les selections de perso --- */
+// window.onload = function () {
+//   d1.style.display = "none";
+//   d2.style.display = "none";
+// }
 
-function togg() {
-  if (getComputedStyle(d2).display != "none") {
-    d2.style.display = "none";
-  } else {
-    d2.style.display = "flex"
-  }
-};
+// function togg() {
+//   if (getComputedStyle(d2).display != "none") {
+//     d2.style.display = "none";
+//   } else {
+//     d2.style.display = "flex"
+//   }
+// };
 
-function togg1() {
-  if (getComputedStyle(d1).display != "none") {
-    d1.style.display = "none";
-  } else {
-    d1.style.display = "block";
-  }
-};
-// Disparition des boutons de choix
-function ButtonDisappear() {
-  document.getElementById("knight").style.display = "none";
-  document.getElementById("mage").style.display = "none";
-  document.getElementById("rogue").style.display = "none";
-}
+// function togg1() {
+//   if (getComputedStyle(d1).display != "none") {
+//     d1.style.display = "none";
+//   } else {
+//     d1.style.display = "block";
+//   }
+// };
+// // Disparition des boutons de choix
+// function ButtonDisappear() {
+//   document.getElementById("knight").style.display = "none";
+//   document.getElementById("mage").style.display = "none";
+//   document.getElementById("rogue").style.display = "none";
+// }
 
 
 /* -------------------------------------------------------------------------- */
@@ -379,43 +379,23 @@ function ModalProgress() {
 /* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
 /* -------------------------------------------------------------------------- */
-// Selection de tout les boutons de choix de classes
-var classSelectArray = document.querySelectorAll('.classSelect');
-var hero = classSelectArray.forEach(element => {
-  element.addEventListener('click', function CreateHero() {
-    if (element.id == "knight") {
-      hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');;
-      SetHeroValue();
-      ButtonDisappear();
-      displayLife();
-      togg();
-      togg1();
-      ModalProgress();
-      colorMana();
-      return hero;
-    } else if (element.id == "mage") {
-      hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
-      SetHeroValue();
-      ButtonDisappear();
-      displayLife();
-      togg();
-      togg1();
-      ModalProgress();
-      colorMana();
-      return hero;
-    } else if (element.id == "rogue") {
-      hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
-      SetHeroValue();
-      ButtonDisappear();
-      displayLife();
-      togg();
-      togg1();
-      ModalProgress();
-      colorMana();
-      return hero;
-    }
-  });
-});
+// Chargement du persos, faudra faire une cnodition selon le perso choisi via la map je pense
+window.onload = function () {
+  var pickedHero = localStorage.getItem('pickedHero');
+  if (pickedHero == 'rodric') {
+    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+  } else if (pickedHero == 'urim') {
+    hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
+  } else if (pickedHero == 'xorrun') {
+    hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
+  }
+  SetHeroValue();
+  displayLife();
+  ModalProgress();
+  colorMana();
+  return hero;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                                    LIFES                                   */
@@ -534,6 +514,9 @@ function DeathEnemy() {
     round++; // round
     localStorage.setItem("level", round);
     playLu();
+    blubluname = hero.name;
+    console.log(blubluname);
+    localStorage.setItem(blubluname, JSON.stringify(hero)); //stringify object and store
     setTimeout(function () {
       window.location.href = "map.html"
     }, 1200);

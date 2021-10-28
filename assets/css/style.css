@@ -591,3 +591,8 @@ section .section-title {
   }
 
 }
+
+
+.selectHerosActive {
+  outline: 4px solid #689FFF !important
+}

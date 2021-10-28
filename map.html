@@ -43,7 +43,7 @@
         }
 
         button:hover:enabled {
-            border: 2px #689fff solid;
+            outline: 2px #689fff solid;
         }
 
         .transi {
@@ -55,6 +55,21 @@
             right: 0;
 
             display: none;
+        }
+
+        .heroSelection {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+        }
+
+        .heroSelection button img {
+            height: 30px;
+            width: auto;
+        }
+
+        .selectHerosActive {
+            outline: 4px solid #689FFF !important
         }
     </style>
 </head>
@@ -130,6 +145,9 @@
     <button class="lvlBtn" level="18" disabled>
         18
     </button>
+    <button class="lvlBtn" level="19" disabled>
+        19
+    </button>
     <button class="lvlBtnSpe" levelSpe="shop4" disabled>
         Shop <br> spé
     </button>
@@ -172,13 +190,39 @@
 
     <br>
     <button class="cheh">CLEAR</button>
-
+    <div class="heroSelection">
+        <button class="hero rodricButton"><img src="assets/img/group.png" alt=""></button>
+        <button class="hero xorrunButton"><img src="assets/img/xorrun.png" alt=""></button>
+        <button class="hero urimButton"><img src="assets/img/urim.png" alt=""></button>
+    </div>
     <div class="transi"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
-
     <script src="assets/js/map.js"></script>
+    <script>
+        rodBut = document.querySelector('.rodricButton');
+        xorBut = document.querySelector('.xorrunButton');
+        uriBut = document.querySelector('.urimButton');
+        rodBut.addEventListener('click', function () {
+            rodBut.classList.add('selectHerosActive');
+            xorBut.classList.remove('selectHerosActive');
+            uriBut.classList.remove('selectHerosActive');
+            localStorage.setItem('pickedHero', 'rodric');
 
+        });
+        xorBut.addEventListener('click', function () {
+            xorBut.classList.add('selectHerosActive');
+            rodBut.classList.remove('selectHerosActive');
+            uriBut.classList.remove('selectHerosActive');
+            localStorage.setItem('pickedHero', 'xorrun');
+        });
+        uriBut.addEventListener('click', function () {
+            uriBut.classList.add('selectHerosActive');
+            rodBut.classList.remove('selectHerosActive');
+            xorBut.classList.remove('selectHerosActive');
+            localStorage.setItem('pickedHero', 'urim');
+        })
+    </script>
 </body>
 
 </html>
