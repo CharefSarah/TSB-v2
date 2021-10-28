@@ -96,6 +96,8 @@ function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cri
   this.attacksTab = attacksTab;
   this.baseDamageMin = baseDamageMin;
   this.baseDamageMax = baseDamageMax;
+  this.scaledDamageMin = baseDamageMin + (damagePerLevel * maxLvl);
+  this.scaledDamageMax = baseDamageMax + (damagePerLevel * maxLvl);
   this.damagePerLevel = damagePerLevel;
   this.equippedWeapon = equippedWeapon;
   this.weaponValue = weaponValue;
@@ -123,14 +125,6 @@ var xorrunAttacks = [
   ['Boule de feu', 2.6],
   ['Mega Glace', 4]
 ]
-
-/* ------------------------------- Objet Hero ------------------------------- */
-var rodric = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
-
-var xorrun = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
-
-var urim = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
-
 
 // affiche les valeurs du héro
 function SetHeroValue() {
@@ -186,7 +180,7 @@ function CreateBadGuy() {
   } else if (round == 9) {
     var badGuy = new BadGuy("Loup9", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 10) {
-    var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 11) {
     var badGuy = new BadGuy("Loup11", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 12) {
@@ -206,7 +200,7 @@ function CreateBadGuy() {
   } else if (round == 19) {
     var badGuy = new BadGuy("Loup19", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 20) {
-    var badGuy = new BadGuy("Xonoth2", 750, 750, 30, 32, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Xonoth2", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 21) {
     var badGuy = new BadGuy("Loup21", 100, 100, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 22) {
@@ -373,7 +367,14 @@ function ModalProgress() {
   }
 }
 
-
+// function checkLocalStorage(toCheck, cookieName) {
+//   if (localStorage.getItem(toCheck) === null) {
+//     localStorage.setItem(toCheck, cookieName);
+//   } else {
+//     var vavar = localStorage.getItem(toCheck);
+//     return vavar;
+//   }
+// };
 
 /* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
@@ -383,7 +384,7 @@ var classSelectArray = document.querySelectorAll('.classSelect');
 var hero = classSelectArray.forEach(element => {
   element.addEventListener('click', function CreateHero() {
     if (element.id == "knight") {
-      hero = rodric;
+      hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, 'assets/img/Group.png', rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');;
       SetHeroValue();
       ButtonDisappear();
       displayLife();
@@ -393,7 +394,7 @@ var hero = classSelectArray.forEach(element => {
       colorMana();
       return hero;
     } else if (element.id == "mage") {
-      hero = xorrun;
+      hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
       SetHeroValue();
       ButtonDisappear();
       displayLife();
@@ -403,7 +404,7 @@ var hero = classSelectArray.forEach(element => {
       colorMana();
       return hero;
     } else if (element.id == "rogue") {
-      hero = urim;
+      hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, '', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
       SetHeroValue();
       ButtonDisappear();
       displayLife();
@@ -555,8 +556,8 @@ function Crit() {
 function AttackDamage(attackRatio) {
   var ratio = attackRatio;
   var multiplier = hero.criticMultiplier;
-  var max = hero.baseDamageMax + hero.weaponValue;
-  var min = hero.baseDamageMin + hero.weaponValue;
+  var max = hero.scaledDamageMin + hero.weaponValue;
+  var min = hero.scaledDamageMax + hero.weaponValue;
   var damage = Math.floor(Math.random() * (max - min + 1) + min);
   attackDamage = Math.floor(damage * ratio);
   if (Crit()) {
