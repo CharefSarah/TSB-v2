@@ -35,7 +35,7 @@ body {
     background-position: center center;
     height: 100vh;
     overflow: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth !important;
 
 }
@@ -96,6 +96,7 @@ h2 {
 
 .persoChoice {
     width: 100%;
+    height: 30%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -103,8 +104,10 @@ h2 {
 }
 
 .choice2 {
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    transition: 0.5s ease-out;
     background: rgba(29, 12, 65, 0.55);
     border-radius: 21px;
     border: none;
@@ -120,7 +123,7 @@ h2 {
 
 
 
-#nameInput {
+#nameHero {
     width: 242px;
     height: 40px;
     background-color: #391B6E;
@@ -163,4 +166,6 @@ input:focus {
     outline: solid 5px #689FFF;
     background-color: #391B6E;
     filter: brightness(100%);
+    width: 200px;
+    height: 200px
 }
