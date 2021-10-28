@@ -21,6 +21,6 @@ document.querySelector('.launchButton2').addEventListener('click', function () {
   iframe.style.display = "block";
   iframe.play();
   setTimeout(function () {
-    window.location.href = "choice.html";
+    window.location.href = "map.html";
   }, 5500);
 });
