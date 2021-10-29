@@ -131,6 +131,36 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
   this.imagePath = imagePath;
   this.bruitage = bruitage
 }
+/* -------------------------------------------------------------------------- */
+/*                              CONSTRUCT SHOP                                */
+/* -------------------------------------------------------------------------- */
+function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
+  this.name = name;
+  this.type = type;
+  this.price = price;
+  this.stock = stock;
+  this.used = used;
+  this.stat = stat;
+  this.docket = docket;
+  this.imagePath = imagePath;
+  this.bruitage = bruitage
+}
+/* -------------------------------------------------------------------------- */
+/*                              CONSTRUCT INVENTORY                           */
+/* -------------------------------------------------------------------------- */
+function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
+  this.name = name;
+  this.type = type;
+  this.stock = stock;
+  this.used = used;
+  this.stat = stat;
+  this.docket = docket;
+  this.imagePath = imagePath;
+  this.bruitage = bruitage
+}
+
+
+
 
 function CreateBadGuy() {
   if (round == 1) {

@@ -16,7 +16,7 @@
        Button.forEach((item, index) => {
            lvlButton = parseInt(item.getAttribute("level"));
            maxLvl = parseInt(localStorage.getItem("maxLevel"));
-           if (lvlButton <= maxLvl + 1) {
+           if (lvlButton <= maxLvl +1) {
                // Remplace "maxLvl + 1" par "30" ou plus si tu veux tester n'importe quel lvl.
                item.disabled = false;
            }
