@@ -17,10 +17,6 @@ L.515 - Combat
 L.675 - Potions
 L.725 - Sidebar
 
-
-
-
-
 */
 /* -------------------------------------------------------------------------- */
 /*                              ----Sommaire----                              */
@@ -99,12 +95,20 @@ var xorrunAttacks = [
 
 // affiche les valeurs du héro
 function SetHeroValue() {
-  var namename = localStorage.getItem('nameHero');
-  document.getElementById("heroName").innerHTML = namename;
+  // function checkLocalStorage(toCheck, cookieName) {
+  //   if (localStorage.getItem(toCheck) === null) {
+  //     localStorage.setItem(toCheck, cookieName);
+  //   } else {
+  //     var vavar = localStorage.getItem(toCheck);
+  //     return vavar;
+  //   }
+  // };
+  document.getElementById("heroName").innerHTML = hero.name;
   document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
   document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
   document.getElementById("heroHealth").innerHTML = hero.scaledHP;
+  console.log(hero)
   document.getElementById("heroImg").src = hero.imagePath;
   health.setAttribute("value", hero.scaledHP);
   health.setAttribute("max", hero.scaledMaxHP);
@@ -223,6 +227,8 @@ function CreateBadGuy() {
     var badGuy = new BadGuy("Loup29", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 30) {
     var badGuy = new BadGuy("Xonoth3", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
+  } else {
+    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   }
   return badGuy
 }
@@ -366,31 +372,34 @@ function ModalProgress() {
     case 31:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
+    default:
+      document.body.style.backgroundImage = "url(assets/img/level1.jpg)"
+      audiooo(audioNiveau1track);
+      audiooo(audioNiveau1bg);
+      break;
   }
 }
-
-// function checkLocalStorage(toCheck, cookieName) {
-//   if (localStorage.getItem(toCheck) === null) {
-//     localStorage.setItem(toCheck, cookieName);
-//   } else {
-//     var vavar = localStorage.getItem(toCheck);
-//     return vavar;
-//   }
-// };
 
 /* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
 /* -------------------------------------------------------------------------- */
 // Chargement du persos, faudra faire une cnodition selon le perso choisi via la map je pense
 window.onload = function () {
+  if (localStorage.getItem('maxLevel') === null) {
+    localStorage.setItem('maxLevel', 1);
+  }
   var imageHero = localStorage.getItem('imgPers');
   var pickedHero = localStorage.getItem('pickedHero');
   if (pickedHero == 'rodric') {
-    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+    var namename = localStorage.getItem('nameHero');
+    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   } else if (pickedHero == 'urim') {
     hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, 'assets/img/urim.png', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
   } else if (pickedHero == 'xorrun') {
     hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
+  } else {
+    var namename = localStorage.getItem('nameHero');
+    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   }
   SetHeroValue();
   displayLife();
@@ -424,12 +433,12 @@ function addLife() {
 
 // Compteur de vie
 function LostLife() {
-  if (hero.scaledHealth = 0) {
+  if (hero.scaledHP <= 0) {
     life = life - 1;
     playHL();
     displayLife();
     hero.scaledHP = hero.scaledMaxHP;
-    document.getElementById("heroHealth").innerHTML = maxHp;
+    document.getElementById("heroHealth").innerHTML = hero.scaledMaxHP;
   }
 }
 
@@ -661,18 +670,23 @@ window.addEventListener("load", function () {
 });
 
 document.getElementById("potion").addEventListener("click", function () {
-  var hp = scalingHP();
-  var maxHp = scalingMaxHP();
   if (stockPotion > 0) {
-    heroHealthToGet = hp + 49;
-    if (hp < hero.maxHealth && heroHealthToGet < hero.maxHealth) {
-      hp = hp + 50;
+    console.log(hero.scaledHP);
+    heroHealthToGet = hero.scaledHP + 49;
+    if (hero.scaledHP < hero.scaledMaxHP && hero.scaledHP < hero.scaledMaxHP) {
+      hero.scaledHP = hero.scaledHP + 50;
       stockPotion--;
-      document.getElementById("heroHealth").innerHTML = hp;
+      document.getElementById("heroHealth").innerHTML = hero.scaledHP;
       document.getElementById("stockPotion").innerHTML = stockPotion;
       MoveAllyHealthBar();
-    } else {}
-  } else {}
+      console.log(hero.scaledHP);
+
+    } else {
+      console.log('trop de pv')
+    }
+  } else {
+    console.log('plus de potion')
+  }
 });
 
 function addPotion() {
@@ -682,6 +696,7 @@ function addPotion() {
   return stockPotion;
 }
 
+/* ------------------------------- tremblement ------------------------------ */
 $(document).ready(function () {
   $("#baseAttack").click(function () {
     $(".badguyImg").effect("shake", {

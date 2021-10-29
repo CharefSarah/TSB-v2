@@ -289,14 +289,26 @@ color: #E1DFF0;
   .slider {
     position: absolute;
     cursor: pointer;
+  }
+
+
+
+  #iframe {
+    background-color: rgb(17, 10, 31);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgb(62, 62, 62);
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
+    display: none;
+    z-index: 1000000000;
+}
+
+#iframe::-webkit-media-controls {
+    display: none !important;
+}
   
   .slider:before {
     position: absolute;
@@ -375,4 +387,10 @@ color: #E1DFF0;
   .settingsValidate:hover,
   .settingsValidate:focus {
     border: 3px var(--blue) solid !important;
-  }
+    display: none;
+    z-index: 1000000000;
+}
+
+#iframe::-webkit-media-controls {
+    display: none !important;
+}

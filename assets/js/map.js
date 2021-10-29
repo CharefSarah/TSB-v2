@@ -76,7 +76,7 @@
    // mais pour tester je l'ai mit a coté
    document.querySelector('.cheh').addEventListener('click', function () {
        window.localStorage.clear();
-       window.location.reload();
+       window.location.href = "index.html";
        // Le clear refresh histoire d'eviter des soucis
    });
 
