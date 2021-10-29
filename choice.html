@@ -31,7 +31,16 @@
     </form>
 
 
+
+    <video id="iframe" controls="hidden" autoplay="autoplay">
+        <source src="assets/video/14.mp4" type="video/mp4">
+    </video>
+
     <script>
+        window.addEventListener("load", function () {
+            document.getElementById("iframe").pause();
+        });
+
         function validate() {
             var regName = /^[a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸ"\s?\-]{1,10}$/;
             var nameHero = document.getElementById('nameHero').value;
@@ -45,7 +54,12 @@
                 event.preventDefault();
                 var nameHero = document.getElementById('nameHero').value;
                 localStorage.setItem('nameHero', nameHero);
-                window.location.href = "game.html";
+                var iframe = document.querySelector('#iframe');
+                iframe.style.display = "block";
+                iframe.play();
+                setTimeout(function () {
+                    window.location.href = "game.html";
+                }, 5500);
             }
         }
     </script>

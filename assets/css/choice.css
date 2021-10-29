@@ -169,3 +169,23 @@ input:focus {
     width: 200px;
     height: 200px
 }
+
+
+
+
+#iframe {
+    background-color: rgb(17, 10, 31);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1000000000;
+}
+
+#iframe::-webkit-media-controls {
+    display: none !important;
+}

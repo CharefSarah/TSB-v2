@@ -11,9 +11,6 @@
 </head>
 
 <body>
-    <video id="iframe" controls="hidden" autoplay="autoplay">
-        <source src="assets/video/14.mp4" type="video/mp4">
-    </video>
     <main>
         <div class="bgAlert">
             <div class="testMessage" id="testMessage">
@@ -41,7 +38,8 @@
             <img src="assets/img/stars.png" id="stars">
             <img src="assets/img/moon.png" id="moon">
             <img src="assets/img/town-behind.png" id="town-behind">
-            <a href="choice.html" role="button" id="bouton" class="bouton btn btn-light launchButton2"><b>JOUER</b></a>
+            <a href="choice.html" role="button" id="bouton"
+                class="bouton btn btn-light launchButton2 launchlaunch"><b>JOUER</b></a>
             <img src="assets/img/town.png" id="town-front">
 
         </section>
@@ -73,7 +71,7 @@
 
                     Partez à l'aventure et terrasser Void et son armée!</p>
                 <a href="choice.html" role="button" id="bouton"
-                    class="bouton btn btn-light launchButton"><b>JOUER</b></a>
+                    class="bouton btn btn-light launchButton launchlaunch"><b>JOUER</b></a>
             </div>
         </div>
         <footer>
@@ -139,6 +137,24 @@
                     'top 0' :
                     '';
             });
+        });
+    </script>
+    <script>
+        document.querySelector('.launchButton').addEventListener('click', function () {
+            event.preventDefault();
+            if (localStorage.getItem('imgPers') === null && localStorage.getItem('nameHero') === null) {
+                window.location.href = 'choice.html';
+            } else {
+                window.location.href = "map.html"
+            }
+        });
+        document.querySelector('.launchButton2').addEventListener('click', function () {
+            event.preventDefault();
+            if (localStorage.getItem('imgPers') === null && localStorage.getItem('nameHero') === null) {
+                window.location.href = 'choice.html';
+            } else {
+                window.location.href = "map.html"
+            }
         });
     </script>
     <script src="assets/js/video.js"></script>
