@@ -17,10 +17,6 @@ L.515 - Combat
 L.675 - Potions
 L.725 - Sidebar
 
-
-
-
-
 */
 /* -------------------------------------------------------------------------- */
 /*                              ----Sommaire----                              */
@@ -107,8 +103,7 @@ function SetHeroValue() {
   //     return vavar;
   //   }
   // };
-  var namename = localStorage.getItem('nameHero');
-  document.getElementById("heroName").innerHTML = namename;
+  document.getElementById("heroName").innerHTML = hero.name;
   document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
   document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
@@ -363,17 +358,18 @@ window.onload = function () {
   if (localStorage.getItem('maxLevel') === null) {
     localStorage.setItem('maxLevel', 1);
   }
-
   var imageHero = localStorage.getItem('imgPers');
   var pickedHero = localStorage.getItem('pickedHero');
   if (pickedHero == 'rodric') {
-    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+    var namename = localStorage.getItem('nameHero');
+    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   } else if (pickedHero == 'urim') {
     hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, 'assets/img/urim.png', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
   } else if (pickedHero == 'xorrun') {
     hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
   } else {
-    hero = new Hero('Rodric', 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+    var namename = localStorage.getItem('nameHero');
+    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   }
   SetHeroValue();
   displayLife();
