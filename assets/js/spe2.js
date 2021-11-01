@@ -1,5 +1,5 @@
 // Les variables, en premier la variables pour les couleurs
-var game, level, color = ["#ff0059", "#0099ff", "#a6ff00", "#00ff88", "purple", "lightgreen", "lightblue", "orange", "brown", "pink"],
+var game, level, color = ["rgba(255,0,89,1)", "#0099ff", "#a6ff00", "#00F1A3", "#DD02DC", "lightgreen", "lightblue", "orange", "brown", "pink"],
     water = [],
     w = [],
     currentLevel, clicked = [],
@@ -9,41 +9,42 @@ var game, level, color = ["#ff0059", "#0099ff", "#a6ff00", "#00ff88", "purple", 
     sizechange = 0.05,
     won = false
 
-    // tableau de coordonées absolute ( x / y )
+// tableau de coordonées absolute ( x / y )
+// Si tu veux repositionner des fioles c'est avec ca qu'il faut voir mais c'est tordu. ^^ 
 var testTubePosition = {
     0: [
-        [-110, 130],
-        [-20, 130],
-        [70, 130],
-        [-65, 320],
-        [15, 320]
+        [-110, 68],
+        [-20, 68],
+        [70, 68],
+        [-65, 210],
+        [15, 210]
     ],
     1: [
-        [-110, 130],
-        [-20, 130],
-        [70, 130],
-        [-110, 320],
-        [-20, 320],
-        [70, 320]
+        [-110, 68],
+        [-20, 68],
+        [70, 68],
+        [-110, 210],
+        [-20, 210],
+        [70, 210]
     ],
     2: [
-        [-140, 130],
-        [-60, 130],
-        [20, 130],
-        [100, 130],
-        [-110, 320],
-        [-20, 320],
-        [70, 320]
+        [-200, 68],
+        [-80, 68],
+        [40, 68],
+        [160, 68],
+        [-140, 210],
+        [-20, 210],
+        [100, 210]
     ],
     3: [
-        [-140, 130],
-        [-60, 130],
-        [20, 130],
-        [100, 130],
-        [-140, 320],
-        [-60, 320],
-        [20, 320],
-        [100, 320]
+        [-140, 68],
+        [-60, 68],
+        [20, 68],
+        [100, 68],
+        [-140, 210],
+        [-60, 210],
+        [20, 210],
+        [100, 210]
     ],
     7: [
         [-140, 100],
@@ -62,10 +63,11 @@ var testTubePosition = {
 }
 
 // On load lancement du jeu, 2 = la difficulé. 0 1 2 3 .
+// 3 c'etait SPORT.
 window.addEventListener("load", function () {
     game = document.getElementById("game");
     level = document.getElementById("level");
-
+    // Variable de la difficulté
     x = 2;
     currentLevel = x;
     won = false;
@@ -89,7 +91,6 @@ window.addEventListener("load", function () {
     }
     water.push(["transparent", "transparent", "transparent", "transparent"], ["transparent", "transparent", "transparent", "transparent"]);
     w = water.map((a) => [...a]);
-    //console.log(water[0]);
     ApplyInfo();
 
 })
@@ -98,29 +99,31 @@ window.addEventListener("load", function () {
 
 function ApplyInfo(a = water) {
     if (!won) {
-        let d = 0,
-            heading = ["EASY", "MEDIUM", "HARD", "VERY HARD", "", "", "", "IMPOSSIBLE"][currentLevel];
+        let d = 0;
         level.innerHTML = `<div id = 'lvl-heading'></div>`;
         for (let i of testTubePosition[currentLevel]) {
+            // Ca créé une fiole + son contenu pour chaque et ca rend le fond pas transparent quand y'as besoin.
             level.innerHTML += `<div class = "test-tube" style="top:${i[1]}px;left:calc(50vw + ${i[0]}px);transform:rotate(0deg);" onclick="Clicked(${d});">
-                <div class="colors" style = "background-color:${a[d][0]};top:100px;"></div>
-                <div class="colors" style = "background-color:${a[d][1]};top:70px;"></div>
-                <div class="colors" style = "background-color:${a[d][2]};top:40px;"></div>
-                <div class="colors" style = "background-color:${a[d][3]};top:10px;"></div>
+                <div class="colors" style = "background:${a[d][0]};top:100px;"></div>
+                <div class="colors" style = "background:${a[d][1]};top:70px;"></div>
+                <div class="colors" style = "background:${a[d][2]};top:40px;"></div>
+                <div class="colors" style = "background:${a[d][3]};top:10px;"></div>
             </div>`;
             d++;
         }
+        // Ca sert a rien cette ligne la mais quand je l'ai enlevé ca a planté. 
         level.innerHTML += ``;
     }
 }
 
 window.Clicked = function (x) {
-    //console.log(x);
     if (!transferring) {
         if (clicked.length == 0) {
             clicked.push(x);
+            // Transition quand on clique sur une fiole, on l'a grossi en 0.2s
+            // j'ai mit 1.12 mais si ca te parait trop leger met plus.
             document.getElementsByClassName("test-tube")[x].style.transition = "0.2s linear";
-            document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.08)";
+            document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.12)";
         } else {
             clicked.push(x);
             let el = document.getElementsByClassName("test-tube")[clicked[0]];
@@ -152,17 +155,10 @@ function TransferAnim(a, b) {
     setTimeout(function () {
         el.style.zIndex = "0";
         transferring = false;
-    }, 3000)
+    }, 2300)
 }
 
 function Transfer(a, b) {
-    /* 
-    a represents the index of the glass from which water is to ne taken
-    b represents the index of the glass to which water is to be transferred
-    constraints:
-    b should have white
-    last element of a = last non-white element in b
-    */
     if (!water[b].includes("transparent") || water[a] == ["transparent", "transparent", "transparent", "transparent"]) {
         return;
     }
@@ -196,7 +192,7 @@ function Transfer(a, b) {
             q = [water[b][i], i, water[b].map((x) => x = (x == "transparent") ? 1 : 0).reduce((x, y) => x + y)];
         }
     }
-    //console.log(p);
+
     if (q[0] != "transparent" && p[0] != q[0]) {
         return;
     }
@@ -210,8 +206,7 @@ function Transfer(a, b) {
             break;
         }
     }
-    //console.log(count);
-    //console.log(q);
+
     c = count;
     setTimeout(function () {
         WaterDec(p, a, c);
@@ -260,18 +255,7 @@ function WaterInc(p, q, b, count) {
     }, 50);
 }
 
-window.Restart = function () {
-    water = w.map((a) => [...a]);
-    won = false;
-    ApplyInfo(w);
-}
 
-window.ShowMenu = function () {
-    document.getElementById("level").style.display = "none";
-    document.getElementById("menu").style.display = "block";
-    document.getElementById("cr2").style.display = "none";
-    document.getElementById("cr1").style.display = "block";
-}
 
 function Won() {
     for (let i of water) {
@@ -282,7 +266,14 @@ function Won() {
     won = true;
     //console.log("hello");
     level.innerHTML = `<div id="won">YOU WON!</div>`;
-    window.location.href = 'map.html'
+    // Redirection tout a fait brutal quand on gagne, mais les details c'est pour aprés hein XD
+    ggdialog = "Bravo, grace a toi ma mere va m'as meme pas m'assassiner ! "
+    // Dialog avec ta fonction
+    createDiag(ggdialog);
+    // redirection aprés du coup
+    setTimeout(function () {
+        window.location.href = 'map.html'
+    }, 3000)
 }
 
 function shuffle(x) {
@@ -296,16 +287,52 @@ function shuffle(x) {
     return a;
 }
 
-window.ShowRules = function () {
-    document.getElementById("rules-page").style.display = "block";
-    setTimeout(function () {
-        document.getElementById("rules-page").style.opacity = "1";
-    }, 50);
-}
 
-window.HideRules = function () {
-    setTimeout(function () {
-        document.getElementById("rules-page").style.display = "none";
-    }, 500);
-    document.getElementById("rules-page").style.opacity = "0";
+
+var dialogs = [
+        'VIIIITE, aide moi a ranger toutes mes potions sinon j\'aurais jamais mon examen !'
+    ],
+    initial = 0;
+individual = dialogs[initial].split('');
+
+function createDiag(dialog) {
+
+    for (i = 0; i < dialog.length; i++) {
+        (function (i) {
+            setTimeout(function () {
+                $('#dialog').text($('#dialog').text() + dialog[i]);
+                if (i == dialog.length - 1) {
+                    $('#dialog').prepend('<div id="arrow"></div>');
+                    Mousetrap.bind('enter', function () {
+                        if (dialogs[initial + 1]) {
+                            $('#dialog').text('');
+                            initial += 1;
+                            individual = dialogs[initial].split('');
+                            createDiag(individual);
+                        }
+                    });
+                }
+            }, 50 * i);
+
+        }(i));
+
+    }
+
 }
+createDiag(individual);
+
+function redirection() {
+    if (document.getElementById("li1").classList.contains("strike") && document.getElementById("li2").classList
+        .contains("strike") && document.getElementById("li3").classList.contains("strike") && document
+        .getElementById("li4").classList.contains("strike") && document.getElementById("li5").classList
+        .contains("strike") && document.getElementById("li6").classList.contains("strike")) {
+        var GG = "Bravo ! Tiens prend ces potions ";
+        document.getElementById("dialog").innerHTML = "";
+        createDiag(GG);
+        TextDisplay();
+
+    } else {
+
+    };
+
+};
