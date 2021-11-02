@@ -39,7 +39,7 @@
     overflow: hidden;
     transition: 1s linear;
     transform: rotate(0deg);
-    animation: blink 2.5s infinite ease-in-out;
+    /* animation: blink 2.5s infinite ease-in-out; */
 }
 
 @keyframes blink {
