@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+#game {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: url('../img/schoollvlspe2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#level {
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    display: none;
+}
+
+.test-tube {
+    position: absolute;
+    height: 130px;
+    width: 40px;
+    border: 2px solid rgb(150, 150, 150);
+    border-radius: 2px 2px 20px 20px;
+    background-position: 0 10px;
+    overflow: hidden;
+    transition: 1s linear;
+    transform: rotate(0deg);
+    animation: blink 2.5s infinite ease-in-out;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        box-shadow: 3px 3px 60px 14px rgba(83, 255, 218, 0.445);
+    }
+
+    50% {
+        box-shadow: 3px 3px 110px 14px rgba(83, 255, 218, 0.7);
+
+    }
+}
+
+@keyframes glassAnim {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.colors {
+    position: absolute;
+    left: 0;
+    height: 30px;
+    width: 40px;
+}
+
+.colors:after {
+    background-image: linear-gradient(0deg, red, magenta);
+
+}
+
+#won {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 900;
+}
+
+#white-bg {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 40px;
+    height: 10px;
+    z-index: 1000;
+    transition: 1s;
+}
+
+#colorful-bg {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    z-index: 1000;
+    transition: 1s;
+}
+
+.game-buttons {
+    position: fixed;
+    top: calc(100vh - 50px);
+    height: 50px;
+    width: calc(75px + 75 * (100vw - 280px) / 920);
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 30px;
+    background-color: lightgreen;
+    border-radius: 10px 10px 0 0;
+}
+
+
+#dialogBox {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    align-items: flex-end;
+    width: 100%;
+    justify-content: center;
+}
+
+#dialog {
+    height: 110px;
+    background: #0F0426;
+    border-radius: 5px;
+    box-shadow: #0F0426;
+    color: #f5f5f5;
+    font-family: poppins;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 20px 20px 20px;
+    position: relative;
+    text-transform: uppercase;
+    word-spacing: 3px;
+    width: 800px;
+    z-index: 100000;
+
+}
+
+
+
+#xoxo {
+    z-index: 100001;
+    height: 250px;
+}
