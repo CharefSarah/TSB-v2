@@ -105,8 +105,11 @@ body {
 
 .shop {
   height: 750px;
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .rowD {
@@ -123,11 +126,11 @@ body {
 
 .rowD h1 {
   background: rgb(17, 10, 31);
-  height: 119px;
+  height: 8w9px;
   padding: 0;
   margin: 0;
-  padding-top: 25px;
-  padding-left: 15px;
+  padding-top: 5px;
+  padding-left: -5px;
   z-index: 15;
   font-family: Basalt;
 }
@@ -163,20 +166,22 @@ body {
   display: flex;
   flex-direction: row;
   padding: 0;
-  border: 15px solid rgb(118, 255, 7);
+  position: absolute;
+  top: 0;
 
 }
 
 .items {
-  height: 90%;
+
+  height: 85%;
   width: 50%;
   padding: 20px;
   margin: 0;
   margin-left: 25px;
   margin-right: 25px;
+  margin-top: 35px;
   background-image: url(../img/Rectangle\ 26.png);
   border-radius: 45px;
-  border: 15px solid rgb(7, 226, 255);
 }
 
 
@@ -189,7 +194,6 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  border: 15px solid rgb(255, 7, 7);
 }
 
 #coin {
@@ -264,21 +268,17 @@ body {
   align-items: center;
 }
 
-
-
-
 #buttonRAS {
-  width: 350px;
-  height: 70px;
+  width: 250px;
+  height: 60px;
   background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
   border-radius: 53px;
   font-family: Poppins;
   font-style: normal;
   font-size: 24px;
-  line-height: 54px;
   color: #FFFFFF;
   border: none;
-
+  margin-top: 155px;
 }
 
 a {
@@ -292,8 +292,98 @@ a:hover {
 }
 
 
+@-webkit-keyframes arrow_anim {
+  from {
+    margin-top: 58px;
+  }
 
+  to {
+    margin-top: 67px;
+  }
+}
 
+@-moz-keyframes arrow_anim {
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
+}
+
+@-ms-keyframes arrow_anim {
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
+}
+
+@-o-keyframes arrow_anim {
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
+}
+
+@keyframes arrow_anim {
+  from {
+    margin-top: 58px;
+  }
+
+  to {
+    margin-top: 67px;
+  }
+}
+
+#arrow {
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid red;
+  height: 0;
+  margin: 60px 0px 0px 360px;
+  position: absolute;
+  width: 0;
+  -webkit-animation: arrow_anim .3s steps(3) infinite;
+  -moz-animation: arrow_anim .3s steps(3) infinite;
+  -ms-animation: arrow_anim .3s steps(3) infinite;
+  -o-animation: arrow_anim .3s steps(3) infinite;
+  animation: arrow_anim .3s steps(3) infinite;
+}
+
+#dialog {
+  height: 110px;
+  background: #0F0426;
+  border-radius: 5px;
+  box-shadow: #0F0426;
+  color: #f5f5f5;
+  font-family: poppins;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 20px 20px 20px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 350px;
+  text-transform: uppercase;
+  word-spacing: 3px;
+  width: 800px;
+  text-align: center;
+}
+
+#townie {
+  z-index: 1000001;
+  height: 350px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-right: 95px;
+}
 
 
 

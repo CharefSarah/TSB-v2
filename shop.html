@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <div class="shop">
         <div class="mag">
             <div class="shopping">
@@ -18,7 +19,14 @@
                     <div class="itemsTitle">
                         <h1>Boutique</h1>
                     </div>
-                    <div class="item1"></div>
+                    <div class="item1">
+                        <img id="imgItem1">
+                        <div id="itemDescription">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa praesentium eligendi vero.
+                            </p>
+                            <div id="itemsprice">bgbethneth</div>
+                        </div>
+                    </div>
                     <div class="item1"></div>
                 </div>
             </div>
@@ -28,11 +36,13 @@
         </div>
         <div class="bgDialog">
         </div>
+        <img id="townie" src="assets/img/villageois.png">
         <div id="divButton">
             <button id="buttonRAS"><a>Rien acheter</a></button></div>
-        </div>
     </div>
- 
+    <div id="dialog"></div>
+    </div>
+
 
 
 
@@ -80,12 +90,44 @@
 
 
     <script>
-
         var settings = document.querySelector('.settings');
         var settingsPanel = document.querySelector('.settingsPanel');
         settings.onclick = function () {
             settingsPanel.classList.toggle('settings-hidden');
         }
+
+        var dialogs = [
+                "   Qu'est-ce qui veut aujourd'hui le jeune ?"
+            ],
+            initial = 0;
+        individual = dialogs[initial].split('');
+
+        function createDiag(dialog) {
+
+            for (i = 0; i < dialog.length; i++) {
+                (function (i) {
+
+                    setTimeout(function () {
+                        $('#dialog').text($('#dialog').text() + dialog[i]);
+                        if (i == dialog.length - 1) {
+                            $('#dialog').prepend('<div id="arrow"></div>');
+                            Mousetrap.bind('enter', function () {
+                                if (dialogs[initial + 1]) {
+                                    $('#dialog').text('');
+                                    initial += 1;
+                                    individual = dialogs[initial].split('');
+                                    createDiag(individual);
+                                }
+                            });
+                        }
+                    }, 50 * i);
+
+                }(i));
+
+            }
+
+        }
+        createDiag(individual);
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
@@ -98,6 +140,12 @@
     <script src="assets/js/script.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script>
+        
+function Createitems() {
+        var Items = new Items("Épée", "Armes blanche", 150 , 100 , "", "+50", "Épée fabriquée artisanalement", "assets/img/wolfs.png", 'bruit.mp3');
+    }
+    </script>
 </body>
 
 </html>

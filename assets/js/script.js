@@ -138,7 +138,7 @@ function BadGuy(name, health, maxHealth, criticChance, criticMultiplier, baseDam
 /* -------------------------------------------------------------------------- */
 /*                              CONSTRUCT SHOP                                */
 /* -------------------------------------------------------------------------- */
-function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
+function Items(name, type, price, stock, used, stat, docket, imagePath, bruitage) {
   this.name = name;
   this.type = type;
   this.price = price;
@@ -152,7 +152,7 @@ function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
 /* -------------------------------------------------------------------------- */
 /*                              CONSTRUCT INVENTORY                           */
 /* -------------------------------------------------------------------------- */
-function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
+function Inventory(name, type, stock, used, stat, docket, imagePath, bruitage) {
   this.name = name;
   this.type = type;
   this.stock = stock;
