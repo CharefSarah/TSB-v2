@@ -12,7 +12,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: url('../img/3187.jpg');
+    background: url('../img/schoollvlspe2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -46,11 +46,11 @@
 
     0%,
     100% {
-        box-shadow: 3px 3px 80px 14px rgba(83, 255, 218, 0.445);
+        box-shadow: 3px 3px 60px 14px rgba(83, 255, 218, 0.445);
     }
 
     50% {
-        box-shadow: 3px 3px 180px 14px rgba(83, 255, 218, 0.7);
+        box-shadow: 3px 3px 110px 14px rgba(83, 255, 218, 0.7);
 
     }
 }
@@ -126,7 +126,7 @@
     flex-direction: row;
     position: absolute;
     bottom: 0;
-    align-items : flex-end;
+    align-items: flex-end;
     width: 100%;
     justify-content: center;
 }
@@ -146,7 +146,7 @@
     word-spacing: 3px;
     width: 800px;
     z-index: 100000;
-    
+
 }
 
 
