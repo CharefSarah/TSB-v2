@@ -126,12 +126,13 @@ window.Clicked = function (x) {
             document.getElementsByClassName("test-tube")[x].style.border = "2px white solid";
             document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.12)";
             document.getElementsByClassName("test-tube")[x].style.animation = "blink 2.5s infinite ease-in-out";
-            
+
         } else {
             clicked.push(x);
             let el = document.getElementsByClassName("test-tube")[clicked[0]];
             el.style.transform = "scale(1) rotate(0deg)";
             el.style.border = "2px solid rgb(150,150,150)"
+            el.style.animation = "";
             if (clicked[0] != clicked[1]) {
                 el.style.transition = "1s linear";
                 Transfer(...clicked);
