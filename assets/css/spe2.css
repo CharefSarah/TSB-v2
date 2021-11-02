@@ -12,7 +12,7 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    background: url('../img/schoollvlspe2.png');
+    background: url('../img/2976.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -39,7 +39,7 @@
     overflow: hidden;
     transition: 1s linear;
     transform: rotate(0deg);
-    animation: blink 2.5s infinite ease-in-out;
+    /* animation: blink 2.5s infinite ease-in-out; */
 }
 
 @keyframes blink {
@@ -72,11 +72,6 @@
     left: 0;
     height: 30px;
     width: 40px;
-}
-
-.colors:after {
-    background-image: linear-gradient(0deg, red, magenta);
-
 }
 
 #won {
