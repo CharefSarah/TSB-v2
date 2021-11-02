@@ -123,6 +123,7 @@ window.Clicked = function (x) {
             // Transition quand on clique sur une fiole, on l'a grossi en 0.2s
             // j'ai mit 1.12 mais si ca te parait trop leger met plus.
             document.getElementsByClassName("test-tube")[x].style.transition = "0.2s linear";
+            document.getElementsByClassName("test-tube")[x].style.border = "2px white solid";
             document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.12)";
         } else {
             clicked.push(x);
@@ -320,19 +321,3 @@ function createDiag(dialog) {
 
 }
 createDiag(individual);
-
-function redirection() {
-    if (document.getElementById("li1").classList.contains("strike") && document.getElementById("li2").classList
-        .contains("strike") && document.getElementById("li3").classList.contains("strike") && document
-        .getElementById("li4").classList.contains("strike") && document.getElementById("li5").classList
-        .contains("strike") && document.getElementById("li6").classList.contains("strike")) {
-        var GG = "Bravo ! Tiens prend ces potions ";
-        document.getElementById("dialog").innerHTML = "";
-        createDiag(GG);
-        TextDisplay();
-
-    } else {
-
-    };
-
-};
