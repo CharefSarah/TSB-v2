@@ -16,11 +16,30 @@
        Button.forEach((item, index) => {
            lvlButton = parseInt(item.getAttribute("level"));
            maxLvl = parseInt(localStorage.getItem("maxLevel"));
-           if (lvlButton <= maxLvl +1) {
+           if (lvlButton <= maxLvl + 1) {
                // Remplace "maxLvl + 1" par "30" ou plus si tu veux tester n'importe quel lvl.
                item.disabled = false;
            }
        });
+
+       var face = localStorage.getItem('imgPers');
+
+       document.querySelector('.rodricButton img').src = face;
+
+       var maxLevel = localStorage.getItem('maxLevel');
+       if (maxLevel < 10) {
+           console.log("dudu")
+           document.querySelector('.xorrunButton').disabled = true;
+           document.querySelector('.xorrunButton').style.pointerEvents = 'none';
+           document.querySelector('.urimButton').disabled = true;
+           document.querySelector('.urimButton').style.pointerEvents = 'none';
+
+       } else if (maxLevel < 20) {
+           document.querySelector('.urimButton').disabled = true;
+           document.querySelector('.urimButton').style.pointerEvents = 'none';
+       } else {
+           console.log("tatou")
+       }
    };
 
    // Fonction pour verifier l'existence du 'cookie', sinon on en créé un avec une valeure 1. ca permettra de l'utiliser et de le modifier plus bas.
@@ -83,4 +102,31 @@
    // Redirection a faire pour les niveau speciaux, du coup j'ai juste mit le tiens pour l'instant
    document.getElementById('levelTest').addEventListener('click', function () {
        window.location.href = "testlevel.html";
+   })
+   // Redirection a faire pour les niveau speciaux, du coup j'ai juste mit le tiens pour l'instant
+   document.getElementById('levelSpe2').addEventListener('click', function () {
+       window.location.href = "lvlspe2.html";
+   })
+
+   rodBut = document.querySelector('.rodricButton');
+   xorBut = document.querySelector('.xorrunButton');
+   uriBut = document.querySelector('.urimButton');
+   rodBut.addEventListener('click', function () {
+       rodBut.classList.add('selectHerosActive');
+       xorBut.classList.remove('selectHerosActive');
+       uriBut.classList.remove('selectHerosActive');
+       localStorage.setItem('pickedHero', 'rodric');
+
+   });
+   xorBut.addEventListener('click', function () {
+       xorBut.classList.add('selectHerosActive');
+       rodBut.classList.remove('selectHerosActive');
+       uriBut.classList.remove('selectHerosActive');
+       localStorage.setItem('pickedHero', 'xorrun');
+   });
+   uriBut.addEventListener('click', function () {
+       uriBut.classList.add('selectHerosActive');
+       rodBut.classList.remove('selectHerosActive');
+       xorBut.classList.remove('selectHerosActive');
+       localStorage.setItem('pickedHero', 'urim');
    })

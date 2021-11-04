@@ -1,0 +1,268 @@
+@font-face {
+    font-family: Basalt;
+    src: url("assets/font/Basalt.ttf") format("TrueType");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 46px;
+    font-family: Basalt;
+    text-align: center;
+    color: #fff
+}
+
+body {
+    background-color: #16002C;
+}
+
+button {
+    height: 60px;
+    width: 60px;
+    border-radius: 20px;
+    border: none;
+    background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
+    color: white;
+    font-family: Basalt;
+    font-size: 18px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+}
+
+button:hover:enabled {
+    outline: 2px #689fff solid;
+}
+
+.transi {
+    background: black;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: none;
+}
+
+.heroSelection {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+}
+
+.heroSelection button img {
+    height: 30px;
+    width: auto;
+}
+
+.selectHerosActive {
+    outline: 4px solid #689FFF !important
+}
+
+.cheh {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#genderTest {
+    margin: auto !important;
+    text-align: center;
+    font-family: Basalt;
+    color: white;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(70, 75px);
+    grid-template-rows: repeat(8, 75px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 3600px;
+    height: 85vh;
+}
+
+@media screen and (max-height:500px) {
+
+    body,
+    html {
+        overflow-y: hidden;
+    }
+
+    .parent {
+        grid-template-columns: repeat(70, 30px);
+        grid-template-rows: repeat(8, 30px);
+        grid-column-gap: 8px;
+        width: 1500px;
+    }
+
+    button {
+        height: 25px;
+        width: 25px;
+    }
+
+    .cheh {
+        position: absolute;
+    }
+
+    .heroSelection {
+        position: absolute;
+    }
+}
+
+.lvl1 {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.lvl2 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.lvl3 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.lvl4 {
+    grid-area: 5 / 5 / 6 / 6;
+}
+
+.lvl5 {
+    grid-area: 6 / 6 / 7 / 7;
+}
+
+.shop1 {
+    grid-area: 5 / 6 / 6 / 7;
+}
+
+.lvl6 {
+    grid-area: 6 / 7 / 7 / 8;
+}
+
+.lvl7 {
+    grid-area: 8 / 7 / 9 / 8;
+}
+
+.lvl8 {
+    grid-area: 8 / 9 / 9 / 10;
+}
+
+.lvl9 {
+    grid-area: 7 / 11 / 8 / 12;
+}
+
+
+.shop2 {
+    grid-area: 6 / 10 / 7 / 11;
+}
+
+.lvl10 {
+    grid-area: 6 / 12 / 7 / 13;
+}
+
+#levelTest {
+    grid-area: 6 / 13 / 7 / 14;
+}
+
+.lvl11 {
+    grid-area: 5 / 12 / 6 / 13
+}
+
+.lvl12 {
+    grid-area: 3 / 13 / 4 / 15
+}
+
+.lvl13 {
+    grid-area: 5 / 14 / 6 / 16;
+}
+
+.lvl14 {
+    grid-area: 3 / 16 / 4 / 17;
+}
+
+.shop3 {
+    grid-area: 2 / 16 / 3 / 17;
+}
+
+.lvl15 {
+    grid-area: 6 / 17 / 7 / 198;
+}
+
+.lvl16 {
+    grid-area: 7 / 18 / 8 / 19;
+}
+
+.lvl17 {
+    grid-area: 5 / 20 / 6 / 21;
+}
+
+.lvl18 {
+    grid-area: 6 / 21 / 7 / 22;
+}
+
+.lvl19 {
+    grid-area: 5 / 23 / 6 / 24;
+}
+
+#levelSpe2 {
+    grid-area: 3 / 23 / 4 / 24;
+}
+
+.lvl20 {
+    grid-area: 1 / 23 / 2 / 24;
+}
+
+.shop4 {
+    grid-area: 4 / 26 / 5 / 27;
+}
+
+.lvl21 {
+    grid-area: 4 / 25 / 5 / 26;
+}
+
+.lvl22 {
+    grid-area: 5 / 26 / 6 / 27;
+}
+
+.lvl23 {
+    grid-area: 6 / 27 / 7 / 28;
+}
+
+.lvl24 {
+    grid-area: 7 / 29 / 8 / 29;
+}
+
+.lvl25 {
+    grid-area: 5 / 30 / 6 / 31;
+}
+
+.lvl26 {
+    grid-area: 4 / 32 / 5 / 33;
+}
+
+.lvl27 {
+    grid-area: 3 / 33 / 4 / 34;
+}
+
+.lvl28 {
+    grid-area: 2 / 35 / 3 / 36;
+}
+
+.lvl29 {
+    grid-area: 3 / 36 / 4 / 37;
+}
+
+.shopX {
+    grid-area: 3 / 35 / 4 / 36;
+}
+
+.lvl30 {
+    grid-area: 4 / 38 / 5 / 38;
+}

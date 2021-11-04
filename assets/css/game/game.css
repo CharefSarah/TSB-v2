@@ -10,7 +10,6 @@
 /* Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
 :root {
     --background: rgb(25, 7, 53, 0.9);
     --white: #FFFFFF;
@@ -80,6 +79,10 @@ main {
     justify-content: space-between;
     padding-left: 22px;
     padding-right: 8px;
+}
+
+.cardEnnemy .cardInt {
+    margin-left: -120px;
 }
 
 .stats {
@@ -279,8 +282,8 @@ main {
 /*                          BOUTTON COMBAT BOUM BOUM                          */
 /* -------------------------------------------------------------------------- */
 .control {
-    width: 40%;
-    min-width: 620px;
+    width: 50%;
+    min-width: 640px;
     height: 30%;
     align-self: center;
     display: flex;
@@ -305,16 +308,15 @@ button {
 .controlButton {
     background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
     border-radius: 53px;
-    height: 100px;
-    width: 300px;
+    height: 90px;
+    width: 335px;
     font-size: 28px;
     font-family: basalt;
     color: var(--white);
     display: grid;
     grid-template-columns: 30% 70%;
     align-content: center;
-    padding-left: 12px;
-    padding-right: 12px;
+    padding: 24px;
     cursor: pointer;
 }
 

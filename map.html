@@ -6,187 +6,126 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAP</title>
-    <style>
-        @font-face {
-            font-family: Basalt;
-            src: url("assets/font/Basalt.ttf") format("TrueType");
-        }
-
-        body {
-            background-color: #16002C;
-            padding-left: 200px;
-            padding-right: 200px;
-        }
-
-        h1 {
-            font-size: 46px;
-            font-family: Basalt;
-            text-align: center;
-            color: #fff
-        }
-
-        button {
-            height: 60px;
-            width: 60px;
-            border-radius: 20px;
-            border: none;
-            background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
-            color: white;
-            font-family: Basalt;
-            font-size: 18px;
-            margin: 20px;
-            cursor: pointer;
-        }
-
-        button:disabled {
-            background: #0F0426;
-        }
-
-        button:hover:enabled {
-            outline: 2px #689fff solid;
-        }
-
-        .transi {
-            background: black;
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-
-            display: none;
-        }
-
-        .heroSelection {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-        }
-
-        .heroSelection button img {
-            height: 30px;
-            width: auto;
-        }
-
-        .selectHerosActive {
-            outline: 4px solid #689FFF !important
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/map.css">
 </head>
 
 <body>
-    <h1>NIVEAU</h1>
-    <!-- L'attribut level c'est du fait maison pour recuperer a 
+    <div class="parent">
+        <!-- L'attribut level c'est du fait maison pour recuperer a 
         chaque fois la valeur. C'est plus simple que d'utiliser un ID
     et ca evite de creer des bugs -->
-    <button class="lvlBtn" level="1">
-        1
-    </button>
-    <button class="lvlBtn" level="2" disabled>
-        2
-    </button>
-    <button class="lvlBtn" level="3" disabled>
-        3
-    </button>
-    <button class="lvlBtn" level="4" disabled>
-        4
-    </button>
-    <button class="lvlBtn" level="5" disabled>
-        5
-    </button>
-    <button class="lvlBtnSpe" levelSpe="shop1" disabled>
-        Shop1
-    </button>
-    <button class="lvlBtn" level="6" disabled>
-        6
-    </button>
-    <button class="lvlBtn" level="7" disabled>
-        7
-    </button>
-    <button class="lvlBtn" level="8" disabled>
-        8
-    </button>
-    <button class="lvlBtnSpe" levelSpe="shop2" disabled>
-        Shop2
-    </button>
-    <button class="lvlBtn" level="9" disabled>
-        9 <br> Xorrun
-    </button>
-    <button class="lvlBtn" level="10" disabled>
-        10
-    </button>
-    <button class="lvlBtn" level="11" disabled>
-        11
-    </button>
-    <button class="lvlBtn" level="12" disabled>
-        12
-    </button>
-    <button class="lvlBtn" level="13" disabled>
-        13
-    </button>
-    <button class="lvlBtn" level="14" disabled>
-        14
-    </button>
-    <button class="lvlBtnSpe" levelSpe="shop3" disabled>
-        Shop3
-    </button>
-    <button class="lvlBtnSpe" id="levelTest" levelSpe="MJ2">
-        Objet<br>Caché
-    </button>
-    <button class="lvlBtn" level="15" disabled>
-        15
-    </button>
-    <button class="lvlBtn" level="16" disabled>
-        16
-    </button>
-    <button class="lvlBtn" level="17" disabled>
-        17
-    </button>
-    <button class="lvlBtn" level="18" disabled>
-        18
-    </button>
-    <button class="lvlBtn" level="19" disabled>
-        19
-    </button>
-    <button class="lvlBtnSpe" levelSpe="shop4" disabled>
-        Shop <br> spé
-    </button>
-    <button class="lvlBtn" level="20" disabled>
-        20
-    </button>
-    <button class="lvlBtn" level="21" disabled>
-        21
-    </button>
-    <button class="lvlBtn" level="22" disabled>
-        22
-    </button>
-    <button class="lvlBtn" level="23" disabled>
-        23
-    </button>
-    <button class="lvlBtn" level="24" disabled>
-        24
-    </button>
-    <button class="lvlBtn" level="25" disabled>
-        25
-    </button>
-    <button class="lvlBtn" level="26" disabled>
-        26
-    </button>
-    <button class="lvlBtn" level="27" disabled>
-        27
-    </button>
-    <button class="lvlBtn" level="28" disabled>
-        28
-    </button>
-    <button class="lvlBtnSpe" level="shop5" disabled>
-        XOnoth <br> shop
-    </button>
-    <button class="lvlBtn" level="29" disabled>
-        29
-    </button>
-    <button class="lvlBtn" level="30" disabled>
-        30
-    </button>
+        <button class="lvlBtn lvl1" level="1">
+            1
+        </button>
+        <button class="lvlBtn lvl2" level="2" disabled>
+            2
+        </button>
+        <button class="lvlBtn lvl3" level="3" disabled>
+            3
+        </button>
+        <button class="lvlBtn lvl4" level="4" disabled>
+            4
+        </button>
+        <button class="lvlBtn lvl5" level="5" disabled>
+            5
+        </button>
+        <button class="lvlBtnSpe shop1" levelSpe="shop1" disabled>
+            Shop1
+        </button>
+        <button class="lvlBtn lvl6" level="6" disabled>
+            6
+        </button>
+        <button class="lvlBtn lvl7" level="7" disabled>
+            7
+        </button>
+        <button class="lvlBtn lvl8" level="8" disabled>
+            8
+        </button>
+        <button class="lvlBtnSpe shop2" levelSpe="shop2" disabled>
+            Shop2
+        </button>
+        <button class="lvlBtn lvl9" level="9" disabled>
+            9 <br> Xorrun
+        </button>
+        <button class="lvlBtn lvl10" level="10" disabled>
+            10
+        </button>
+        <button class="lvlBtn lvl11" level="11" disabled>
+            11
+        </button>
+        <button class="lvlBtn lvl12" level="12" disabled>
+            12
+        </button>
+        <button class="lvlBtn lvl13" level="13" disabled>
+            13
+        </button>
+        <button class="lvlBtn lvl14" level="14" disabled>
+            14
+        </button>
+        <button class="lvlBtnSpe shop3" levelSpe="shop3" disabled>
+            Shop3
+        </button>
+        <button class="lvlBtnSpe" id="levelTest" levelSpe="MJ2">
+            Objet<br>Caché
+        </button>
+        <button class="lvlBtn lvl15" level="15" disabled>
+            15
+        </button>
+        <button class="lvlBtn lvl16" level="16" disabled>
+            16
+        </button>
+        <button class="lvlBtn lvl17" level="17" disabled>
+            17
+        </button>
+        <button class="lvlBtn lvl18" level="18" disabled>
+            18
+        </button>
+        <button class="lvlBtnSpe" id="levelSpe2" levelSpe="MJ4">
+            melange potion
+        </button>
+        <button class="lvlBtn lvl19" level="19" disabled>
+            19
+        </button>
+        <button class="lvlBtn lvl20" level="20" disabled>
+            20
+        </button>
+        <button class="lvlBtn lvl21" level="21" disabled>
+            21
+        </button>
+        <button class="lvlBtnSpe shop4" levelSpe="shop4" disabled>
+            Shop <br> 4
+        </button>
+        <button class="lvlBtn lvl22" level="22" disabled>
+            22
+        </button>
+        <button class="lvlBtn lvl23" level="23" disabled>
+            23
+        </button>
+        <button class="lvlBtn lvl24" level="24" disabled>
+            24
+        </button>
+        <button class="lvlBtn lvl25" level="25" disabled>
+            25
+        </button>
+        <button class="lvlBtn lvl26" level="26" disabled>
+            26
+        </button>
+        <button class="lvlBtn lvl27" level="27" disabled>
+            27
+        </button>
+        <button class="lvlBtn lvl28" level="28" disabled>
+            28
+        </button>
+        <button class="lvlBtnSpe shopX" level="shop5" disabled>
+            XOnoth <br> shop
+        </button>
+        <button class="lvlBtn lvl29" level="29" disabled>
+            29
+        </button>
+        <button class="lvlBtn lvl30" level="30" disabled>
+            30
+        </button>
+    </div>
 
     <br>
     <button class="cheh">CLEAR</button>
@@ -199,30 +138,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
     <script src="assets/js/map.js"></script>
-    <script>
-        rodBut = document.querySelector('.rodricButton');
-        xorBut = document.querySelector('.xorrunButton');
-        uriBut = document.querySelector('.urimButton');
-        rodBut.addEventListener('click', function () {
-            rodBut.classList.add('selectHerosActive');
-            xorBut.classList.remove('selectHerosActive');
-            uriBut.classList.remove('selectHerosActive');
-            localStorage.setItem('pickedHero', 'rodric');
 
-        });
-        xorBut.addEventListener('click', function () {
-            xorBut.classList.add('selectHerosActive');
-            rodBut.classList.remove('selectHerosActive');
-            uriBut.classList.remove('selectHerosActive');
-            localStorage.setItem('pickedHero', 'xorrun');
-        });
-        uriBut.addEventListener('click', function () {
-            uriBut.classList.add('selectHerosActive');
-            rodBut.classList.remove('selectHerosActive');
-            xorBut.classList.remove('selectHerosActive');
-            localStorage.setItem('pickedHero', 'urim');
-        })
-    </script>
 </body>
 
 </html>

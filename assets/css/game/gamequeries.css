@@ -37,6 +37,10 @@
         padding: 0;
     }
 
+    .cardEnnemy .cardInt {
+        margin-left: 0px;
+    }
+
     .cardEnnemy .cardInt .portrait img {
         height: 120px;
         width: auto;
