@@ -594,3 +594,5 @@ input:checked+.slider:before {
 .settingsValidate:focus {
     border: 3px var(--blue) solid !important;
 }
+
+

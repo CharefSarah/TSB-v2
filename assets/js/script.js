@@ -761,3 +761,4 @@ function items(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cr
   this.faiblesse = faiblesse;
   this.bruitage = bruitage;
 }
+

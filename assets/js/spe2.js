@@ -124,7 +124,7 @@ window.Clicked = function (x) {
             // j'ai mit 1.12 mais si ca te parait trop leger met plus.
             document.getElementsByClassName("test-tube")[x].style.transition = "0.2s linear";
             document.getElementsByClassName("test-tube")[x].style.border = "2px white solid";
-            document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.12)";
+            document.getElementsByClassName("test-tube")[x].style.transform = "scale(1.25)";
             document.getElementsByClassName("test-tube")[x].style.animation = "blink 2.5s infinite ease-in-out";
 
         } else {
