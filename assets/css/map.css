@@ -16,8 +16,14 @@ h1 {
     color: #fff
 }
 
+html {
+    scroll-behavior: smooth;
+
+}
+
 body {
-    background-color: #16002C;
+    background-color: #0f021b;
+    scroll-behavior: smooth;
 }
 
 button {
@@ -34,7 +40,7 @@ button {
 }
 
 button:disabled {
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 button:hover:enabled {
@@ -48,7 +54,6 @@ button:hover:enabled {
     bottom: 0;
     left: 0;
     right: 0;
-
     display: none;
 }
 
@@ -265,4 +270,41 @@ button:hover:enabled {
 
 .lvl30 {
     grid-area: 4 / 38 / 5 / 38;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.flecheD {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    right: 50px;
+    top: calc(50% - 30px);
+    z-index: 50000;
+    cursor: pointer;
+}
+
+.flecheG {
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    left: 50px;
+    top: calc(50% - 30px);
+    z-index: 50000;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+
+    .flecheD,
+    .flecheG {
+        height: 30px;
+        width: 30px;
+        top: calc(50% - 15px)
+    }
+
 }

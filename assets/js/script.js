@@ -53,7 +53,15 @@ function Hero(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cri
   this.health = health;
   this.maxHealth = maxHealth;
   this.hpPerLevel = healthPerLevel;
-  this.scaledHP = health + (healthPerLevel * maxLvl);
+  // Fonction pour recuperer les pv actuels si y'en a, sinon on prend ceux de base
+  var toGoGet = "currentHP" + name;
+
+  if (localStorage.getItem(toGoGet) === null) {
+    this.scaledHP = health + (healthPerLevel * maxLvl);
+  } else {
+    var hphp = parseInt(localStorage.getItem(toGoGet));
+    this.scaledHP = hphp;
+  }
   this.scaledMaxHP = health + (healthPerLevel * maxLvl);
   this.mana = mana;
   this.maxMana = maxMana;
@@ -95,22 +103,14 @@ var xorrunAttacks = [
 
 // affiche les valeurs du héro
 function SetHeroValue() {
-  // function checkLocalStorage(toCheck, cookieName) {
-  //   if (localStorage.getItem(toCheck) === null) {
-  //     localStorage.setItem(toCheck, cookieName);
-  //   } else {
-  //     var vavar = localStorage.getItem(toCheck);
-  //     return vavar;
-  //   }
-  // };
+
   document.getElementById("heroName").innerHTML = hero.name;
   document.getElementById("basicAttackName").innerHTML = hero.attacksTab[0][0];
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
   document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
   document.getElementById("heroHealth").innerHTML = hero.scaledHP;
-  console.log(hero)
-  document.getElementById("heroImg").src = hero.imagePath;
   health.setAttribute("value", hero.scaledHP);
+  document.getElementById("heroImg").src = hero.imagePath;
   health.setAttribute("max", hero.scaledMaxHP);
 }
 
@@ -168,23 +168,23 @@ function Shop(name, type, stock, used, stat, docket, imagePath, bruitage) {
 
 function CreateBadGuy() {
   if (round == 1) {
-    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 16, 23, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 2) {
-    var badGuy = new BadGuy("Loup2", 420, 420, 4, 1.2, 17, 25, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup2", 430, 430, 4, 1.2, 20, 28, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 3) {
-    var badGuy = new BadGuy("Loup3", 460, 460, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup3", 475, 475, 4, 1.2, 27, 34, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 4) {
-    var badGuy = new BadGuy("Loup4", 480, 480, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup4", 480, 480, 4, 1.2, 34, 38, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup5", 510, 520, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup5", 510, 520, 5, 1.2, 40, 46, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 6) {
-    var badGuy = new BadGuy("Loup6", 535, 535, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup6", 540, 540, 5, 1.2, 46, 51, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 7) {
-    var badGuy = new BadGuy("Loup7", 555, 555, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup7", 570, 570, 5, 1.2, 53, 59, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 8) {
-    var badGuy = new BadGuy("Loup8", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup8", 610, 610, 5, 1.2, 56, 64, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 9) {
-    var badGuy = new BadGuy("Loup9", 100, 100, 100, 100, 100, 100, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup9", 640, 640, 5, 1.2, 67, 72, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 10) {
     var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 11) {
@@ -194,7 +194,7 @@ function CreateBadGuy() {
   } else if (round == 13) {
     var badGuy = new BadGuy("Loup13", 140, 140, 4, 1.2, 19, 26, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 14) {
-    var badGuy = new BadGuy("Loup14", 150, 150, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup14", 2500, 2500, 4, 1.2, 20, 30, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 15) {
     var badGuy = new BadGuy("Loup15", 155, 164, 5, 1.2, 22, 31, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 16) {
@@ -228,7 +228,7 @@ function CreateBadGuy() {
   } else if (round == 30) {
     var badGuy = new BadGuy("Xonoth3", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else {
-    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 15, 22, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 25, 32, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   }
   return badGuy
 }
@@ -390,18 +390,22 @@ window.onload = function () {
   }
   var imageHero = localStorage.getItem('imgPers');
   var pickedHero = localStorage.getItem('pickedHero');
+
+
   if (pickedHero == 'rodric') {
     var namename = localStorage.getItem('nameHero');
-    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
+    hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 45, 60, 13, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   } else if (pickedHero == 'urim') {
-    hero = new Hero('Urim', 1, 180, 180, 20, 0, 100, 20, 2.5, 'assets/img/urim.png', urimAttacks, 42, 48, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
+    hero = new Hero('Urim', 1, 180, 180, 22, 0, 100, 20, 2.5, 'assets/img/urim.png', urimAttacks, 46, 54, 14, 'couteau de cuisine', 7, 'none', 'none', 'linear-gradient(to right, #27c7e3 0%, #24ffbd 70%)', '0 5px 150px 0 #27c7e3, 0 5px 25px 0 #24ffbd', 'bruit.mp3');
   } else if (pickedHero == 'xorrun') {
-    hero = new Hero('Xorrun', 1, 155, 155, 17, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
+    hero = new Hero('Xorrun', 1, 155, 155, 19, 0, 100, 10, 1.7, 'assets/img/xorrun.png', xorrunAttacks, 48, 58, 15, 'Baton', 8, 'none', 'none', 'linear-gradient(to right, #8414c9 0%, #ff17f7 70%)', '0 5px 150px 0 #ff17f7, 0 5px 25px 0 #ff17f7;', 'bruit.mp3');
   } else {
     var namename = localStorage.getItem('nameHero');
     hero = new Hero(namename, 1, 200, 200, 25, 0, 100, 10, 2, imageHero, rodricAttacks, 35, 45, 11, 'gourdin', 5, 'none', 'none', 'linear-gradient(to right, #174ceb 0%, #00c3ff 70%)', '0 5px 150px 0 #00c3ff, 0 5px 25px 0 #00c3ff;', 'bruit.mp3');
   }
+
   SetHeroValue();
+  MoveAllyHealthBar()
   displayLife();
   ModalProgress();
   colorMana();
@@ -523,15 +527,25 @@ window.addEventListener("load", function () {
 // CHeck si l'ennemi est mort et redirection
 function DeathEnemy() {
   if (badGuy.health <= 0) {
+    document.getElementById('baseAttack').disabled = true;
+    document.getElementById('heavyAttack').disabled = true;
+    document.getElementById('ultiAttack').disabled = true;
+    document.getElementById('potion').disabled = true;
+    document.getElementById('badGuyHealth').innerHTML = "0";
+    document.getElementById("badguyBar").style.width = 0 + "%";
+
+    ToRegister = "currentHP" + hero.name;
+    localStorage.setItem(ToRegister, hero.scaledHP)
     round++; // round
     localStorage.setItem("level", round);
     playLu();
     blubluname = hero.name;
-    console.log(blubluname);
+    addPotion();
     localStorage.setItem(blubluname, JSON.stringify(hero)); //stringify object and store
     setTimeout(function () {
       window.location.href = "map.html"
     }, 1200);
+
   }
 }
 
@@ -666,35 +680,57 @@ function CunterAttack() {
 /*                                   Potion                                   */
 /* -------------------------------------------------------------------------- */
 window.addEventListener("load", function () {
-  document.getElementById("stockPotion").innerHTML = stockPotion;
+  if (localStorage.getItem('stockPotion') === null) {
+    document.getElementById("stockPotion").innerHTML = stockPotion;
+  } else {
+    stockPotion = parseInt(localStorage.getItem('stockPotion'));
+    document.getElementById("stockPotion").innerHTML = stockPotion;
+  }
 });
 
 document.getElementById("potion").addEventListener("click", function () {
   if (stockPotion > 0) {
-    console.log(hero.scaledHP);
     heroHealthToGet = hero.scaledHP + 49;
-    if (hero.scaledHP < hero.scaledMaxHP && hero.scaledHP < hero.scaledMaxHP) {
+    if (heroHealthToGet < hero.scaledMaxHP) {
+
       hero.scaledHP = hero.scaledHP + 50;
       stockPotion--;
       document.getElementById("heroHealth").innerHTML = hero.scaledHP;
       document.getElementById("stockPotion").innerHTML = stockPotion;
       MoveAllyHealthBar();
-      console.log(hero.scaledHP);
+      potionTextDisplay('-1 Potion <img class="potIcoMessage" src="assets/img/potion.png">');
+
 
     } else {
-      console.log('trop de pv')
+      potionTextDisplay('Trop de PVs.');
+    }
+
+    if (stockPotion == 0) {
+      document.querySelector('.popo').src = "assets/img/pot.png";
     }
   } else {
-    console.log('plus de potion')
+    potionTextDisplay('Vous n\'avez plus de potion');
   }
 });
 
 function addPotion() {
-  potionToAdd = Math.floor(Math.random() * 2) + 1;
+  potionToAdd = Math.floor(Math.random() * 3) + 1;
   stockPotion = stockPotion + potionToAdd;
   document.getElementById("stockPotion").innerHTML = stockPotion;
+  localStorage.setItem("stockPotion", stockPotion);
   return stockPotion;
 }
+
+
+function potionTextDisplay(message) {
+  potText = document.querySelector('.combatTextPotion');
+  potText.innerHTML = message;
+  potText.classList.toggle('combatTextAnimation');
+  setTimeout(function () {
+    potText.classList.toggle('combatTextAnimation');
+  }, 2100);
+}
+
 
 /* ------------------------------- tremblement ------------------------------ */
 $(document).ready(function () {
