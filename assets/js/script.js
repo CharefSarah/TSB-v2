@@ -702,7 +702,7 @@ document.getElementById("potion").addEventListener("click", function () {
 
 
     } else {
-      potionTextDisplay('Trop de PVs.');
+      potionTextDisplay('Trop de PV');
     }
 
     if (stockPotion == 0) {
