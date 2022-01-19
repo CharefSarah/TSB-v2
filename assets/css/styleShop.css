@@ -385,18 +385,6 @@ a:hover {
   margin-right: 95px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .settings {
   position: absolute;
   left: 30px;
@@ -574,6 +562,7 @@ input:checked+.slider:before {
   border-radius: 50px;
   cursor: pointer;
   border: none;
+  z-index: 999;
 }
 
 .settingsValidate:hover,

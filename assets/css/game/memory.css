@@ -1,0 +1,369 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+
+}
+
+:root {
+	--background: rgba(25, 7, 53, 0.959);
+	--white: #FFFFFF;
+	--blue: #689FFF;
+}
+
+body::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	-ms-overflow-style: none;
+	/* IE and Edge */
+	scrollbar-width: none;
+	/* Firefox */
+}
+
+@font-face {
+	font-family: Basalt;
+	src: url("../font/Basalt.ttf") format("TrueType");
+}
+
+@font-face {
+	font-family: Legend;
+	src: url("../font/Legend.ttf") format("TrueType");
+}
+
+body {
+	background-image: url("../../img/memory.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	height: 100vh;
+	overflow: hidden;
+	font-family: 'Poppins', sans-serif;
+	scroll-behavior: smooth !important;
+
+}
+
+#dialog {
+	height: 90px;
+	background: rgb(17, 10, 31);
+	border-radius: 0px 5px 5px 0px;
+	box-shadow: 0 0 0 14px rgb(17, 10, 31);
+	color: #f1eeee;
+	font-family: 'Basalt';
+	padding: 20px 20px 20px 20px;
+	text-transform: uppercase;
+	word-spacing: 3px;
+	width: 800px;
+	font-size: 20px;
+}
+
+
+@-webkit-keyframes arrow_anim {
+	from {
+		margin-top: 58px;
+	}
+
+	to {
+		margin-top: 67px;
+	}
+}
+
+@-moz-keyframes arrow_anim {
+	from {
+		margin-top: 58px;
+	}
+
+	to {
+		margin-top: 67px;
+	}
+}
+
+@-ms-keyframes arrow_anim {
+	from {
+		margin-top: 58px;
+	}
+
+	to {
+		margin-top: 67px;
+	}
+}
+
+@-o-keyframes arrow_anim {
+	from {
+		margin-top: 58px;
+	}
+
+	to {
+		margin-top: 67px;
+	}
+}
+
+@keyframes arrow_anim {
+	from {
+		margin-top: 58px;
+	}
+
+	to {
+		margin-top: 67px;
+	}
+}
+
+#arrow {
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid red;
+	height: 0;
+	margin: 60px 0px 0px 360px;
+	position: absolute;
+	width: 0;
+	-webkit-animation: arrow_anim .3s steps(3) infinite;
+	-moz-animation: arrow_anim .3s steps(3) infinite;
+	-ms-animation: arrow_anim .3s steps(3) infinite;
+	-o-animation: arrow_anim .3s steps(3) infinite;
+	animation: arrow_anim .3s steps(3) infinite;
+}
+
+#dialog {
+	height: 110px;
+	background: #0F0426;
+	border-radius: 5px;
+	box-shadow: #0F0426;
+	color: #f5f5f5;
+	font-family: poppins;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 20px 20px 20px 20px;
+	position: relative;
+	text-transform: uppercase;
+	word-spacing: 3px;
+	width: 800px;
+	z-index: 100000;
+	position: absolute;
+	bottom: 0;
+	margin-left: 500px;
+	text-align: center;
+}
+
+
+#xoxo {
+	z-index: 100001;
+	height: 300px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin-right: 445px !important;
+
+}
+
+
+body {
+	background: url('../../img/memory.jpg');
+	font-family: "Open Sans", sans-serif;
+	font-size: 62.5%;
+	letter-spacing: 1.5px;
+	margin: 0;
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 0.5em;
+}
+
+ul>li {
+	list-style: none;
+}
+
+.card,
+.reset-btn {
+	cursor: pointer;
+}
+
+.btn {
+	border-radius: 1em;
+	border: none;
+	color: #fff;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+	padding: 0.8em;
+}
+
+
+h1 {
+	font-size: 3em;
+	font-weight: 400;
+}
+
+h2 {
+	font-size: 2.5em;
+	font-weight: 600;
+}
+
+p {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-weight: 400;
+}
+
+.deck {
+	background-image: url(../../img/wood.png);
+	border-radius: 1.5em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	height: 35em;
+	margin-bottom: 6em;
+	padding: 0.5em;
+	width: 35em;
+}
+
+.deck,
+.card {
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.card {
+	background-image: url(../../img/memory/front.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: 8px solid #bba972;
+	border-radius: 0.5em;
+	height: 7em;
+	width: 7em;
+}
+
+img {
+	user-select: none;
+	width: 6em;
+}
+
+.deck img {
+	visibility: hidden;
+}
+
+.deck .card.flip {
+	background: #bba972;
+	cursor: default;
+	transform: rotateY(180deg);
+	transition: transform 0.3s linear;
+	pointer-events: none;
+
+}
+
+.flip img {
+	background:  #bba972;;
+	visibility: visible;
+	background-position: center center;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.deck .card.match {
+	background: #bba972;;
+	visibility: visible;
+	cursor: default;
+	animation: pulse 1s;
+}
+
+.match img {
+	background-size: cover;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	80% {
+		transform: scale(1.1);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+
+@media screen and (min-width: 550px) {
+
+	.deck {
+		height: 50em;
+		padding: 2em;
+		width: 50em;
+	}
+
+	.card {
+		height: 10em;
+		width: 10em;
+	}
+
+	.deck img {
+		width: 9em;
+	}
+
+	.modal-content h2 {
+		font-size: 4em;
+	}
+
+	.play-again-btn {
+		font-size: 1.8em;
+	}
+}
+
+
+@media screen and (min-width: 800px) {
+
+	h1 {
+		font-size: 6em;
+	}
+
+	p {
+		font-size: 2.3em;
+	}
+
+	.deck {
+		height: 70em;
+		width: 70em;
+	}
+
+	.card {
+		height: 15em;
+		width: 15em;
+	}
+
+	.deck img {
+		width: 13em;
+	}
+
+	.reset-btn {
+		font-size: 0.8em;
+	}
+
+	.footer {
+		font-size: 1.2em;
+	}
+
+	.modal-content h2 {
+		font-size: 5em;
+	}
+
+
+	.modal-img {
+		width: 30em;
+	}
+
+	.play-again-btn {
+		font-size: 2em;
+	}
+}

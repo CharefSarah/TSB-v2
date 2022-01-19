@@ -28,8 +28,17 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+
 }
 
+body:-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 
 
 main {
@@ -596,5 +605,3 @@ input:checked+.slider:before {
 .settingsValidate:focus {
     border: 3px var(--blue) solid !important;
 }
-
-
