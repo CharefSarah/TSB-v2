@@ -13,6 +13,7 @@
 <body>
     <h2>Choissez votre héro</h2>
     <div class="sexChoice">
+
         <div>
             <button id="male" class="choice genderChoice"><img id="img1" src="assets/img/male.png"></button>
         </div>
@@ -20,11 +21,13 @@
             <button id="female" class="choice genderChoice"><img id="img2" src="assets/img/female.png"></button>
         </div>
     </div>
+
     <div class="persoChoice">
         <div><button class="choice2 pers1"><img id="perceval1" src="assets/img/choixPers1.png"></button></div>
         <div><button class="choice2 pers2"><img id="perceval2" src="assets/img/choixPers2.png"></button></div>
         <div><button class="choice2 pers3"><img id="perceval3" src="assets/img/choixPers3.png"></button></div>
     </div>
+
     <form>
         <div class="inputForm">
             <input type="text" id="nameHero" name="nameHero" placeholder="Prénom">
@@ -164,11 +167,6 @@
             localStorage.setItem('gender', this.id);
         });
     </script>
-
-
-
-
-
 </body>
 
 

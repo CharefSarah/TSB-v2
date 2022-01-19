@@ -10,7 +10,7 @@ var game, level, color = ["rgba(255,0,89,1)", "#0099ff", "#a6ff00", "#00F1A3", "
     won = false
 
 // tableau de coordonées absolute ( x / y )
-// Si tu veux repositionner des fioles c'est avec ca qu'il faut voir mais c'est tordu. ^^ 
+// Si tu veux repositionner des fioles c'est avec ca qu'il faut voir mais c'est tordu.
 var testTubePosition = {
     0: [
         [-110, 68],

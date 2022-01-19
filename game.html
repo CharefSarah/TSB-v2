@@ -18,27 +18,7 @@
   <link rel="stylesheet" href="assets/css/game/gamequeries.css">
 </head>
 
-<body id="game" >
-  <!-- <p id="d1"></p> -->
-  <!-- ----------------------------- SELECT CHAR ----------------------------- -->
-  <!-- <div> -->
-  <!-- <div class="container-fluid  ">
-      <div class="row">
-        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-          <button class="classSelect p-3" id="knight" value="knight">
-            <img src="assets/img/buttonr.png" alt="Bouton Chevalier"> </button>
-        </div>
-        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-          <button class="mage classSelect p-3" id="mage" value="mage"> <img src="assets/img/buttonz.png"
-              alt="bouton Mage"></button>
-        </div>
-        <div id="buttons" class="col-3 d-flex  justify-content-center mx-auto p-3 m-3">
-          <button class="classSelect p-3" id="rogue" value="rogue">
-            <img src="assets/img/buttonu.png" alt="Bouton Voleuse"></button><br>
-        </div>
-      </div>
-    </div>
-  </div> -->
+<body id="game">
 
   <main id="d2">
     <!-- --------------------------------- Lvl --------------------------------- -->
@@ -67,7 +47,7 @@
               <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
             </div>
             <p>PV : <span id="heroHealth"></span></p>
-            <div class="healthBar" id="healthBar" value="1000" max="1000">
+            <div class="healthBar" id="healthBar" value="" max="1000">
               <div class="hpBar bar" id="bar">
               </div>
             </div>
@@ -84,7 +64,7 @@
       </div>
 
 
-
+      <!-- -------------------------------- Ennemy ------------------------------- -->
       <div class="cardCombat cardEnnemy">
         <div class="cardInt">
           <div class="portrait">
@@ -99,14 +79,10 @@
             <div class="hp" id="badguyHealthBar" value="1000" max="1000">
               <div class="badguyBar" id="badguyBar"></div>
             </div>
-            <!-- <p>Mana :</p> -->
-            <!-- <div class="mana bar">
-              <div class="manaBar"></div>
-            </div> -->
           </div>
-
         </div>
       </div>
+
     </div>
 
 
@@ -140,8 +116,9 @@
 
         <button class="controlButton button4" id="potion" onclick="playP()">
           <div class="attackImg potion">
-            <img src="assets/img/potion.png" alt="">
+            <img class="popo" src="assets/img/potion.png" alt="">
           </div>
+          <div class="combatTextPotion"></div>
           <p class="attackName" id="stockPotion">
             Potion
           </p>
@@ -149,53 +126,54 @@
       </div>
     </div>
 
+    <!-- --------------------------- Toggle Option ---------------------------- -->
     <div class="settings">
       <img src="assets/img/settingsKog.png" alt="">
     </div>
 
+    <!-- ----------------------------- Panneau Option ----------------------------- -->
+    <div class="settingsPanel settings-hidden">
+      <p>Paramètres :</p>
+      <div class="panelInside">
+        <div class="panelLeft">
+          <p class="panelTitle">Son : </p>
+          <div class="SFX">
+            <p>Volume SFX : </p>
+            <div class="SFXGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="music">
+            <p>Volume Musique :</p>
+            <div class="musicGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="panelRight">
+          <p class="panelTitle">Langue : </p>
+          <div class="selectLanguage">
+            <img class="flag" src="assets/img/FRF.PNG" alt="">
+            <img class="flag" src="assets/img/UKF.png" alt="">
+          </div>
+        </div>
+      </div>
+      <button class="settingsValidate">
+        Valider
+      </button>
+    </div>
+
+    <!-- ------------------------------- Sidebar ------------------------------- -->
     <div class="side">
       <div class="sidebarBg"></div>
       <div class="sidebar"></div>
     </div>
 
   </main>
-
-
-  <!-- ----------------------------- Settings modal ----------------------------- -->
-  <div class="settingsPanel settings-hidden">
-    <p>Paramètres :</p>
-    <div class="panelInside">
-      <div class="panelLeft">
-        <p class="panelTitle">Son : </p>
-        <div class="SFX">
-          <p>Volume SFX : </p>
-          <div class="SFXGauge soundGauge"></div>
-          <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <div class="music">
-          <p>Volume Musique :</p>
-          <div class="musicGauge soundGauge"></div>
-          <label class="switch">
-            <input type="checkbox" checked>
-            <span class="slider round"></span>
-          </label>
-        </div>
-      </div>
-      <div class="panelRight">
-        <p class="panelTitle">Langue : </p>
-        <div class="selectLanguage">
-          <img class="flag" src="assets/img/FRF.PNG" alt="">
-          <img class="flag" src="assets/img/UKF.png" alt="">
-        </div>
-      </div>
-    </div>
-    <button class="settingsValidate">
-      Valider
-    </button>
-  </div>
 
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
