@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Shield-bearers</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="assets/img/ico.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/game/game.css">
+  <link rel="stylesheet" href="assets/css/game/gamequeries.css">
+  <style>
+    .book {
+      position: absolute;
+      display: none;
+    }
+
+    .book1 {
+      display: block;
+      height: 150px;
+      width: auto;
+      top: 46%;
+      left: 9%;
+      filter: drop-shadow(30px 10px 35px #99ECFF80);
+      animation: floating 3500ms infinite linear;
+    }
+
+    .book2 {
+      display: block;
+      height: 180px;
+      width: auto;
+      top: 10%;
+      z-index: -500;
+      left: 25%;
+      filter: drop-shadow(30px 10px 35px #FF413580) blur(1px);
+      animation: floatingAndRotating 6000ms infinite ease-in-out;
+    }
+
+    .book3 {
+      display: block;
+      height: 180px;
+      width: auto;
+      top: 25%;
+      right: 13%;
+      filter: drop-shadow(30px 10px 35px #ffe4ab80);
+      animation: floating 4800ms infinite linear;
+    }
+
+    @keyframes floating {
+      0% {
+        transform: translateY(0)
+      }
+
+      25% {
+        transform: translateY(10px)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+
+      75% {
+        transform: translateY(10px)
+      }
+
+      100% {
+        transform: translateY(0)
+      }
+    }
+
+    @keyframes floatingAndRotating {
+      0% {
+        transform: translateY(0) rotate(0deg)
+      }
+
+      25% {
+        transform: translateY(10px) rotate(-15deg)
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(15deg)
+      }
+
+      75% {
+        transform: translateY(10px) rotate(-15deg)
+      }
+
+      100% {
+        transform: translateY(0) rotate(0deg)
+      }
+    }
+  </style>
+</head>
+
+<body id="game">
+  <img src="assets/img/livres/livres_1.png" alt="" class="book book1">
+  <img src="assets/img/livres/livres_2.png" alt="" class="book book2">
+  <img src="assets/img/livres/livres_3.png" alt="" class="book book3">
+  <main id="d2">
+
+    <!-- --------------------------------- Lvl --------------------------------- -->
+    <div class="info">
+      <p class="level">Niveau : <span class="round" id="round"></span></p>
+    </div>
+
+    <!-- ------------------------ Cards avec les persos ------------------------ -->
+    <div class="combat">
+      <div class="cardCombat cardHero hero">
+        <div class="cardInt">
+          <div class="stats">
+            <p class="name" id="heroName">
+              Rodric
+            </p>
+            <div class="life HP">
+              <img id="heart0" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart1" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart2" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart3" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart4" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart5" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart6" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart7" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
+            </div>
+            <p>PV : <span id="heroHealth"></span></p>
+            <div class="healthBar" id="healthBar" value="" max="1000">
+              <div class="hpBar bar" id="bar">
+              </div>
+            </div>
+            <p>Mana :</p>
+            <div class="mana" id="heroManaBar" value="0" max="1000">
+              <div class="manaBar" id="manaBar"></div>
+            </div>
+          </div>
+          <div class="portrait">
+            <div class="combatTextHero"></div>
+            <img src="" class="heroImg" id="heroImg" alt="">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- -------------------------------- Ennemy ------------------------------- -->
+      <div class="cardCombat cardEnnemy">
+        <div class="cardInt">
+          <div class="portrait">
+            <div class="combatTextEnnemy"></div>
+            <img class="badguyImg" id="badguyImg" src="" alt="">
+          </div>
+          <div class="stats ennemyStats">
+            <p class="name" id="badGuyName">
+
+            </p>
+            <p class="HP">PV : <span id="badGuyHealth"></span></p>
+            <div class="hp" id="badguyHealthBar" value="1000" max="1000">
+              <div class="badguyBar" id="badguyBar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- ------------------------------- Control ------------------------------- -->
+    <div class="control">
+      <div class="controlLine">
+
+        <button class="controlButton button1" id="baseAttack">
+          <div class="attackImg">
+            <img src="assets/img/gourdin.png" alt="">
+          </div>
+          <span id="basicAttackName"></span><span id="basicAttack"></span>
+        </button>
+
+        <button class="controlButton button2" id="heavyAttack" disabled>
+          <div class="attackImg">
+            <img src="assets/img/bouclier.png" alt="">
+          </div>
+          <span id="bigAttackName"></span><span id="bigAttack"></span>
+        </button>
+      </div>
+
+      <div class="controlLine">
+        <button class="controlButton button2" id="ultiAttack" disabled>
+          <div class="attackImg">
+            <img src="assets/img/epee.png" alt="">
+          </div>
+          <span id="ultimateAttackName"></span><span id="ultimateAttack"></span>
+        </button>
+
+        <button class="controlButton button4" id="potion" onclick="playP()">
+          <div class="attackImg potion">
+            <img class="popo" src="assets/img/potion.png" alt="">
+          </div>
+          <div class="combatTextPotion"></div>
+          <p class="attackName" id="stockPotion">
+            Potion
+          </p>
+        </button>
+      </div>
+    </div>
+
+    <!-- --------------------------- Toggle Option ---------------------------- -->
+    <div class="settings">
+      <img src="assets/img/settingsKog.png" alt="">
+    </div>
+
+    <!-- ----------------------------- Panneau Option ----------------------------- -->
+    <div class="settingsPanel settings-hidden">
+      <p>Paramètres :</p>
+      <div class="panelInside">
+        <div class="panelLeft">
+          <p class="panelTitle">Son : </p>
+          <div class="SFX">
+            <p>Volume SFX : </p>
+            <div class="SFXGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="music">
+            <p>Volume Musique :</p>
+            <div class="musicGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="panelRight">
+          <p class="panelTitle">Langue : </p>
+          <div class="selectLanguage">
+            <img class="flag" src="assets/img/FRF.PNG" alt="">
+            <img class="flag" src="assets/img/UKF.png" alt="">
+          </div>
+        </div>
+      </div>
+      <button class="settingsValidate">
+        Valider
+      </button>
+    </div>
+
+    <!-- ------------------------------- Sidebar ------------------------------- -->
+    <div class="side">
+      <div class="sidebarBg"></div>
+      <div class="sidebar"></div>
+    </div>
+
+  </main>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="assets/js/soundDesign.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
