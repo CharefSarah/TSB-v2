@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The Shield-bearers</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="shortcut icon" href="assets/img/ico.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/game/game.css">
+  <link rel="stylesheet" href="assets/css/game/gamequeries.css">
+  <style>
+    .spark {
+      position: absolute;
+      height: 3px;
+      width: 3px;
+      background-color: #fff;
+      top: 50%;
+      left: 52%;
+      border-radius: 50%;
+      opacity: 0;
+      z-index: 4;
+      box-shadow: 0px 4px 20px 15px #e13adb;
+      animation: vanish 1800ms linear infinite;
+    }
+
+    .spark2 {
+      animation-delay: 800ms;
+      top: 48%;
+      left: 40%;
+    }
+
+    .spark3 {
+      animation-delay: 1600ms;
+      top: 50%;
+      left: 54%;
+    }
+
+    .spark4 {
+      animation-delay: 2400ms;
+      top: 46%;
+      left: 46%;
+    }
+
+    .spark5 {
+      animation-delay: 3200ms;
+      top: 51%;
+      left: 46%;
+    }
+
+    @keyframes vanish {
+      0% {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+
+      10% {
+        transform: translate(-15px, -25px);
+        opacity: 0.8;
+        box-shadow: 0px 4px 24px 15px #e13adb;
+
+      }
+
+      24% {
+        transform: translate(-50px, -50px);
+        opacity: 0.48;
+        box-shadow: 0px 4px 16px 15px #e13adb;
+
+      }
+
+      38% {
+        transform: translate(-70px, -60px);
+        opacity: 0.10;
+        box-shadow: 0px 4px 24px 15px #e13adb;
+
+      }
+
+      50% {
+        transform: translate(-85px, -80px);
+        box-shadow: 0px 4px 10px 15px #e13adb;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body id="game">
+  <div class="spark"></div>
+  <div class="spark spark2"></div>
+  <div class="spark spark3"></div>
+  <div class="spark spark4"></div>
+  <div class="spark spark5"></div>
+
+  <main id="d2">
+
+    <!-- --------------------------------- Lvl --------------------------------- -->
+    <div class="info">
+      <p class="level">Niveau : <span class="round" id="round"></span></p>
+    </div>
+
+    <!-- ------------------------ Cards avec les persos ------------------------ -->
+    <div class="combat">
+      <div class="cardCombat cardHero hero">
+        <div class="cardInt">
+          <div class="stats">
+            <p class="name" id="heroName">
+              Rodric
+            </p>
+            <div class="life HP">
+              <img id="heart0" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart1" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart2" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart3" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart4" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart5" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart6" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart7" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
+            </div>
+            <p>PV : <span id="heroHealth"></span></p>
+            <div class="healthBar" id="healthBar" value="" max="1000">
+              <div class="hpBar bar" id="bar">
+              </div>
+            </div>
+            <p>Mana :</p>
+            <div class="mana" id="heroManaBar" value="0" max="1000">
+              <div class="manaBar" id="manaBar"></div>
+            </div>
+          </div>
+          <div class="portrait">
+            <div class="combatTextHero"></div>
+            <img src="" class="heroImg" id="heroImg" alt="">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- -------------------------------- Ennemy ------------------------------- -->
+      <div class="cardCombat cardEnnemy">
+        <div class="cardInt">
+          <div class="portrait">
+            <div class="combatTextEnnemy"></div>
+            <img class="badguyImg" id="badguyImg" src="" alt="">
+          </div>
+          <div class="stats ennemyStats">
+            <p class="name" id="badGuyName">
+
+            </p>
+            <p class="HP">PV : <span id="badGuyHealth"></span></p>
+            <div class="hp" id="badguyHealthBar" value="1000" max="1000">
+              <div class="badguyBar" id="badguyBar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- ------------------------------- Control ------------------------------- -->
+    <div class="control">
+      <div class="controlLine">
+
+        <button class="controlButton button1" id="baseAttack">
+          <div class="attackImg">
+            <img src="assets/img/gourdin.png" alt="">
+          </div>
+          <span id="basicAttackName"></span><span id="basicAttack"></span>
+        </button>
+
+        <button class="controlButton button2" id="heavyAttack" disabled>
+          <div class="attackImg">
+            <img src="assets/img/bouclier.png" alt="">
+          </div>
+          <span id="bigAttackName"></span><span id="bigAttack"></span>
+        </button>
+      </div>
+
+      <div class="controlLine">
+        <button class="controlButton button2" id="ultiAttack" disabled>
+          <div class="attackImg">
+            <img src="assets/img/epee.png" alt="">
+          </div>
+          <span id="ultimateAttackName"></span><span id="ultimateAttack"></span>
+        </button>
+
+        <button class="controlButton button4" id="potion" onclick="playP()">
+          <div class="attackImg potion">
+            <img class="popo" src="assets/img/potion.png" alt="">
+          </div>
+          <div class="combatTextPotion"></div>
+          <p class="attackName" id="stockPotion">
+            Potion
+          </p>
+        </button>
+      </div>
+    </div>
+
+    <!-- --------------------------- Toggle Option ---------------------------- -->
+    <div class="settings">
+      <img src="assets/img/settingsKog.png" alt="">
+    </div>
+
+    <!-- ----------------------------- Panneau Option ----------------------------- -->
+    <div class="settingsPanel settings-hidden">
+      <p>Paramètres :</p>
+      <div class="panelInside">
+        <div class="panelLeft">
+          <p class="panelTitle">Son : </p>
+          <div class="SFX">
+            <p>Volume SFX : </p>
+            <div class="SFXGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="music">
+            <p>Volume Musique :</p>
+            <div class="musicGauge soundGauge"></div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+        <div class="panelRight">
+          <p class="panelTitle">Langue : </p>
+          <div class="selectLanguage">
+            <img class="flag" src="assets/img/FRF.PNG" alt="">
+            <img class="flag" src="assets/img/UKF.png" alt="">
+          </div>
+        </div>
+      </div>
+      <button class="settingsValidate">
+        Valider
+      </button>
+    </div>
+
+    <!-- ------------------------------- Sidebar ------------------------------- -->
+    <div class="side">
+      <div class="sidebarBg"></div>
+      <div class="sidebar"></div>
+    </div>
+
+  </main>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+    integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+  <script src="assets/js/soundDesign.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+
+</html>
