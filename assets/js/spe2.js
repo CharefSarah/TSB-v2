@@ -270,7 +270,7 @@ function Won() {
     }
     won = true;
     //console.log("hello");
-    level.innerHTML = `<div id="won">YOU WON!</div>`;
+    level.innerHTML = `<div id="Bien joué !</div>`;
     // Redirection tout a fait brutal quand on gagne, mais les details c'est pour aprés hein XD
     ggdialog = "Bravo, grace a toi ma mere va m'as meme pas m'assassiner ! "
     // Dialog avec ta fonction

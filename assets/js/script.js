@@ -169,22 +169,23 @@ function Inventory(name, type, stock, used, stat, docket, imagePath, bruitage) {
 function CreateBadGuy() {
   if (round == 1) {
     var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 16, 23, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    
   } else if (round == 2) {
-    var badGuy = new BadGuy("Loup2", 430, 430, 4, 1.2, 20, 28, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 430, 430, 4, 1.2, 20, 28, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 3) {
-    var badGuy = new BadGuy("Loup3", 475, 475, 4, 1.2, 27, 34, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 475, 475, 4, 1.2, 27, 34, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 4) {
-    var badGuy = new BadGuy("Loup4", 480, 480, 4, 1.2, 34, 38, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 480, 480, 4, 1.2, 34, 38, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup5", 510, 520, 5, 1.2, 40, 46, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 510, 520, 5, 1.2, 40, 46, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 6) {
-    var badGuy = new BadGuy("Loup6", 540, 540, 5, 1.2, 46, 51, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 540, 540, 5, 1.2, 46, 51, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 7) {
-    var badGuy = new BadGuy("Loup7", 570, 570, 5, 1.2, 53, 59, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 570, 570, 5, 1.2, 53, 59, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 8) {
-    var badGuy = new BadGuy("Loup8", 610, 610, 5, 1.2, 56, 64, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 610, 610, 5, 1.2, 56, 64, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 9) {
-    var badGuy = new BadGuy("Loup9", 640, 640, 5, 1.2, 67, 72, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 640, 640, 5, 1.2, 67, 72, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 10) {
     var badGuy = new BadGuy("Xonoth1", 750, 750, 30, 32, 12, 12, "none", "none", "assets/img/wolf.png", 'bruit.mp3');
   } else if (round == 11) {
