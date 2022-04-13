@@ -264,31 +264,34 @@ function ModalProgress() {
   round = parseInt(round);
   switch (round) {
     case 1:
-      document.body.style.backgroundImage = "url(assets/img/level1.jpg)";
+      document.body.style.backgroundImage = "url(assets/img/level_background/level1.jpg)";
       audiooo(audioNiveau1track);
       audiooo(audioNiveau1bg);
       break;
     case 2:
-      document.body.style.backgroundImage = "url(assets/img/level2.jpg)";
+      document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
       audiooo(audioNiveau1track);
       audiooo(audioNiveau2bg);
       break;
     case 3:
-      document.body.style.backgroundImage = "url(assets/img/level3.jpg)"
+      document.body.style.backgroundImage = "url(assets/img//level_background/level3.jpg)"
+      audiooo(audioNiveau1track);
+      audiooo(audioNiveau2bg);
+
       break;
     case 4:
-      audiooo(audioNiveau1track);
-      document.body.style.backgroundImage = "url(assets/img/level4.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level4.jpg)"
+      audiooo(audioNiveau4track);
+      audiooo(audioNiveau2bg);
+      audiooo(audioNiveau4bg);
+      
       break;
     case 5:
-      document.body.style.backgroundImage = "url(assets/img/level5.jpg)"
+      document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
       break;
     case 6:
       document.body.style.backgroundImage = "url(assets/img/level6.jpg)"
-      pauseAudio(audioNiveau1track);
-      pauseAudio(audioNiveau2bg);
-      audiooo(audioNiveau2track);
-      audiooo(audioNiveau6bg);
+     
       break;
     case 7:
       document.body.style.backgroundImage = "url(assets/img/level7.jpg)"
@@ -302,9 +305,7 @@ function ModalProgress() {
       break;
     case 9:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
-      pauseAudio(audioNiveau8bg);
       audiooo(audioNiveau9bg);
-      pauseAudio(audioNiveau2track);
       audiooo(audioNiveau9track);
       break;
     case 10:
@@ -335,7 +336,7 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 19:
-      document.body.style.backgroundImage = "url(assets/img/3187.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/3187.jpg)"
       break;
     case 20:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
