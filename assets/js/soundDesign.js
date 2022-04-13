@@ -35,15 +35,14 @@ function playLu() {
 
 
 //musiques
-// 
 var audioHompage = new Audio("assets/music/adventure.mp3");
 var audioNiveau1track = new Audio("assets/music/level1.mp3");
 var audioNiveau2track = new Audio("assets/music/forest.mp3");
 var audioNiveau4track = new Audio("assets/music/music/begining.mp3");
 var audioNiveau5track = new Audio("assets/music/music/level1.mp3");
 var audioNiveau9track = new Audio("assets/music/bar.mp3");
+
 //bruits
-// 
 var audioNiveau1bg = new Audio("assets/music/rural1.mp3");
 var audioNiveau2bg = new Audio("assets/Sound/level2bg.wav");
 var audioNiveau4bg = new Audio("assets/sound/wellwater.mp3");
@@ -53,15 +52,33 @@ var audioNiveau6bg = new Audio("assets/sound/stream.wav");
 var audioNiveau7bg = new Audio("assets/Sound/forest.wav");
 var audioNiveau8bg = new Audio("assets/Sound/rain.wav");
 var audioNiveau9bg = new Audio("assets/Sound/tavern.wav");
+
+let music_audio = document.querySelector('#music_audio');
+let sound_effect_audio = document.querySelector('#sound_effect_audio');
+
 //fonctions
-//3574043
-
-function audiooo(audio) {
-  audio.loop = true;
-  audio.play();
+function audiooo(audio_path) {
+  music_audio.loop = true;
+  music_audio.src = audio_path
+  music_audio.play();
 }
 
-function pauseAudio(audio) {
-  audio.loop = true;
-  audio.pause();
+function audiooo_effect(audio_path) {
+  sound_effect_audio.loop = true;
+  sound_effect_audio.src = audio_path
+  sound_effect_audio.play();
 }
+
+// function pauseAudio(audio) {
+//   audio.loop = true;
+//   audio.pause();
+// }
+
+$('.SFX_volume').mouseup(function () {
+  sound_effect_audio.volume = (this.value) / 100;
+  console.log(sound_effect_audio.volume);
+});
+$('.music_volume').mouseup(function () {
+  music_audio.volume = (this.value) / 100;
+  console.log(music_audio.volume);
+});

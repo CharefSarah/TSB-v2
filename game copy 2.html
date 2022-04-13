@@ -26,7 +26,6 @@
       left: 52%;
       border-radius: 50%;
       opacity: 0;
-      z-index: 4;
       box-shadow: 0px 4px 20px 15px #e13adb;
       animation: vanish 1800ms linear infinite;
     }
@@ -35,24 +34,28 @@
       animation-delay: 800ms;
       top: 48%;
       left: 40%;
+      z-index: 5;
     }
 
     .spark3 {
       animation-delay: 1600ms;
       top: 50%;
       left: 54%;
+      z-index: -5;
     }
 
     .spark4 {
       animation-delay: 2400ms;
       top: 46%;
       left: 46%;
+      z-index: -5;
     }
 
     .spark5 {
       animation-delay: 3200ms;
       top: 51%;
       left: 46%;
+      z-index: 5;
     }
 
     @keyframes vanish {
