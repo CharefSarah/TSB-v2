@@ -20,6 +20,9 @@
 
 <body id="game">
 
+  <audio src="" id="music_audio" style="display:none"></audio>
+  <audio src="" id="sound_effect_audio" style="display:none"></audio>
+
   <main id="d2">
     <!-- --------------------------------- Lvl --------------------------------- -->
     <div class="info">
@@ -139,7 +142,7 @@
           <p class="panelTitle">Son : </p>
           <div class="SFX">
             <p>Volume SFX : </p>
-            <div class="SFXGauge soundGauge"></div>
+            <input type="range" class="SFX_volume">
             <label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
@@ -147,7 +150,7 @@
           </div>
           <div class="music">
             <p>Volume Musique :</p>
-            <div class="musicGauge soundGauge"></div>
+            <input type="range" class="music_volume">
             <label class="switch">
               <input type="checkbox" checked>
               <span class="slider round"></span>
@@ -183,6 +186,7 @@
     integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
   <script src="assets/js/soundDesign.js"></script>
   <script src="assets/js/script.js"></script>
+
 </body>
 
 </html>

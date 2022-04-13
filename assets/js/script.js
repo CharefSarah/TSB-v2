@@ -269,8 +269,8 @@ function ModalProgress() {
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level2.jpg)";
-      audiooo(audioNiveau1track);
-      audiooo(audioNiveau2bg);
+      audiooo("assets/music/level1.mp3");
+      audiooo_effect("assets/music/rural1.mp3");
       break;
     case 3:
       document.body.style.backgroundImage = "url(assets/img/level3.jpg)"
