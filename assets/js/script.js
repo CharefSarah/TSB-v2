@@ -306,9 +306,19 @@ function ModalProgress() {
       break;
     case 10:
       document.body.style.backgroundImage = "url(assets/img/level_background/level10.jpg)"
+      audiooo("assets/music/level1.mp3");
+      music_audio.volume = 1;
+      audiooo_effect("assets/Sound/stream.wav");
+      sound_effect_audio.volume = 0.2;
+      audiooo_effect_2("assets/Sound/rain.wav");
+      sound_effect_audio_2.volume = 0.5;
+      audiooo_effect_3("assets/Sound/owl.wav");
+      sound_effect_audio_2.volume = 0.5;
       break;
     case 11:
       document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
+      audiooo("assets/music/level1.mp3");
+      audiooo_effect("assets/music/rural1.mp3");
       break;
     case 12:
       document.body.style.backgroundImage = "url(assets/img/level_background/level12.jpg)"
