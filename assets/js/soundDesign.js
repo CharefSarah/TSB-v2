@@ -48,7 +48,6 @@ var audioNiveau2bg = new Audio("assets/Sound/level2bg.wav");
 var audioNiveau4bg = new Audio("assets/sound/wellwater.mp3");
 var audioNiveau3bg = new Audio("assets/Sound/grillon.wav")
 var audioNiveau6bg = new Audio("assets/sound/stream.wav");
-
 var audioNiveau7bg = new Audio("assets/Sound/forest.wav");
 var audioNiveau8bg = new Audio("assets/Sound/rain.wav");
 var audioNiveau9bg = new Audio("assets/Sound/tavern.wav");
@@ -69,6 +68,7 @@ function audiooo_effect(audio_path) {
   sound_effect_audio.play();
 }
 
+
 // function pauseAudio(audio) {
 //   audio.loop = true;
 //   audio.pause();
@@ -78,6 +78,7 @@ $('.SFX_volume').mouseup(function () {
   sound_effect_audio.volume = (this.value) / 100;
   console.log(sound_effect_audio.volume);
 });
+
 $('.music_volume').mouseup(function () {
   music_audio.volume = (this.value) / 100;
   console.log(music_audio.volume);

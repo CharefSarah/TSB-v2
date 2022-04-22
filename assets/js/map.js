@@ -116,6 +116,25 @@
        })
    });
 
+   //Function Redirection SHOP
+   document.querySelector('.shop1').addEventListener('click', function () {
+       window.location.href = "shop.html";
+   });
+
+   document.querySelector('.shop2').addEventListener('click', function () {
+       window.location.href = "shop.html";
+   });
+
+   document.querySelector('.shop3').addEventListener('click', function () {
+       window.location.href = "shop.html";
+   });
+
+   document.querySelector('.shop4').addEventListener('click', function () {
+       window.location.href = "shop.html";
+   });
+
+
+
    document.querySelector('.cheh').addEventListener('click', function () {
        window.localStorage.clear();
        window.location.href = "index.html";
