@@ -311,7 +311,7 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
       break;
     case 12:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level12.jpg)"
       break;
     case 13:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
