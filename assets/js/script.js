@@ -313,7 +313,7 @@ function ModalProgress() {
       audiooo_effect_2("assets/Sound/rain.wav");
       sound_effect_audio_2.volume = 0.5;
       audiooo_effect_3("assets/Sound/owl.wav");
-      sound_effect_audio_2.volume = 0.5;
+      sound_effect_audio_3.volume = 0.8;
       break;
     case 11:
       document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
