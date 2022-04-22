@@ -52,28 +52,51 @@ var audioNiveau7bg = new Audio("assets/Sound/forest.wav");
 var audioNiveau8bg = new Audio("assets/Sound/rain.wav");
 var audioNiveau9bg = new Audio("assets/Sound/tavern.wav");
 
+
 let music_audio = document.querySelector('#music_audio');
 let sound_effect_audio = document.querySelector('#sound_effect_audio');
+let sound_effect_audio_2 = document.querySelector('#sound_effect_audio_2');
+let sound_effect_audio_3 = document.querySelector('#sound_effect_audio_3');
+let sound_effect_audio_4 = document.querySelector('#sound_effect_audio_4');
 
-//fonctions
+
+// Fonctions
 function audiooo(audio_path) {
   music_audio.loop = true;
   music_audio.src = audio_path
   music_audio.play();
-}
+};
 
 function audiooo_effect(audio_path) {
   sound_effect_audio.loop = true;
   sound_effect_audio.src = audio_path
   sound_effect_audio.play();
-}
+};
 
+function audiooo_effect_2(audio_path) {
+  sound_effect_audio.loop = true;
+  sound_effect_audio.src = audio_path
+  sound_effect_audio.play();
+};
 
+function audiooo_effect_3(audio_path) {
+  sound_effect_audio.loop = true;
+  sound_effect_audio.src = audio_path
+  sound_effect_audio.play();
+};
 
+function audiooo_effect_4(audio_path) {
+  sound_effect_audio.loop = true;
+  sound_effect_audio.src = audio_path
+  sound_effect_audio.play();
+};
 
-
+// Volume
 $('.SFX_volume').mouseup(function () {
   sound_effect_audio.volume = (this.value) / 100;
+  sound_effect_audio_2.volume = (this.value) / 100;
+  sound_effect_audio_3.volume = (this.value) / 100;
+  sound_effect_audio_4.volume = (this.value) / 100;
   console.log(sound_effect_audio.volume);
 });
 
