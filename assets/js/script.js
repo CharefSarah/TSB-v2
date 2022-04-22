@@ -163,9 +163,6 @@ function Inventory(name, type, stock, used, stat, docket, imagePath, bruitage) {
   this.bruitage = bruitage
 }
 
-
-
-
 function CreateBadGuy() {
   if (round == 1) {
     var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 16, 23, "", "", "assets/img/wolfs.png", 'bruit.mp3');
@@ -290,7 +287,7 @@ function ModalProgress() {
       break;
     case 6:
       document.body.style.backgroundImage = "url(assets/img/level_background/level6.jpg)"
-     
+
       break;
     case 7:
       document.body.style.backgroundImage = "url(assets/img/level_background/level7.jpg)"
