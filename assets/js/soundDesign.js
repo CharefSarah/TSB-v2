@@ -74,21 +74,21 @@ function audiooo_effect(audio_path) {
 };
 
 function audiooo_effect_2(audio_path) {
-  sound_effect_audio.loop = true;
-  sound_effect_audio.src = audio_path
-  sound_effect_audio.play();
+  sound_effect_audio_2.loop = true;
+  sound_effect_audio_2.src = audio_path
+  sound_effect_audio_2.play();
 };
 
 function audiooo_effect_3(audio_path) {
-  sound_effect_audio.loop = true;
-  sound_effect_audio.src = audio_path
-  sound_effect_audio.play();
+  sound_effect_audio_3.loop = true;
+  sound_effect_audio_3.src = audio_path
+  sound_effect_audio_3.play();
 };
 
 function audiooo_effect_4(audio_path) {
-  sound_effect_audio.loop = true;
-  sound_effect_audio.src = audio_path
-  sound_effect_audio.play();
+  sound_effect_audio_4.loop = true;
+  sound_effect_audio_4.src = audio_path
+  sound_effect_audio_4.play();
 };
 
 // Volume
