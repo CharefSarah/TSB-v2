@@ -92,6 +92,8 @@ function audiooo_effect_4(audio_path) {
 };
 
 
+// j'ai testé sur les lvl2 et 10 pour les loops, etj'ai mit un commentaire pour pouvoir push toute facon.
+
 $('.SFX_volume').mouseup(function () {
   sound_effect_audio.volume = (this.value) / 100;
   sound_effect_audio_2.volume = (this.value) / 100;
