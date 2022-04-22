@@ -269,7 +269,7 @@ function ModalProgress() {
       audiooo_effect("assets/music/rural1.mp3");
       break;
     case 2:
-      document.body.style.backgroundImage = "url(assets/img/level2.jpg)";
+      document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
       audiooo("assets/music/level1.mp3");
       audiooo_effect("assets/music/rural1.mp3");
       break;
@@ -290,29 +290,29 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
       break;
     case 6:
-      document.body.style.backgroundImage = "url(assets/img/level6.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level6.jpg)"
      
       break;
     case 7:
-      document.body.style.backgroundImage = "url(assets/img/level7.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level7.jpg)"
       pauseAudio(audioNiveau6bg);
       audiooo(audioNiveau7bg);
       break;
     case 8:
-      document.body.style.backgroundImage = "url(assets/img/level8.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level8.jpg)"
       pauseAudio(audioNiveau7bg);
       audiooo(audioNiveau8bg);
       break;
     case 9:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level9.jpg)"
       audiooo(audioNiveau9bg);
       audiooo(audioNiveau9track);
       break;
     case 10:
-      document.body.style.backgroundImage = "url(assets/img/level10.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level10.jpg)"
       break;
     case 11:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
       break;
     case 12:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"

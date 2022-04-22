@@ -1,4 +1,37 @@
+function play22() {
+  var audio1 = new Audio("assets/Sound/swordsmall.wav");
+  audio1.play();
+}
 
+function play23() {
+  var audio2 = new Audio("assets/Sound/orcPain.wav");
+  audio2.play();
+}
+
+function playshield() {
+  var audioshield = new Audio("assets/Sound/shield.wav");
+  audioshield.play();
+}
+
+function playP() {
+  var audioP = new Audio("assets/Sound/potion.mp3");
+  audioP.play();
+}
+
+function playHL() {
+  var audioHL = new Audio("assets/Sound/heartLoss.ogg");
+  audioHL.play();
+}
+
+function playHG() {
+  var audioHG = new Audio("assets/Sound/heartGain.wav");
+  audioHG.play();
+}
+
+function playLu() {
+  var audioLu = new Audio("assets/Sound/levelUp.ogg");
+  audioLu.play();
+}
 
 //fonctions
 function audiooo(audio_path) {
@@ -13,10 +46,9 @@ function audiooo_effect(audio_path) {
   sound_effect_audio.play();
 }
 
-// function pauseAudio(audio) {
-//   audio.loop = true;
-//   audio.pause();
-// }
+
+
+
 
 $('.SFX_volume').mouseup(function () {
   sound_effect_audio.volume = (this.value) / 100;
