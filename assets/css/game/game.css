@@ -306,47 +306,66 @@ main {
 /*                          BOUTTON COMBAT BOUM BOUM                          */
 /* -------------------------------------------------------------------------- */
 .control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 35px;
     width: 50%;
     min-width: 640px;
-    height: 30%;
     align-self: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 50px;
+    height: 30%;
+    margin-top: 40px;
 }
 
-button {
-    border: none !important;
+.control button {
+    border: none;
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.controlLine {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.controlButton {
-    background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
     border-radius: 53px;
-    height: 90px;
-    width: 335px;
+    background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
     font-size: 28px;
-    font-family: basalt;
     color: var(--white);
+    font-family: basalt;
     display: grid;
     grid-template-columns: 30% 70%;
     align-content: center;
-    padding: 24px;
-    cursor: pointer;
+    height: 90px;
+
+}
+
+.attackImg {
+    background-color: var(--background);
+    border-radius: 50px;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+}
+
+.attackImg img {
+    height: 80px;
+    width: auto;
+    margin: auto;
 }
 
 .controlButton:enabled:hover {
     outline: 4px solid #689FFF !important
 }
+
+/*
+
+.controlButton {
+    width: 335px;
+    
+    cursor: pointer;
+}
+
+
+
 
 .controlButton:disabled {
     background: linear-gradient(90deg, #431a44 -20.18%, #1e0e30 121.1%);
@@ -355,41 +374,26 @@ button {
 }
 
 #bigAttackName {
-    padding-left: 15px;
-    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #ultimateAttackName {
-    padding-left: 15px;
-    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .attackName {
-    justify-self: flex-start;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-left: 24px;
-}
-
-
-.attackImg {
-    background-color: var(--background);
-    border-radius: 80px;
-    height: 70px;
-    width: 70px;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    margin: auto;
 }
 
-.attackImg img {
-    height: 80px;
-    width: auto;
-    margin: auto;
-}
+
+
 
 .potion img {
     height: 65px;
@@ -402,7 +406,7 @@ button {
     padding-right: 15px;
     align-self: center;
     justify-self: center
-}
+} */
 
 
 

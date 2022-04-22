@@ -169,7 +169,6 @@ function Inventory(name, type, stock, used, stat, docket, imagePath, bruitage) {
 function CreateBadGuy() {
   if (round == 1) {
     var badGuy = new BadGuy("Loup", 400, 400, 4, 1.2, 16, 23, "", "", "assets/img/wolfs.png", 'bruit.mp3');
-    
   } else if (round == 2) {
     var badGuy = new BadGuy("Loup", 430, 430, 4, 1.2, 20, 28, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 3) {
@@ -284,7 +283,7 @@ function ModalProgress() {
       audiooo(audioNiveau4track);
       audiooo(audioNiveau2bg);
       audiooo(audioNiveau4bg);
-      
+
       break;
     case 5:
       document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
@@ -376,8 +375,8 @@ function ModalProgress() {
       break;
     default:
       document.body.style.backgroundImage = "url(assets/img/level1.jpg)"
-      audiooo(audioNiveau1track);
-      audiooo(audioNiveau1bg);
+      audiooo("assets/music/level1.mp3");
+      audiooo_effect("assets/music/rural1.mp3");
       break;
   }
 }
@@ -799,4 +798,3 @@ function items(name, level, health, maxHealth, healthPerLevel, mana, maxMana, cr
   this.faiblesse = faiblesse;
   this.bruitage = bruitage;
 }
-
