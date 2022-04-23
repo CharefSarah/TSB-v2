@@ -134,10 +134,11 @@
         min-width: 450px;
         height: 26%;
         margin-top: 10px;
+        grid-gap: 20px;
     }
 
-    .controlButton {
-        height: 40px;
+    .control button {
+        height: 50px;
         width: 200px;
         font-size: 18px;
     }
