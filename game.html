@@ -19,187 +19,177 @@
 </head>
 
 <body id="game">
-
+  <!-- Video pour les cinematiques. -->
   <video id="cinematic" controls="hidden" src="assets/video/14.mp4" type="video/mp4"></video>
-  <!-- STAR ANIMATION -->
-  <div class="bg-animation thunder">
 
+  <div class="bg-animation thunder">
+    <!-- STAR ANIMATION -->
     <div id='stars' class="dustyday fxhide"></div>
     <div id='stars2' class="dustyday fxhide"></div>
-
-
+    <!-- Pluie -->
     <canvas id="canvas1" class="rainyday fxhide"></canvas>
     <canvas id="canvas2" class="rainyday fxhide"></canvas>
     <canvas id="canvas3" class="rainyday fxhide"></canvas>
-
-
-
-
-
+    <!-- piste audio -->
     <audio src="" id="music_audio" style="display:none"></audio>
     <audio src="" id="sound_effect_audio" style="display:none"></audio>
     <audio src="" id="sound_effect_audio_2" style="display:none"></audio>
     <audio src="" id="sound_effect_audio_3" style="display:none"></audio>
     <audio src="" id="sound_effect_audio_4" style="display:none"></audio>
+  </div>
 
-    <main id="d2" class="bg-animation">
-      <!-- --------------------------------- Lvl --------------------------------- -->
-      <div class="info">
-        <p class="level">Niveau : <span class="round" id="round"></span></p>
-      </div>
-
-      <!-- ------------------------ Cards avec les persos ------------------------ -->
-      <div class="combat">
-        <div class="cardCombat cardHero hero">
-          <div class="cardInt">
-            <div class="stats">
-              <p class="name" id="heroName">
-                Rodric
-              </p>
-              <div class="life HP">
-                <img id="heart0" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart1" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart2" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart3" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart4" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart5" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart6" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart7" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
-                <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
-              </div>
-              <p>PV : <span id="heroHealth"></span></p>
-              <div class="healthBar" id="healthBar" value="" max="1000">
-                <div class="hpBar bar" id="bar">
-                </div>
-              </div>
-              <p>Mana :</p>
-              <div class="mana" id="heroManaBar" value="0" max="1000">
-                <div class="manaBar" id="manaBar"></div>
+  <main id="d2" class="bg-animation">
+    <!--Level-->>
+    <div class="info">
+      <p class="level">Niveau : <span class="round" id="round"></span></p>
+    </div>
+    <!-- ------------------------ Cards avec les persos ------------------------ -->
+    <div class="combat">
+      <!--Card Hero-->
+      <div class="cardCombat cardHero hero">
+        <div class="cardInt">
+          <div class="stats">
+            <p class="name" id="heroName">
+              Rodric
+            </p>
+            <div class="life HP">
+              <img id="heart0" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart1" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart2" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart3" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart4" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart5" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart6" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart7" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
+              <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
+            </div>
+            <p>PV : <span id="heroHealth"></span></p>
+            <div class="healthBar" id="healthBar" value="" max="1000">
+              <div class="hpBar bar" id="bar">
               </div>
             </div>
-            <div class="portrait">
-              <div class="combatTextHero"></div>
-              <img src="" class="heroImg" id="heroImg" alt="">
+            <p>Mana :</p>
+            <div class="mana" id="heroManaBar" value="0" max="1000">
+              <div class="manaBar" id="manaBar"></div>
+            </div>
+          </div>
+          <div class="portrait">
+            <div class="combatTextHero"></div>
+            <img src="" class="heroImg" id="heroImg" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!--Card Ennemy-->
+      <div class="cardCombat cardEnnemy">
+        <div class="cardInt">
+          <div class="portrait">
+            <div class="combatTextEnnemy"></div>
+            <img class="badguyImg" id="badguyImg" src="" alt="">
+          </div>
+          <div class="stats ennemyStats">
+            <p class="name" id="badGuyName">
+
+            </p>
+            <p class="HP">PV : <span id="badGuyHealth"></span></p>
+            <div class="hp" id="badguyHealthBar" value="1000" max="1000">
+              <div class="badguyBar" id="badguyBar"></div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
+    <!-- ------------------------------- Control ------------------------------- -->
+    <div class="control">
+      <!--Button -->
+      <button class="controlButton button1" id="baseAttack">
+        <div class="attackImg">
+          <img src="assets/img/gourdin.png" alt="">
+        </div>
+        <div>
+          <span id="basicAttackName"></span><span id="basicAttack"></span>
+        </div>
+      </button>
+      <!--Button -->
+      <button class="controlButton button2" id="heavyAttack" disabled>
+        <div class="attackImg">
+          <img src="assets/img/bouclier.png" alt="">
+        </div>
+        <div>
+          <span id="bigAttackName"></span><span id="bigAttack"></span>
+        </div>
+      </button>
+      <!--Button -->
+      <button class="controlButton button2" id="ultiAttack" disabled>
+        <div class="attackImg">
+          <img src="assets/img/epee.png" alt="">
+        </div>
+        <div>
+          <span id="ultimateAttackName"></span><span id="ultimateAttack"></span>
+        </div>
+      </button>
+      <!--Button -->
+      <button class="controlButton button4" id="potion" onclick="playP()">
+        <div class="attackImg potion">
+          <img class="popo" src="assets/img/potion.png" alt="">
+        </div>
+        <div class="combatTextPotion"></div>
+        <p class="attackName" id="stockPotion">
+          Potion
+        </p>
+      </button>
+    </div>
 
-        <!-- -------------------------------- Ennemy ------------------------------- -->
-        <div class="cardCombat cardEnnemy">
-          <div class="cardInt">
-            <div class="portrait">
-              <div class="combatTextEnnemy"></div>
-              <img class="badguyImg" id="badguyImg" src="" alt="">
-            </div>
-            <div class="stats ennemyStats">
-              <p class="name" id="badGuyName">
+    <!--Option Toggle-->
+    <div class="settings">
+      <img src="assets/img/settingsKog.png" alt="">
+    </div>
 
-              </p>
-              <p class="HP">PV : <span id="badGuyHealth"></span></p>
-              <div class="hp" id="badguyHealthBar" value="1000" max="1000">
-                <div class="badguyBar" id="badguyBar"></div>
-              </div>
-            </div>
+    <!-- Option Panel-->
+    <div class="settingsPanel settings-hidden">
+      <p>Paramètres :</p>
+      <div class="panelInside">
+        <div class="panelLeft">
+          <p class="panelTitle">Son : </p>
+          <div class="SFX">
+            <p>Volume SFX : </p>
+            <input type="range" class="SFX_volume">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="music">
+            <p>Volume Musique :</p>
+            <input type="range" class="music_volume">
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+            </label>
           </div>
         </div>
-
-      </div>
-
-
-
-      <!-- ------------------------------- Control ------------------------------- -->
-      <div class="control">
-
-        <button class="controlButton button1" id="baseAttack">
-          <div class="attackImg">
-            <img src="assets/img/gourdin.png" alt="">
-          </div>
-          <div>
-            <span id="basicAttackName"></span><span id="basicAttack"></span>
-          </div>
-        </button>
-
-        <button class="controlButton button2" id="heavyAttack" disabled>
-          <div class="attackImg">
-            <img src="assets/img/bouclier.png" alt="">
-          </div>
-          <div>
-            <span id="bigAttackName"></span><span id="bigAttack"></span>
-          </div>
-        </button>
-
-
-        <button class="controlButton button2" id="ultiAttack" disabled>
-          <div class="attackImg">
-            <img src="assets/img/epee.png" alt="">
-          </div>
-          <div>
-            <span id="ultimateAttackName"></span><span id="ultimateAttack"></span>
-          </div>
-        </button>
-
-        <button class="controlButton button4" id="potion" onclick="playP()">
-          <div class="attackImg potion">
-            <img class="popo" src="assets/img/potion.png" alt="">
-          </div>
-          <div class="combatTextPotion"></div>
-          <p class="attackName" id="stockPotion">
-            Potion
-          </p>
-        </button>
-      </div>
-
-
-      <!-- --------------------------- Toggle Option ---------------------------- -->
-      <div class="settings">
-        <img src="assets/img/settingsKog.png" alt="">
-      </div>
-
-      <!-- ----------------------------- Panneau Option ----------------------------- -->
-      <div class="settingsPanel settings-hidden">
-        <p>Paramètres :</p>
-        <div class="panelInside">
-          <div class="panelLeft">
-            <p class="panelTitle">Son : </p>
-            <div class="SFX">
-              <p>Volume SFX : </p>
-              <input type="range" class="SFX_volume">
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div class="music">
-              <p>Volume Musique :</p>
-              <input type="range" class="music_volume">
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span>
-              </label>
-            </div>
-          </div>
-          <div class="panelRight">
-            <p class="panelTitle">Langue : </p>
-            <div class="selectLanguage">
-              <img class="flag" src="assets/img/FRF.PNG" alt="">
-              <img class="flag" src="assets/img/UKF.png" alt="">
-            </div>
+        <div class="panelRight">
+          <p class="panelTitle">Langue : </p>
+          <div class="selectLanguage">
+            <img class="flag active" src="assets/img/FRF.PNG" alt="">
+            <img class="flag" src="assets/img/UKF.png" alt="">
           </div>
         </div>
-        <button class="settingsValidate">
-          Valider
-        </button>
       </div>
+      <button class="settingsValidate">
+        Valider
+      </button>
+    </div>
 
-      <!-- ------------------------------- Sidebar ------------------------------- -->
-      <div class="side">
-        <div class="sidebarBg"></div>
-        <div class="sidebar"></div>
-      </div>
+    <!-- ------------------------------- Sidebar ------------------------------- -->
+    <div class="side">
+      <div class="sidebarBg"></div>
+      <div class="sidebar"></div>
+    </div>
 
-    </main>
+  </main>
 
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -209,7 +199,7 @@
     integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
   <script src="assets/js/soundDesign.js"></script>
   <script src="assets/js/script.js"></script>
-
+  <!-- Effects -->
   <script>
     var canvas1 = document.getElementById('canvas1');
     var canvas2 = document.getElementById('canvas2');

@@ -1,13 +1,8 @@
-/* -------------------------------------------------------------------------- */
-/*                                    FONTS                                   */
-/* -------------------------------------------------------------------------- */
-/* Basalt */
 @font-face {
     font-family: Basalt;
     src: url("/assets/font/Basalt.ttf");
 }
 
-/* Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 :root {
@@ -16,12 +11,15 @@
     --blue: #689FFF;
 }
 
-* {
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+html,
 body {
     overflow: hidden;
     background-repeat: no-repeat;
@@ -29,19 +27,25 @@ body {
     background-position: center;
     height: 100vh;
     background-color: #200C34;
-
-
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 body:-webkit-scrollbar {
     display: none;
 }
 
-body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+body:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: thunder-bg 6s infinite;
 }
-
 
 main {
     display: flex;
@@ -49,20 +53,30 @@ main {
     height: 100vh;
 }
 
+/* --------------------------------- Canvas --------------------------------- */
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 
-.info {
-    height: 80px;
-    width: auto;
+#canvas1,
+#canvas2,
+#canvas3 {
+    z-index: 3;
+    transform: rotate(15deg) translateY(190px);
 }
 
 .level {
     font-family: Basalt;
     font-size: 36px;
     color: var(--white);
-    margin-top: 1.2%;
+    margin-top: 1%;
     margin-left: 2%;
 }
-
 
 .combat {
     display: flex;
@@ -79,7 +93,6 @@ main {
     height: 65%;
     background-color: var(--background);
     border-radius: 22px;
-
 }
 
 .cardInt {
@@ -92,7 +105,7 @@ main {
 }
 
 .cardEnnemy .cardInt {
-    margin-left: -120px;
+    margin-left: -40px;
 }
 
 .stats {
@@ -100,16 +113,11 @@ main {
     flex-direction: column;
     color: var(--white);
     justify-content: space-evenly;
-    height: 80%;
-    padding-bottom: 20px;
     margin-left: 40px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
 }
 
 .ennemyStats {
-    margin-left: 0;
-    margin-right: 40px;
+    margin-left: 10px;
 }
 
 .cardHero {
@@ -124,39 +132,39 @@ main {
 .name {
     font-size: 48px !important;
     font-family: Basalt !important;
-    margin-top: -25px;
-}
-
-.HP {
-    margin-top: 25px;
+    margin-top: -24px;
 }
 
 .life {
+    margin-top: 25px;
     width: 160px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+
 }
 
 .life img {
     width: 35px;
     height: 35px;
+    margin-right: 5px;
 }
 
-.portrait img {
+.heroImg {
     height: 220px;
     width: auto;
-    margin-top: -70px;
+    margin-top: -30px;
     margin-right: -20px;
 }
 
-.cardEnnemy .cardInt .portrait img {
-    height: 220px;
+.badguyImg {
+    height: 190px;
     width: auto;
     margin-top: -20px;
-    margin-left: -20px;
+    margin-left: -30px;
+    margin-right: 20px;
 }
-
 
 .combatTextEnnemy {
     font-family: Basalt;
@@ -177,6 +185,11 @@ main {
     margin-top: -50px;
 }
 
+.potIcoMessage {
+    height: 65px;
+    width: auto;
+}
+
 .combatTextPotion {
     font-family: Basalt;
     font-size: 36px;
@@ -188,21 +201,14 @@ main {
 
 }
 
-.potIcoMessage {
-    height: 33px;
-    width: auto;
-}
-
 .combatTextAnimation {
     animation: combatText 2s ease-out;
     animation-fill-mode: forwards;
-
 }
 
 .combatHeroAnimation {
     animation: combatTextHero 2s ease-out;
     animation-fill-mode: forwards;
-
 }
 
 @keyframes combatText {
@@ -230,9 +236,6 @@ main {
         opacity: 0%;
     }
 }
-
-
-
 
 /* -------------------------------------------------------------------------- */
 /*                                   JAUGES                                   */
@@ -273,7 +276,6 @@ main {
     transition: 1s ease-out;
 }
 
-
 .badguyBar {
     background: rgb(255, 0, 0);
     box-shadow: 0 5px 50px 0 rgb(255, 0, 0) inset, 0 5px 150px 0 rgb(255, 0, 0),
@@ -284,7 +286,6 @@ main {
     position: relative;
     transition: 1s ease-out;
 }
-
 
 .mana {
     box-sizing: border-box;
@@ -315,14 +316,12 @@ main {
     width: 40%;
     min-width: 440px;
     align-self: center;
-    height: 30%;
+    height: 25%;
     margin-top: 40px;
 }
 
 .control button {
     border: none;
-    display: flex;
-    flex-direction: row;
     align-items: center;
     border-radius: 53px;
     background: linear-gradient(90deg, #561459 -20.18%, #270847 121.1%);
@@ -334,8 +333,8 @@ main {
     align-content: center;
     max-height: 90px;
     min-height: 60px;
-
-
+    max-width: 335px;
+    cursor: pointer;
 }
 
 .attackImg {
@@ -347,7 +346,6 @@ main {
     justify-content: center;
     align-items: center;
     margin: auto;
-
 }
 
 .attackImg img {
@@ -366,31 +364,6 @@ main {
     color: grey;
 }
 
-/*
-.controlButton {
-    width: 335px;
-    
-    cursor: pointer;
-}
-
-#bigAttackName {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#ultimateAttackName {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.attackName {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .potion img {
     height: 65px;
     width: auto;
@@ -402,8 +375,8 @@ main {
     padding-right: 15px;
     align-self: center;
     justify-self: center
-} 
-*/
+}
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -428,15 +401,12 @@ main {
     border-radius: 65px 0 0 65px;
     border: 6px rgb(255, 228, 76) solid;
     border-right: none;
-    background-image: url('../img/Rectangle 26.png');
 }
 
 .side-open {
     width: 50%;
     transition: 1s;
 }
-
-
 
 /* -------------------------------- Settings -------------------------------- */
 .settings {
@@ -454,17 +424,11 @@ main {
     transition: all 1s;
 }
 
-.settings:hover,
-.settings:focus {
-    box-shadow: inset 2px 4px 2px 1px rgba(154, 96, 221, 0.2);
-}
-
 .settings img:hover,
 .settings img:focus {
     transform: rotate(180deg);
     transition: 1s;
 }
-
 
 .settingsPanel {
     position: absolute;
@@ -486,7 +450,6 @@ main {
     font-size: 36px;
     color: var(--white);
     transition: 0.8s ease-out;
-
 }
 
 
@@ -588,16 +551,10 @@ input:checked+.slider:before {
 }
 
 .flag:hover,
-.flag:focus {
+.flag:focus,
+.flag.active {
     border: 3px var(--blue) solid !important;
     border-radius: 50%;
-
-}
-
-
-.blurred {
-    -webkit-filter: blur(1px) grayscale(20%);
-    filter: blur(1px) grayscale(20%);
 }
 
 .settingsValidate {
@@ -619,68 +576,10 @@ input:checked+.slider:before {
     border: 3px var(--blue) solid !important;
 }
 
-html {
-    box-sizing: border-box;
-}
 
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-}
-
-html,
-body,
-canvas {
-    width: 100%;
-    height: 100%;
-
-}
-
-
-body:after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    animation: thunder-bg 6s infinite;
-}
-
-canvas {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#canvas3 {
-    z-index: 3;
-}
-
-#canvas2 {
-    z-index: 3;
-}
-
-#canvas1 {
-    z-index: 3;
-}
-
-
-
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
+/* -------------------------------------------------------------------------- */
+/*                                    anim                                    */
+/* -------------------------------------------------------------------------- */
 
 .bg-animation {
     position: fixed;
@@ -772,13 +671,6 @@ canvas {
     to {
         transform: translateY(-2000px);
     }
-}
-
-
-#canvas1,
-#canvas2,
-#canvas3 {
-    transform: rotate(15deg) translateY(190px);
 }
 
 

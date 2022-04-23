@@ -4,7 +4,8 @@
     }
 
     .info {
-        height: 40px;
+        height: 20px;
+        margin-top: 0;   
     }
 
     .level {
@@ -129,31 +130,34 @@
         height: 3px;
     }
 
-    /* -------------------------------- CONTROLS -------------------------------- */
     .control {
-        min-width: 450px;
-        height: 26%;
-        margin-top: 10px;
-        grid-gap: 20px;
+        grid-gap: 10px;
+        width: 40%;
+        margin-top: 0;
     }
 
     .control button {
-        height: 50px;
-        width: 200px;
+        border-radius: 30px;
         font-size: 18px;
+        min-height: 50px;
     }
 
     .attackImg {
-        height: 40px;
-        width: 40px;
+        background-color: var(--background);
+        border-radius: 50px;
+        height: 45px;
+        width: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
     }
 
     .attackImg img {
-        height: 42px;
-
+        height: 50px;
+        width: auto;
+        margin: auto;
     }
-
-    /* -------------------------------- SETTINGS -------------------------------- */
 
     .settings {
         left: 15px;
@@ -166,7 +170,6 @@
 
     }
 
-
     .settings img {
         height: 20px;
         width: 20px;
@@ -174,7 +177,10 @@
 }
 
 
-@media screen and (max-height:330px) {
+/* -------------------------------------------------------------------------- */
+/*                               Petit Telephone                              */
+/* -------------------------------------------------------------------------- */
+@media screen and (max-height:380px) {
     .combat {
         height: 35%;
     }
@@ -201,8 +207,21 @@
         padding-right: 10px;
     }
 
+    .portrait img {
+        margin-left: 0;
+    }
+
+    .heroImg {
+        height: 100px;
+        margin-left: -20px !important;
+    }
+
     #healthBar {
-        width: 140px;
+        width: 130px;
+    }
+
+    #heroManaBar {
+        width: 130px;
     }
 
     #badguyHealthBar {
@@ -210,31 +229,5 @@
         margin-bottom: 0;
     }
 
-    #heroManaBar {
-        width: 140px;
-    }
-}
 
-@media screen and (max-width:880px) {
-    .control {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        grid-gap: 15px;
-        width: 40%;
-        min-width: 440px;
-        align-self: center;
-        height: 20%;
-        margin-top: 10px;
-    }
-
-    .control button {
-        padding-right: 10px;
-    }
-
-    .cardCombat {
-        width: 270px;
-        height: 140px;
-
-    }
 }
