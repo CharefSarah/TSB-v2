@@ -213,3 +213,27 @@
         width: 140px;
     }
 }
+
+@media screen and (max-width:880px) {
+    .control {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 15px;
+        width: 40%;
+        min-width: 440px;
+        align-self: center;
+        height: 20%;
+        margin-top: 10px;
+    }
+
+    .control button {
+        padding-right: 10px;
+    }
+
+    .cardCombat {
+        width: 270px;
+        height: 140px;
+
+    }
+}
