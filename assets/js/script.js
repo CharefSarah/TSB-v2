@@ -253,6 +253,18 @@ function HeroTextDisplay(message) {
   }, 1100);
 }
 
+
+function cinematic_and_redirection() {
+  // On prend le niveau actuel, on le converti ( DAMN YOU STRING )
+  var level = parseInt(localStorage.getItem("level"));
+  // On l'incremente pour aprés
+  var next_level = level + 1;
+  // On attribue le nouveau level au localStorage.
+  localStorage.setItem("level", next_level);
+  // On actualise et on passe a level+1
+  window.location.reload();
+}
+
 /* -------------------------------------------------------------------------- */
 /*                   Switch case des abysses pour les levels                  */
 /* -------------------------------------------------------------------------- */
@@ -261,13 +273,14 @@ function ModalProgress() {
   switch (round) {
     case 1:
       document.body.style.backgroundImage = "url(assets/img/level_background/level1.jpg)";
-      $( ".dustyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
+      $(".dustyday").removeClass("fxhide").addClass("fxshow");
       audiooo("assets/music/level1.mp3");
       music_audio.volume = 0.5;
       audiooo_effect("assets/music/rural1.mp3");
       sound_effect_audio.volume = 0.5;
       audiooo_effect_3("assets/Sound/chicken.wav");
       sound_effect_audio_3.volume = 0.3;
+      cinematic_and_redirection();
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
@@ -279,7 +292,7 @@ function ModalProgress() {
       sound_effect_audio_2.volume = 0.5;
       break;
     case 3:
-      document.body.style.backgroundImage = "url(assets/img//level_background/level3.jpg)"
+      document.body.style.backgroundImage = "url(assets/img//level_background/level3.jpg)";
       audiooo("assets/music/forest.mp3");
       music_audio.volume = 0.4;
       audiooo_effect("assets/Sound/field.wav");
@@ -294,7 +307,7 @@ function ModalProgress() {
       music_audio.volume = 0.5;
       audiooo_effect("assets/Sound/field.wav");
       sound_effect_audio.volume = 0.5;
-      
+
       break;
     case 5:
       document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
@@ -337,18 +350,19 @@ function ModalProgress() {
       break;
     case 9:
       document.body.style.backgroundImage = "url(assets/img/level_background/level9.jpg)"
-      $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
+      $(".rainyday").removeClass("fxhide").addClass("fxshow");
       audiooo("assets/music/music/10 11 god-rest-ye-merry-celtishmen.mp3");
       music_audio.volume = 0.3;
       audiooo_effect("assets/Sound/ambiantforest.wav");
       sound_effect_audio.volume = 0.2;
       audiooo_effect_2("assets/Sound/rain.wav");
       sound_effect_audio_2.volume = 0.2;
-   
+      console.log('duuuuu' + sound_effect_audio_2.volume)
+
       break;
     case 10:
       document.body.style.backgroundImage = "url(assets/img/level_background/level10.jpg)"
-      $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
+      $(".rainyday").removeClass("fxhide").addClass("fxshow");
       audiooo("assets/music/music/alexander-nakarada-wintersong.mp3");
       music_audio.volume = 0.5;
       audiooo_effect("assets/Sound/stream.wav");
@@ -376,7 +390,14 @@ function ModalProgress() {
   
       break;
     case 12:
-      document.body.style.backgroundImage = "url(assets/img/level_background/level12.jpg)"
+      // Affichage de la video
+      document.querySelector('#cinematic').style.display = 'block';
+      // On la demarre 2s aprés, c'etait surtout pour evité que ca rame.
+      setTimeout(function () {
+        document.querySelector('#cinematic').play();
+      }, 2000);
+      // EventListener pour detecter la fin de la vidéo, la fonction est l.257. Une fois fini, on lance la redirection.
+      document.querySelector('#cinematic').addEventListener('ended', cinematic_and_redirection, false);
       break;
     case 13:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
@@ -683,7 +704,6 @@ document.getElementById("baseAttack").addEventListener("click", function baseAtt
 
 document.getElementById("heavyAttack").addEventListener("click", function heavyAttack() {
   if (hero.mana >= 25) {
-
     damage = AttackDamage(hero.attacksTab[1][1]);
     playshield();
     badGuy.health = badGuy.health - damage;
