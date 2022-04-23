@@ -351,7 +351,6 @@ function ModalProgress() {
       $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
       audiooo("assets/music/music/alexander-nakarada-wintersong.mp3");
       music_audio.volume = 0.5;
-    
       audiooo_effect("assets/Sound/stream.wav");
       sound_effect_audio.volume = 0.2;
       audiooo_effect_2("assets/Sound/rain.wav");
@@ -363,8 +362,18 @@ function ModalProgress() {
       break;
     case 11:
       document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
-      audiooo("assets/music/level1.mp3");
-      audiooo_effect("assets/music/rural1.mp3");
+      audiooo("assets/music/music/alexander-nakarada-celtic-ambiance.mp3");
+      music_audio.volume = 0.2;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.3;
+      audiooo_effect_2("assets/Sound/wind.mp3");
+      sound_effect_audio_2.volume = 0.8;
+      audiooo_effect_3("assets/Sound/owl.wav");
+      sound_effect_audio_3.volume = 0.2;
+      audiooo_effect_4("assets/Sound/campfire.m4a");
+      sound_effect_audio_4.volume = 0.3;
+
+  
       break;
     case 12:
       document.body.style.backgroundImage = "url(assets/img/level_background/level12.jpg)"
