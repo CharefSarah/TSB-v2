@@ -28,6 +28,7 @@ body {
     background-size: cover;
     background-position: center;
     height: 100vh;
+    
 
 }
 
@@ -642,23 +643,9 @@ body,
 canvas {
     width: 100%;
     height: 100%;
-<<<<<<< HEAD
-
-=======
+  
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    background-color: #222;
-    background-image: url('https://drive.google.com/uc?export=view&id=0BzFF7FmbJUo5X0NEUXFVd0NBcWc');
-    background-size: cover;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: 0;
->>>>>>> 8be467771a9b335edc2bca26ddb8b43e9fa27cbc
-}
 
 body:after {
     content: '';
@@ -800,3 +787,13 @@ canvas {
 #canvas3 {
     transform: rotate(15deg) translateY(190px);
 }
+
+
+
+.fxhide{
+    display: none;
+}
+.fxshow{
+    display: block;
+}
+

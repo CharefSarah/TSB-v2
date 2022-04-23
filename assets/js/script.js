@@ -261,59 +261,103 @@ function ModalProgress() {
   switch (round) {
     case 1:
       document.body.style.backgroundImage = "url(assets/img/level_background/level1.jpg)";
+      $( ".dustyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
       audiooo("assets/music/level1.mp3");
+      music_audio.volume = 0.8;
       audiooo_effect("assets/music/rural1.mp3");
+      sound_effect_audio.volume = 0.5;
+      audiooo_effect_3("assets/Sound/chicken.wav");
+      sound_effect_audio_3.volume = 0.3;
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
-      audiooo("assets/music/level1.mp3");
+      audiooo("assets/music/music/alexander-nakarada-fairy-of-the-forest.mp3");
       audiooo_effect("assets/music/rural1.mp3");
+      audiooo_effect_2("assets/Sound/windmill.wav");
+      sound_effect_audio_2.volume = 0.5;
       break;
     case 3:
       document.body.style.backgroundImage = "url(assets/img//level_background/level3.jpg)"
-      audiooo(audioNiveau1track);
-      audiooo(audioNiveau2bg);
+      audiooo("assets/music/forest.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/field.wav");
+      sound_effect_audio.volume = 0.5;
+      audiooo_effect_3("assets/Sound/wellwater.mp3");
+      sound_effect_audio_3.volume = 0.5;
 
       break;
     case 4:
       document.body.style.backgroundImage = "url(assets/img/level_background/level4.jpg)"
-      audiooo(audioNiveau4track);
-      audiooo(audioNiveau2bg);
-      audiooo(audioNiveau4bg);
-
+      audiooo("assets/music/music/level4.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/field.wav");
+      sound_effect_audio.volume = 0.5;
+      
       break;
     case 5:
       document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
+      audiooo("assets/music/music/alexander-nakarada-village-ambiance.mp3");
+      music_audio.volume = 0.7;
+      audiooo_effect("assets/Sound/town.wav");
+      sound_effect_audio.volume = 0.4;
+      audiooo_effect_2("assets/music/rural1.mp3");
+      sound_effect_audio_2.volume = 0.2;
       break;
     case 6:
       document.body.style.backgroundImage = "url(assets/img/level_background/level6.jpg)"
+      audiooo("assets/music/adventure.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.2;
+      audiooo_effect_2("assets/Sound/stream.wav");
+      sound_effect_audio_2.volume = 0.1;
 
       break;
     case 7:
       document.body.style.backgroundImage = "url(assets/img/level_background/level7.jpg)"
-      pauseAudio(audioNiveau6bg);
-      audiooo(audioNiveau7bg);
+      audiooo("assets/music/music/alexander-nakarada-planning.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.2;
+      audiooo_effect_2("assets/Sound/stream.wav");
+      sound_effect_audio_2.volume = 0.1;
       break;
     case 8:
       document.body.style.backgroundImage = "url(assets/img/level_background/level8.jpg)"
-      pauseAudio(audioNiveau7bg);
-      audiooo(audioNiveau8bg);
+      audiooo("assets/music/music/alexander-nakarada-now-we-ride.mp3");
+      music_audio.volume = 0.7;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.3;
+      audiooo_effect_2("assets/Sound/wind.mp3");
+      sound_effect_audio_2.volume = 1;
+      audiooo_effect_3("assets/Sound/stream.wav");
+      sound_effect_audio_3.volume = 0.03;
       break;
     case 9:
       document.body.style.backgroundImage = "url(assets/img/level_background/level9.jpg)"
-      audiooo(audioNiveau9bg);
-      audiooo(audioNiveau9track);
+      $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
+      audiooo("assets/music/music/10 11 god-rest-ye-merry-celtishmen.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.2;
+      audiooo_effect_2("assets/Sound/rain.wav");
+      sound_effect_audio_2.volume = 0.2;
+   
       break;
     case 10:
       document.body.style.backgroundImage = "url(assets/img/level_background/level10.jpg)"
-      audiooo("assets/music/level1.mp3");
-      music_audio.volume = 1;
+      $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
+      audiooo("assets/music/music/alexander-nakarada-wintersong.mp3");
+      music_audio.volume = 0.5;
+    
       audiooo_effect("assets/Sound/stream.wav");
       sound_effect_audio.volume = 0.2;
       audiooo_effect_2("assets/Sound/rain.wav");
-      sound_effect_audio_2.volume = 0.5;
+      sound_effect_audio_2.volume = 0.3;
       audiooo_effect_3("assets/Sound/owl.wav");
-      sound_effect_audio_3.volume = 0.8;
+      sound_effect_audio_3.volume = 0.5;
+      audiooo_effect_4("assets/Sound/thunder.wav");
+      sound_effect_audio_4.volume = 0.7;
       break;
     case 11:
       document.body.style.backgroundImage = "url(assets/img/level_background/level11.jpg)"
