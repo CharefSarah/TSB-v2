@@ -263,7 +263,7 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level_background/level1.jpg)";
       $( ".dustyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
       audiooo("assets/music/level1.mp3");
-      music_audio.volume = 0.8;
+      music_audio.volume = 0.5;
       audiooo_effect("assets/music/rural1.mp3");
       sound_effect_audio.volume = 0.5;
       audiooo_effect_3("assets/Sound/chicken.wav");
@@ -272,16 +272,18 @@ function ModalProgress() {
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
       audiooo("assets/music/music/alexander-nakarada-fairy-of-the-forest.mp3");
+      music_audio.volume = 0.5;
       audiooo_effect("assets/music/rural1.mp3");
+      sound_effect_audio.volume = 0.3;
       audiooo_effect_2("assets/Sound/windmill.wav");
       sound_effect_audio_2.volume = 0.5;
       break;
     case 3:
       document.body.style.backgroundImage = "url(assets/img//level_background/level3.jpg)"
       audiooo("assets/music/forest.mp3");
-      music_audio.volume = 0.5;
+      music_audio.volume = 0.4;
       audiooo_effect("assets/Sound/field.wav");
-      sound_effect_audio.volume = 0.5;
+      sound_effect_audio.volume = 0.2;
       audiooo_effect_3("assets/Sound/wellwater.mp3");
       sound_effect_audio_3.volume = 0.5;
 
@@ -316,7 +318,7 @@ function ModalProgress() {
     case 7:
       document.body.style.backgroundImage = "url(assets/img/level_background/level7.jpg)"
       audiooo("assets/music/music/alexander-nakarada-planning.mp3");
-      music_audio.volume = 0.5;
+      music_audio.volume = 0.4;
       audiooo_effect("assets/Sound/ambiantforest.wav");
       sound_effect_audio.volume = 0.2;
       audiooo_effect_2("assets/Sound/stream.wav");
@@ -337,7 +339,7 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level_background/level9.jpg)"
       $( ".rainyday" ).removeClass( "fxhide" ).addClass( "fxshow" );
       audiooo("assets/music/music/10 11 god-rest-ye-merry-celtishmen.mp3");
-      music_audio.volume = 0.5;
+      music_audio.volume = 0.3;
       audiooo_effect("assets/Sound/ambiantforest.wav");
       sound_effect_audio.volume = 0.2;
       audiooo_effect_2("assets/Sound/rain.wav");
