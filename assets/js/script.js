@@ -280,7 +280,7 @@ function ModalProgress() {
       sound_effect_audio.volume = 0.5;
       audiooo_effect_3("assets/Sound/chicken.wav");
       sound_effect_audio_3.volume = 0.3;
-      cinematic_and_redirection();
+  
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
