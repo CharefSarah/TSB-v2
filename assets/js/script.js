@@ -109,6 +109,7 @@ function SetHeroValue() {
   document.getElementById("bigAttackName").innerHTML = hero.attacksTab[1][0];
   document.getElementById("ultimateAttackName").innerHTML = hero.attacksTab[2][0];
   document.getElementById("heroHealth").innerHTML = hero.scaledHP;
+  document.getElementById("max_health_display").innerHTML = " / " + hero.scaledMaxHP;
   health.setAttribute("value", hero.scaledHP);
   document.getElementById("heroImg").src = hero.imagePath;
   health.setAttribute("max", hero.scaledMaxHP);
@@ -173,7 +174,7 @@ function CreateBadGuy() {
   } else if (round == 4) {
     var badGuy = new BadGuy("Loup", 480, 480, 4, 1.2, 34, 38, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 5) {
-    var badGuy = new BadGuy("Loup", 510, 520, 5, 1.2, 40, 46, "", "", "assets/img/wolfs.png", 'bruit.mp3');
+    var badGuy = new BadGuy("Loup", 510, 510, 5, 1.2, 40, 46, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 6) {
     var badGuy = new BadGuy("Loup", 540, 540, 5, 1.2, 46, 51, "", "", "assets/img/wolfs.png", 'bruit.mp3');
   } else if (round == 7) {
@@ -385,8 +386,6 @@ function ModalProgress() {
       sound_effect_audio_3.volume = 0.2;
       audiooo_effect_4("assets/Sound/campfire.m4a");
       sound_effect_audio_4.volume = 0.3;
-
-  
       break;
     case 12:
       // Affichage de la video
@@ -400,6 +399,7 @@ function ModalProgress() {
       break;
     case 13:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      sound_effect_audio_5.volume = 0.3;
       break;
     case 14:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
@@ -595,6 +595,7 @@ function checkMana() {
 function DisplayBadGuy() {
   document.getElementById("badGuyName").innerHTML = badGuy.name;
   document.getElementById("badGuyHealth").innerHTML = badGuy.health;
+  document.getElementById("badguy_max_health_display").innerHTML = " / " + badGuy.maxHealth;
   badGuyHealth.value = badGuy.health;
   badGuyHealth.setAttribute("value", badGuy.health);
   badGuyHealth.setAttribute("max", badGuy.health);

@@ -1,3 +1,47 @@
+/* -------------------------------- Tablette  ------------------------------- */
+@media screen and (max-height:800px) {
+    .name {
+        font-size: 40px !important;
+    }
+
+    .cardInt {
+        padding-left: 0;
+    }
+
+    .stats p {
+        font-size: 14px;
+    }
+
+    .life {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+
+    .life img {
+        width: 28px;
+        height: 28px;
+        margin-right: 3px;
+    }
+
+    .heroImg {
+        height: 160px;
+        width: auto;
+    }
+
+    .badguyImg {
+        height: 130px;
+        width: auto;
+        margin-left: -60px;
+        margin-right: 0;
+    }
+
+    #badGuyName {
+        margin-top: -40px;
+    }
+}
+
+/* ---------------------------------- Phone --------------------------------- */
 @media screen and (max-height:500px) {
     .side {
         display: none;
@@ -5,7 +49,7 @@
 
     .info {
         height: 20px;
-        margin-top: 0;   
+        margin-top: 0;
     }
 
     .level {
@@ -176,10 +220,7 @@
     }
 }
 
-
-/* -------------------------------------------------------------------------- */
-/*                               Petit Telephone                              */
-/* -------------------------------------------------------------------------- */
+/* ------------------------------- Small phone ------------------------------ */
 @media screen and (max-height:380px) {
     .combat {
         height: 35%;
@@ -230,4 +271,69 @@
     }
 
 
+
+}
+
+/* -------------------------------- Micro Tel ------------------------------- */
+@media screen and (max-height : 300px) {
+    .combat {
+        height: 25%;
+    }
+
+    .cardCombat {
+        border-radius: 15px;
+    }
+
+    .cardCombat {
+        width: 200px;
+        height: 100px;
+    }
+
+    .control {
+        gap: 10px;
+        margin-top: 30px;
+        margin: auto;
+        width: 20vw !important;
+        min-width: 320px;
+
+    }
+
+    .HP {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .control button {
+        min-height: 40px;
+        font-size: 14px;
+
+    }
+
+    .attackImg {
+        height: 25px;
+        width: 25px;
+    }
+
+    .attackImg img {
+        height: 28px;
+    }
+
+    .ennemyStats {
+        margin-top: 28px;
+    }
+
+    .ennemyStats {
+        margin-top: 28px;
+    }
+
+    .cardHero .cardInt .stats {
+        margin-top: -15px;
+        margin-left: 10px;
+    }
+
+
+
+    .cardEnnemy .cardInt .portrait img {
+        margin-left: -30px
+    }
 }
