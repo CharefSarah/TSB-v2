@@ -177,31 +177,32 @@ button:hover:enabled {
 }
 
 #levelTest {
-    grid-area: 6 / 13 / 7 / 14;
+    grid-area: 5 / 18 / 7 / 14;
 }
 .lvlboss1 {
-    grid-area: 5 / 11 / 6 / 13
+    grid-area: 4 / 11 / 6 / 13
 }
 
 
 .lvl11 {
-    grid-area: 4 / 12 / 6 / 13
+    grid-area: 3 / 12 / 6 / 13
 }
 
 .lvl12 {
-    grid-area: 3 / 13 / 4 / 15
+    grid-area: 2 / 13 / 4 / 15
 }
 
 .lvl13 {
-    grid-area: 5 / 14 / 6 / 16;
+    grid-area: 3 / 14 / 6 / 16;
 }
 
 .lvl14 {
     grid-area: 3 / 16 / 4 / 17;
 }
 
-.shop3 {
-    grid-area: 2 / 16 / 3 / 17;
+
+.lvlboss2 {
+    grid-area: 5 / 17 / 5 / 17;
 }
 
 .lvl15 {
@@ -209,7 +210,7 @@ button:hover:enabled {
 }
 
 .lvl16 {
-    grid-area: 7 / 18 / 8 / 19;
+    grid-area: 7 / 19/ 8 / 19;
 }
 
 .lvl17 {

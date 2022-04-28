@@ -58,6 +58,12 @@ let sound_effect_audio = document.querySelector('#sound_effect_audio');
 let sound_effect_audio_2 = document.querySelector('#sound_effect_audio_2');
 let sound_effect_audio_3 = document.querySelector('#sound_effect_audio_3');
 let sound_effect_audio_4 = document.querySelector('#sound_effect_audio_4');
+let sound_effect_audio_5 = document.querySelector('#sound_effect_audio_5');
+let sound_effect_audio_6 = document.querySelector('#sound_effect_audio_6');
+
+
+
+
 
 
 // Fonctions
@@ -72,6 +78,7 @@ function audiooo_effect(audio_path) {
   sound_effect_audio.src = audio_path
   sound_effect_audio.play();
 };
+
 
 function audiooo_effect_2(audio_path) {
   sound_effect_audio_2.loop = true;
@@ -91,14 +98,27 @@ function audiooo_effect_4(audio_path) {
   sound_effect_audio_4.play();
 };
 
+function audiooo_effect_5(audio_path) {
+  sound_effect_audio_5.loop = true;
+  sound_effect_audio_5.src = audio_path
+  sound_effect_audio_5.play();
+};
 
-// j'ai testé sur les lvl2 et 10 pour les loops, etj'ai mit un commentaire pour pouvoir push toute facon.
+function audiooo_effect_6(audio_path) {
+  sound_effect_audio_6.loop = true;
+  sound_effect_audio_6.src = audio_path
+  sound_effect_audio_6.play();
+};
+
+
 
 $('.SFX_volume').mouseup(function () {
   sound_effect_audio.volume = (this.value) / 100;
   sound_effect_audio_2.volume = (this.value) / 100;
   sound_effect_audio_3.volume = (this.value) / 100;
   sound_effect_audio_4.volume = (this.value) / 100;
+  sound_effect_audio_5.volume = (this.value) / 100;
+  sound_effect_audio_6.volume = (this.value) / 100;
   console.log(sound_effect_audio.volume);
 });
 
