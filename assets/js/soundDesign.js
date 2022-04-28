@@ -65,7 +65,6 @@ let sound_effect_audio_6 = document.querySelector('#sound_effect_audio_6');
 
 
 
-
 // Fonctions
 function audiooo(audio_path) {
   music_audio.loop = true;

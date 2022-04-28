@@ -52,7 +52,7 @@
       <!--Card Hero-->
       <div class="cardCombat cardHero hero">
         <div class="cardInt">
-          <div class="stats">
+          <div class="col_left">
             <p class="name" id="heroName">
               Rodric
             </p>
@@ -68,19 +68,25 @@
               <img id="heart8" src="assets/img/bx_bxs-heart.png" alt="">
               <img id="heart9" src="assets/img/bx_bxs-heart.png" alt="">
             </div>
-            <p>PV : <span id="heroHealth"></span></p>
-            <div class="healthBar" id="healthBar" value="" max="1000">
-              <div class="hpBar bar" id="bar">
+            <div class="hp_section">
+              <p>PV : <span id="heroHealth"></span><span id="max_health_display"></span></p>
+              <div class="healthBar" id="healthBar" value="" max="1000">
+                <div class="hpBar bar" id="bar">
+                </div>
               </div>
             </div>
-            <p>Mana :</p>
-            <div class="mana" id="heroManaBar" value="0" max="1000">
-              <div class="manaBar" id="manaBar"></div>
+            <div class="mana_section">
+              <p>Mana :</p>
+              <div class="mana" id="heroManaBar" value="0" max="1000">
+                <div class="manaBar" id="manaBar"></div>
+              </div>
             </div>
           </div>
-          <div class="portrait">
-            <div class="combatTextHero"></div>
-            <img src="" class="heroImg" id="heroImg" alt="">
+          <div class="col_right">
+            <div class="portrait">
+              <div class="combatTextHero"></div>
+              <img src="" class="heroImg" id="heroImg" alt="">
+            </div>
           </div>
         </div>
       </div>
@@ -88,22 +94,28 @@
       <!--Card Ennemy-->
       <div class="cardCombat cardEnnemy">
         <div class="cardInt">
-          <div class="portrait">
-            <div class="combatTextEnnemy"></div>
-            <img class="badguyImg" id="badguyImg" src="" alt="">
+          <div class="col_right">
+            <div class="portrait">
+              <div class="combatTextEnnemy"></div>
+              <img class="badguyImg" id="badguyImg" src="" alt="">
+            </div>
           </div>
-          <div class="stats ennemyStats">
+          <div class="col_left">
             <p class="name" id="badGuyName">
-
             </p>
-            <p class="HP">PV : <span id="badGuyHealth"></span></p>
-            <div class="hp" id="badguyHealthBar" value="1000" max="1000">
-              <div class="badguyBar" id="badguyBar"></div>
+            <div class="filler_1"></div>
+            <div class="hp_section">
+              <p class="HP">PV : <span id="badGuyHealth"></span><span id="badguy_max_health_display"></span></p>
+              <div class="hp" id="badguyHealthBar" value="1000" max="1000">
+                <div class="badguyBar" id="badguyBar"></div>
+              </div>
+              <div class="filler_2"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 
     <!-- ------------------------------- Control ------------------------------- -->
     <div class="control">

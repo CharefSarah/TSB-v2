@@ -1,15 +1,81 @@
-@media screen and (max-height:500px) {
+@media screen and (max-height:800px) {
+    .cardCombat {
+        width: 350px;
+        height: 190px;
+    }
+
     .side {
         display: none;
     }
 
+    .cardHero {
+        align-self: inherit;
+    }
+
+    .name {
+        font-size: 40px !important;
+    }
+
+    .stats p {
+        font-size: 14px;
+    }
+
+    #healthBar,
+    #badguyHealthBar {
+        width: 160px;
+    }
+
+    #badguyHealthBar {
+        margin-right: 0 !important;
+        margin-top: 5px;
+    }
+
+    .life img {
+        width: 30px;
+        height: 30px;
+        margin-right: 3.5px;
+    }
+
+    .heroImg {
+        height: 160px;
+        width: auto;
+    }
+
+    .badguyImg {
+        height: 130px;
+        width: auto;
+    }
+
+    #badGuyName {
+        margin-top: 8px;
+    }
+}
+
+@media screen and (max-height:800px) and (max-width:1100px) {
+    .cardCombat {
+        width: 300px;
+        height: 180px;
+    }
+
+    .col_right {
+        margin-left: -30px;
+    }
+}
+
+@media screen and (max-height:500px) {
+    .col_left {
+        height: 55%;
+        margin-top: -16px
+    }
+
     .info {
         height: 20px;
-        margin-top: 0;   
+        margin-top: 0;
+        margin-bottom: 10px;
     }
 
     .level {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .combat {
@@ -18,13 +84,15 @@
         margin-right: 7.5%;
     }
 
+    .name {
+        margin: 0;
+        font-size: 30px !important;
+        margin-top: 13px;
+    }
+
     .cardCombat {
         width: 270px;
         height: 135px;
-    }
-
-    .cardHero {
-        align-self: center;
     }
 
     .portrait img {
@@ -34,106 +102,47 @@
         margin-top: -40px;
     }
 
-    .cardInt {
-        padding: 0;
-    }
-
-    .cardEnnemy .cardInt {
-        margin-left: 0px;
-    }
-
-    .cardEnnemy .cardInt .portrait img {
-        height: 120px;
-        width: auto;
-        margin-top: -40px;
-    }
-
-    .ennemyStats {
-        align-items: flex-end;
-    }
-
-    .name {
-        margin: 0;
-        font-size: 24px !important;
-    }
-
-    .life {
-        width: 100px;
-
-    }
-
     .life img {
-        height: 22px;
-        width: 22px;
+        height: 24px;
+        width: 24px;
     }
 
-    .portrait {
-        width: 30%;
+    .cardInt {
+        padding-left: 10px;
     }
 
-    .HP {
-        margin: 0;
-        margin-top: 5px;
-        margin-bottom: 10px;
+    .cardInt p {
+        font-size: 12px;
+        margin-top: 0px;
     }
 
-    .stats {
-        margin: 0;
-        width: 70%;
-        padding: 0;
-        height: 100%;
-        margin-top: -18px;
-
+    #badGuyName {
+        margin-top: 0;
     }
 
-    .cardHero .cardInt .stats {
-        margin-left: 25px;
-
-    }
-
-    .ennemyStats .HP {
-        margin-top: 30px;
-    }
-
-    .ennemyStats {
-        padding-right: 25px;
-        margin-top: -26px;
-    }
-
-    .stats p {
-        font-size: 14px;
-    }
-
-    #healthBar {
-        width: 170px;
-        height: 14px;
-        border-radius: 18px;
-        padding: 2px;
-        margin-top: 6px;
-        margin-bottom: 6px;
-    }
-
+    #healthBar,
     #badguyHealthBar {
-        width: 170px;
-        height: 14px;
-        border-radius: 18px;
-        padding: 2px;
-        margin-top: 6px;
-        margin-bottom: 6px;
+        width: 140px;
+        height: 16px;
+        margin-top: 5px;
     }
 
     .hpBar {
-        height: 7px;
+        height: 8px;
     }
 
     .manaBar {
-        height: 3px;
+        height: 4px;
+    }
+
+    .cardEnnemy .cardInt {
+        padding-right: 10px;
     }
 
     .control {
         grid-gap: 10px;
         width: 40%;
-        margin-top: 0;
+        margin-top: 20px;
     }
 
     .control button {
@@ -163,7 +172,7 @@
         left: 15px;
         bottom: 10px;
         padding: 5px;
-        border-radius: 6px;
+        border-radius: 12px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -176,10 +185,6 @@
     }
 }
 
-
-/* -------------------------------------------------------------------------- */
-/*                               Petit Telephone                              */
-/* -------------------------------------------------------------------------- */
 @media screen and (max-height:380px) {
     .combat {
         height: 35%;
@@ -201,14 +206,25 @@
 
     .name {
         display: block !important;
+        font-size: 24px !important;
     }
 
     .ennemyStats {
         padding-right: 10px;
     }
 
+    .cardInt p {
+        display: none;
+    }
+
     .portrait img {
         margin-left: 0;
+        height: 100px;
+        margin-left: 15px !important;
+    }
+
+    .cardEnnemy .cardInt .portrait img {
+        margin-right: 15px !important;
     }
 
     .heroImg {
@@ -228,6 +244,64 @@
         margin-top: 30px;
         margin-bottom: 0;
     }
+}
 
+@media screen and (max-height : 300px) {
+    .combat {
+        height: 25%;
+    }
 
+    .cardCombat {
+        border-radius: 15px;
+    }
+
+    .cardCombat {
+        width: 200px;
+        height: 100px;
+    }
+
+    .control {
+        gap: 10px;
+        margin-top: 30px;
+        margin: auto;
+        width: 20vw !important;
+        min-width: 320px;
+    }
+
+    .HP {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .control button {
+        min-height: 40px;
+        font-size: 14px;
+
+    }
+
+    .attackImg {
+        height: 25px;
+        width: 25px;
+    }
+
+    .attackImg img {
+        height: 28px;
+    }
+
+    .ennemyStats {
+        margin-top: 28px;
+    }
+
+    .ennemyStats {
+        margin-top: 28px;
+    }
+
+    .cardHero .cardInt .stats {
+        margin-top: -15px;
+        margin-left: 10px;
+    }
+
+    .cardEnnemy .cardInt .portrait img {
+        margin-left: -30px
+    }
 }
