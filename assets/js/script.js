@@ -281,6 +281,7 @@ function ModalProgress() {
       sound_effect_audio.volume = 0.5;
       audiooo_effect_3("assets/Sound/chicken.wav");
       sound_effect_audio_3.volume = 0.3;
+
       break;
     case 2:
       document.body.style.backgroundImage = "url(assets/img/level_background/level2.jpg)";
@@ -312,7 +313,7 @@ function ModalProgress() {
     case 5:
       document.body.style.backgroundImage = "url(assets/img//level_background/level5.jpg)"
       audiooo("assets/music/music/alexander-nakarada-village-ambiance.mp3");
-      music_audio.volume = 0.7;
+      music_audio.volume = 0.6;
       audiooo_effect("assets/Sound/town.wav");
       sound_effect_audio.volume = 0.4;
       audiooo_effect_2("assets/music/rural1.mp3");
@@ -380,41 +381,114 @@ function ModalProgress() {
       music_audio.volume = 0.2;
       audiooo_effect("assets/Sound/ambiantforest.wav");
       sound_effect_audio.volume = 0.3;
-      audiooo_effect_2("assets/Sound/wind.mp3");
-      sound_effect_audio_2.volume = 0.8;
+      audiooo_effect_2("assets/Sound/nightinsect.wav");
+      sound_effect_audio_2.volume = 0.2;
       audiooo_effect_3("assets/Sound/owl.wav");
       sound_effect_audio_3.volume = 0.2;
       audiooo_effect_4("assets/Sound/campfire.m4a");
       sound_effect_audio_4.volume = 0.3;
+
       break;
     case 12:
+      document.body.style.backgroundImage = "url(assets/img/level_background/level12.jpg)"
+      audiooo("assets/music/music/alexander-nakarada-crescendo.mp3");
+      music_audio.volume = 0.8;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.3;
+      audiooo_effect_2("assets/Sound/wind.mp3");
+      sound_effect_audio_2.volume = 0.8;
+      audiooo_effect_3("assets/Sound/owl.wav");
+      sound_effect_audio_3.volume = 0.2;
+      audiooo_effect_4("assets/Sound/nightinsect.wav");
+      sound_effect_audio_4.volume = 0.2;
       // Affichage de la video
-      document.querySelector('#cinematic').style.display = 'block';
+      //document.querySelector('#cinematic').style.display = 'block';
       // On la demarre 2s aprés, c'etait surtout pour evité que ca rame.
-      setTimeout(function () {
-        document.querySelector('#cinematic').play();
-      }, 2000);
+      // setTimeout(function () {
+      //  document.querySelector('#cinematic').play();
+      //  }, 2000);
       // EventListener pour detecter la fin de la vidéo, la fonction est l.257. Une fois fini, on lance la redirection.
-      document.querySelector('#cinematic').addEventListener('ended', cinematic_and_redirection, false);
+      // document.querySelector('#cinematic').addEventListener('ended', cinematic_and_redirection, false);
       break;
     case 13:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
-      sound_effect_audio_5.volume = 0.3;
+      document.body.style.backgroundImage = "url(assets/img/level_background/level13.jpg)"
+      audiooo("assets/music/music/alexander-nakarada-enchanted-forest.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.3;
+      audiooo_effect_2("assets/Sound/nightinsect.wav");
+      sound_effect_audio_2.volume = 0.2;
+      audiooo_effect_3("assets/Sound/owl.wav");
+      sound_effect_audio_3.volume = 0.2;
+      audiooo_effect_4("assets/Sound/swamp.wav");
+      sound_effect_audio_4.volume = 0.3;
+  
+    
       break;
     case 14:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level14.jpg)"
+      audiooo("assets/music/music/alexander-nakarada-enchanted-forest.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.7;
+      audiooo_effect_2("assets/Sound/nightinsect.wav");
+      sound_effect_audio_2.volume = 0.5;
+      audiooo_effect_3("assets/Sound/owl.wav");
+      sound_effect_audio_3.volume = 0.5;
+      audiooo_effect_4("assets/Sound/swamp.wav");
+      sound_effect_audio_4.volume = 0.4;
+      audiooo_effect_5("assets/Sound/stream.wav");
+      sound_effect_audio_5.volume = 0.3;
       break;
     case 15:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level15.jpg)"
+      $(".mistyday").removeClass("fxhide").addClass("fxshow");
+      audiooo("assets/music/music/alexander-nakarada-village-ambiance.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.8;
+      audiooo_effect_3("assets/Sound/dove.wav");
+      sound_effect_audio_3.volume = 0.2;
+      audiooo_effect_6("assets/Sound/wind.mp3");
+      sound_effect_audio_6.volume = 0.9;
       break;
     case 16:
-      document.body.style.backgroundImage = "url(assets/img/level16.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level16.jpg)"
+      $(".mistyday").removeClass("fxhide").addClass("fxshow");
+      audiooo("assets/music/music/alexander-nakarada-planning.mp3");
+      music_audio.volume = 0.3;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.7;
+      audiooo_effect_3("assets/Sound/dove.wav");
+      sound_effect_audio_3.volume = 0.08;
+      audiooo_effect_6("assets/Sound/wind.mp3");
+      sound_effect_audio_6.volume = 0.9;
       break;
     case 17:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level17.jpg)"
+      $(".mistyday").removeClass("fxhide").addClass("fxshow");
+      audiooo("assets/music/music/alexander-nakarada-now-we-ride.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect("assets/Sound/ambiantforest.wav");
+      sound_effect_audio.volume = 0.4;
+      audiooo_effect_3("assets/Sound/wellwater.mp3");
+      sound_effect_audio_3.volume = 0.5;
+      audiooo_effect_4("assets/Sound/seagull.wav");
+      sound_effect_audio_6.volume = 1;
+      audiooo_effect_6("assets/Sound/wind.mp3");
+      sound_effect_audio_6.volume = 1;
+
       break;
     case 18:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level18.jpg)"
+      $(".rainyday").removeClass("fxhide").addClass("fxshow");
+      $(".mistyday").removeClass("fxhide").addClass("fxshow");
+      audiooo("assets/music/music/alexander-nakarada-heartbeat.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect_2("assets/Sound/rain.wav");
+      sound_effect_audio_2.volume = 0.3;
+      audiooo_effect_4("assets/Sound/thunder.wav");
+      sound_effect_audio_4.volume = 0.7;
       break;
     case 19:
       document.body.style.backgroundImage = "url(assets/img/level_background/3187.jpg)"
@@ -441,8 +515,19 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     case 27:
-      document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level27.jpg)"
+      $(".dustyday").removeClass("fxhide").addClass("fxshow");
+      audiooo("assets/music/music/alexander-nakarada-night-of-mystery.mp3");
+      music_audio.volume = 0.5;
+      audiooo_effect_4("assets/Sound/campfire.m4a");
+      sound_effect_audio_4.volume = 0.1;
+      audiooo_effect_5("assets/Sound/empty.mp3");
+      sound_effect_audio_5.volume = 0.5;
+      audiooo_effect_6("assets/Sound/wind.mp3");
+      sound_effect_audio_6.volume = 1;
+      
       break;
+
     case 28:
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
@@ -754,7 +839,7 @@ function CunterAttack() {
   if (health = health - attackDamage) {
     attack = hero.health - attack;
     elseif(health <= 0); {
-      // Enemy is dead
+      // Enemy is dead lol 
     }
   }
 };
