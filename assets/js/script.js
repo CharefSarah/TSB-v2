@@ -1,26 +1,7 @@
 /* -------------------------------------------------------------------------- */
 /*                                  SOMMAIRE                                  */
 /* -------------------------------------------------------------------------- */
-/*
-CTRL+G pour aller directement a une ligne :)
 
-L.30 - Fonction pour gerer les panneaux et les selections.
-L.60 - Recuperation du niveau depuis la Map
-L.79 - Construct Gentils
-L.155 - Construct Mechant
-L.239 - Text Combat
-L.261 - les LEGVEEEELS
-L.381 - Choix Persos
-L.422 - Lifes
-L.461 - Jauges
-L.515 - Combat
-L.675 - Potions
-L.725 - Sidebar
-
-*/
-/* -------------------------------------------------------------------------- */
-/*                              ----Sommaire----                              */
-/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 /*         Fonction & variable pour recuperer le niveau cliqué sur MAP        */
@@ -31,7 +12,9 @@ function levelToGet() {
 }
 var round = levelToGet();
 document.getElementById("round").innerHTML = round;
-
+if (localStorage.getItem('on_pirate_quest')) {
+  document.querySelector('.level').innerHTML = 'Aventure chez les pirates';
+} // C'est un placeholder
 
 /* -------------------------------------------------------------------------- */
 /*                               Variable Utile                               */
@@ -232,6 +215,23 @@ function CreateBadGuy() {
 }
 
 
+function CreatePirate() {
+  let pirate_round = parseInt(localStorage.getItem('last_pirate_level'));
+  if (pirate_round == 1) {
+    var badGuy = new BadGuy("Pirate1", 400, 400, 4, 1.2, 16, 23, "", "", "assets/img/PIRATE.png", 'bruit.mp3');
+  } else if (pirate_round == 2) {
+    var badGuy = new BadGuy("Pirate2", 500, 500, 4, 1.2, 16, 23, "", "", "assets/img/PIRATE.png", 'bruit.mp3');
+  } else if (pirate_round == 3) {
+    var badGuy = new BadGuy("Pirate3", 600, 600, 4, 1.2, 16, 23, "", "", "assets/img/PIRATE.png", 'bruit.mp3');
+  } else if (pirate_round == 4) {
+    var badGuy = new BadGuy("Pirate4", 700, 700, 4, 1.2, 16, 23, "", "", "assets/img/PIRATE.png", 'bruit.mp3');
+  } else if (pirate_round == 5) {
+    var badGuy = new BadGuy("Pirate5", 800, 800, 4, 1.2, 16, 23, "", "", "assets/img/PIRATE.png", 'bruit.mp3');
+  }
+  return badGuy
+
+}
+
 /* -------------------------------------------------------------------------- */
 /*                                 Text combat                                */
 /* -------------------------------------------------------------------------- */
@@ -270,6 +270,7 @@ function cinematic_and_redirection() {
 /*                   Switch case des abysses pour les levels                  */
 /* -------------------------------------------------------------------------- */
 function ModalProgress() {
+  console.log('modalprogress');
   round = parseInt(round);
   switch (round) {
     case 1:
@@ -554,6 +555,28 @@ function ModalProgress() {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                 CASE PIRATE                                */
+/* -------------------------------------------------------------------------- */
+function pirateProgress() {
+  console.log('pirateProgress');
+  let pirate_round = parseInt(localStorage.getItem('last_pirate_level'));
+  switch (pirate_round) {
+    case 1:
+      document.body.style.backgroundImage = 'url("assets/img/level_background/pirate_1.jpg")';
+      break;
+    case 2:
+      document.body.style.backgroundImage = 'url("assets/img/level_background/pirate_2.png")';
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+  }
+
+}
+/* -------------------------------------------------------------------------- */
 /*                         CHOIX DU PERSOS ET ATTRIBUTION                     */
 /* -------------------------------------------------------------------------- */
 // Chargement du persos, faudra faire une cnodition selon le perso choisi via la map je pense
@@ -580,7 +603,11 @@ window.onload = function () {
   SetHeroValue();
   MoveAllyHealthBar()
   displayLife();
-  ModalProgress();
+  if (!localStorage.getItem('on_pirate_quest')) {
+    ModalProgress();
+  } else {
+    pirateProgress();
+  }
   colorMana();
   return hero;
 }
@@ -694,7 +721,11 @@ function DisplayBadGuy() {
 
 // Utilisation de l'affichage du méchant au chargement
 window.addEventListener("load", function () {
-  badGuy = CreateBadGuy();
+  if (localStorage.getItem("on_pirate_quest")) {
+    badGuy = CreatePirate();
+  } else {
+    badGuy = CreateBadGuy();
+  }
   DisplayBadGuy();
 });
 

@@ -58,6 +58,22 @@
        } else {
            console.log("tatou")
        }
+
+       if (localStorage.getItem('last_pirate_level') == '5') {
+           window.localStorage.removeItem("on_pirate_quest");
+           window.localStorage.removeItem("max_pirate_level");
+           window.localStorage.removeItem("last_pirate_level");
+           localStorage.setItem('pirate_done', "true")
+           window.location.reload();
+       }
+
+       if (localStorage.getItem('on_pirate_quest')) {
+           Button.forEach((item) => {
+
+               item.disabled = true;
+           })
+       };
+
    };
 
    function checkLocalStorage() {
@@ -114,6 +130,9 @@
        })
    });
 
+   /* -------------------------------------------------------------------------- */
+   /*                                 Acces Shop                                 */
+   /* -------------------------------------------------------------------------- */
    Shops.forEach((item) => {
        var shop_number = item.getAttribute('LevelSpe');
        let max_level = parseInt(localStorage.getItem("maxLevel"));
@@ -143,11 +162,56 @@
        item.addEventListener('click', function () {
            localStorage.setItem('shop_visited', this.getAttribute('LevelSpe'));
            window.location.href = "shop.html";
-       })
+       });
    });
 
+   /* --------------------------------- pirates -------------------------------- */
 
-   // Redirection MINI JEU
+   var pirates_level = document.querySelectorAll('.pirate_button');
+
+   pirates_level.forEach((item) => {
+       let max_level = parseInt(localStorage.getItem("maxLevel"));
+       var pirate_level_number = item.getAttribute('levelPirate');
+
+       if (max_level == 20) {
+           if (pirate_level_number == 1) {
+               item.disabled = false;
+           }
+       }
+
+       if (localStorage.getItem('max_pirate_level') === null) {
+           localStorage.setItem('max_pirate_level', 1);
+       }
+
+       let pirate_max_level = parseInt(localStorage.getItem('max_pirate_level'))
+
+       if (pirate_level_number <= pirate_max_level) {
+           item.disabled = false;
+       }
+
+       if (localStorage.getItem('pirate_done') == "true") {
+           item.disabled = true;;
+       }
+
+       item.addEventListener('click', function () {
+           localStorage.setItem('last_pirate_level', pirate_level_number);
+           localStorage.setItem('on_pirate_quest', 'true');
+           let pirate_max_level = parseInt(localStorage.getItem('max_pirate_level'));
+
+           if (parseInt(this.getAttribute('levelPirate')) >= pirate_max_level) {
+               pirate_max_level++;
+               localStorage.setItem('max_pirate_level', pirate_max_level);
+           }
+           window.location.href = "game.html";
+
+       });
+   })
+
+
+
+   /* -------------------------------------------------------------------------- */
+   /*                               Acces Mini Jeux                              */
+   /* -------------------------------------------------------------------------- */
    document.querySelector('.cheh').addEventListener('click', function () {
        window.localStorage.clear();
        window.location.href = "index.html";
