@@ -190,7 +190,7 @@
        }
 
        if (localStorage.getItem('pirate_done') == "true") {
-           item.disabled = true;;
+           item.disabled = true;
        }
 
        item.addEventListener('click', function () {
