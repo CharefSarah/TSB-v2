@@ -422,8 +422,8 @@ function ModalProgress() {
       sound_effect_audio_3.volume = 0.2;
       audiooo_effect_4("assets/Sound/swamp.wav");
       sound_effect_audio_4.volume = 0.3;
-  
-    
+
+
       break;
     case 14:
       document.body.style.backgroundImage = "url(assets/img/level_background/level14.jpg)"
@@ -525,7 +525,7 @@ function ModalProgress() {
       sound_effect_audio_5.volume = 0.5;
       audiooo_effect_6("assets/Sound/wind.mp3");
       sound_effect_audio_6.volume = 1;
-      
+
       break;
 
     case 28:
@@ -541,9 +541,14 @@ function ModalProgress() {
       document.body.style.backgroundImage = "url(assets/img/level9.jpg)"
       break;
     default:
-      document.body.style.backgroundImage = "url(assets/img/level1.jpg)"
+      document.body.style.backgroundImage = "url(assets/img/level_background/level1.jpg)";
+      $(".dustyday").removeClass("fxhide").addClass("fxshow");
       audiooo("assets/music/level1.mp3");
+      music_audio.volume = 0.5;
       audiooo_effect("assets/music/rural1.mp3");
+      sound_effect_audio.volume = 0.5;
+      audiooo_effect_3("assets/Sound/chicken.wav");
+      sound_effect_audio_3.volume = 0.3;
       break;
   }
 }

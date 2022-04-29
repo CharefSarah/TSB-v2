@@ -1,18 +1,18 @@
    var Button = document.querySelectorAll('.lvlBtn');
+   var Shops = document.querySelectorAll('.button_shop');
    var maxLvl = 1;
 
-   window.onload = function () {
-       LLSlvl = parseInt(localStorage.getItem("level"));
-       LSMaxLvl = parseInt(localStorage.getItem("maxLevel"));
-   };
+   rodric_button = document.querySelector('.rodricButton');
+   xorrun_button = document.querySelector('.xorrunButton');
+   urim_button = document.querySelector('.urimButton');
 
    window.onload = function () {
        Button.forEach((item, index) => {
-           lvlButton = parseInt(item.getAttribute("level"));
-           maxLvl = parseInt(localStorage.getItem("maxLevel"));
-           var activeOnHeroes = localStorage.getItem('pickedHero');
+           level_number = parseInt(item.getAttribute("level"));
+           max_level = parseInt(localStorage.getItem("maxLevel"));
+           var picked_hero = localStorage.getItem('pickedHero');
 
-           if (lvlButton <= maxLvl + 1) {
+           if (level_number <= max_level + 1) {
                item.disabled = false;
            }
 
@@ -22,25 +22,24 @@
                if (Button[i].getAttribute('level') == maximax) {
                    Button[i].style.border = "1px solid red"
                }
-
            }
 
-           if (activeOnHeroes == 'rodric') {
-               rodBut.classList.add('selectHerosActive');
-               xorBut.classList.remove('selectHerosActive');
-               uriBut.classList.remove('selectHerosActive');
-           } else if (activeOnHeroes == 'xorrun') {
-               xorBut.classList.add('selectHerosActive');
-               rodBut.classList.remove('selectHerosActive');
-               uriBut.classList.remove('selectHerosActive');
-           } else if (activeOnHeroes == 'urim') {
-               uriBut.classList.add('selectHerosActive');
-               rodBut.classList.remove('selectHerosActive');
-               xorBut.classList.remove('selectHerosActive');
+           if (picked_hero == 'rodric') {
+               rodric_button.classList.add('selectHerosActive');
+               xorrun_button.classList.remove('selectHerosActive');
+               urim_button.classList.remove('selectHerosActive');
+           } else if (picked_hero == 'xorrun') {
+               xorrun_button.classList.add('selectHerosActive');
+               rodric_button.classList.remove('selectHerosActive');
+               urim_button.classList.remove('selectHerosActive');
+           } else if (picked_hero == 'urim') {
+               urim_button.classList.add('selectHerosActive');
+               rodric_button.classList.remove('selectHerosActive');
+               xorrun_button.classList.remove('selectHerosActive');
            } else {
-               rodBut.classList.add('selectHerosActive');
-               xorBut.classList.remove('selectHerosActive');
-               uriBut.classList.remove('selectHerosActive');
+               rodric_button.classList.add('selectHerosActive');
+               xorrun_button.classList.remove('selectHerosActive');
+               urim_button.classList.remove('selectHerosActive');
            }
        });
 
@@ -115,25 +114,40 @@
        })
    });
 
-   //Function Redirection SHOP
-   document.querySelector('.shop1').addEventListener('click', function () {
-       window.location.href = "shop.html";
+   Shops.forEach((item) => {
+       var shop_number = item.getAttribute('LevelSpe');
+       let max_level = parseInt(localStorage.getItem("maxLevel"));
+
+       if (max_level == 5) {
+           if (shop_number == 'shop1') {
+               item.disabled = false;
+           }
+       } else if (max_level == 10) {
+           if (shop_number == 'shop2') {
+               item.disabled = false;
+           }
+       } else if (max_level == 19) {
+           if (shop_number == 'shop3') {
+               item.disabled = false;
+           }
+       } else if (max_level == 24) {
+           if (shop_number == 'shop4') {
+               item.disabled = false;
+           }
+       } else if (max_level == 28) {
+           if (shop_number == 'shop5') {
+               item.disabled = false;
+           }
+       }
+
+       item.addEventListener('click', function () {
+           localStorage.setItem('shop_visited', this.getAttribute('LevelSpe'));
+           window.location.href = "shop.html";
+       })
    });
 
-   document.querySelector('.shop2').addEventListener('click', function () {
-       window.location.href = "shop.html";
-   });
 
-   document.querySelector('.shop3').addEventListener('click', function () {
-       window.location.href = "shop.html";
-   });
-
-   document.querySelector('.shop4').addEventListener('click', function () {
-       window.location.href = "shop.html";
-   });
-
-
-
+   // Redirection MINI JEU
    document.querySelector('.cheh').addEventListener('click', function () {
        window.localStorage.clear();
        window.location.href = "index.html";
@@ -147,29 +161,38 @@
        window.location.href = "lvlspe2.html";
    })
 
-   rodBut = document.querySelector('.rodricButton');
-   xorBut = document.querySelector('.xorrunButton');
-   uriBut = document.querySelector('.urimButton');
-   rodBut.addEventListener('click', function () {
-       rodBut.classList.add('selectHerosActive');
-       xorBut.classList.remove('selectHerosActive');
-       uriBut.classList.remove('selectHerosActive');
+
+
+   /* -------------------------------------------------------------------------- */
+   /*                               Selection Heros                              */
+   /* -------------------------------------------------------------------------- */
+   rodric_button.addEventListener('click', function () {
+       rodric_button.classList.add('selectHerosActive');
+       xorrun_button.classList.remove('selectHerosActive');
+       urim_button.classList.remove('selectHerosActive');
        localStorage.setItem('pickedHero', 'rodric');
 
    });
-   xorBut.addEventListener('click', function () {
-       xorBut.classList.add('selectHerosActive');
-       rodBut.classList.remove('selectHerosActive');
-       uriBut.classList.remove('selectHerosActive');
+   xorrun_button.addEventListener('click', function () {
+       xorrun_button.classList.add('selectHerosActive');
+       rodric_button.classList.remove('selectHerosActive');
+       urim_button.classList.remove('selectHerosActive');
        localStorage.setItem('pickedHero', 'xorrun');
    });
-   uriBut.addEventListener('click', function () {
-       uriBut.classList.add('selectHerosActive');
-       rodBut.classList.remove('selectHerosActive');
-       xorBut.classList.remove('selectHerosActive');
+   urim_button.addEventListener('click', function () {
+       urim_button.classList.add('selectHerosActive');
+       rodric_button.classList.remove('selectHerosActive');
+       xorrun_button.classList.remove('selectHerosActive');
        localStorage.setItem('pickedHero', 'urim');
    });
 
+
+
+   /* -------------------------------------------------------------------------- */
+   /*                                   Fleche                                   */
+   /* -------------------------------------------------------------------------- */
+
+   // Affichage des fleches
    window.onscroll = function () {
        if (document.querySelector('html').scrollLeft > 1000) {
            document.querySelector('.flecheG').style.display = "block";
@@ -185,6 +208,7 @@
        }
    };
 
+   // Navigation avec fleche
    document.querySelector('.flecheD').onclick = function () {
        document.querySelector("html").scrollLeft += 1000;
    };
